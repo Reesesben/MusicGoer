@@ -1,2 +1,2 @@
 # MusicGoer
-Music Event apps in your area
+Music Events in your area
