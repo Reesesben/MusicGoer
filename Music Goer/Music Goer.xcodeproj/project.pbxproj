@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DF604CBD133272719113157 /* Pods_Music_Goer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */; };
+		B505882F26F135E1002F542C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B505882E26F135E1002F542C /* GoogleService-Info.plist */; };
 		B5BCE87426F12EB500372D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCE87326F12EB500372D05 /* AppDelegate.swift */; };
 		B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCE87526F12EB500372D05 /* SceneDelegate.swift */; };
 		B5BCE87826F12EB500372D05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCE87726F12EB500372D05 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.release.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.release.xcconfig"; sourceTree = "<group>"; };
+		B505882E26F135E1002F542C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5BCE87026F12EB500372D05 /* Music Goer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Goer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5BCE87326F12EB500372D05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5BCE87526F12EB500372D05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		B5BCE87C26F12EB600372D05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5BCE87F26F12EB600372D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5BCE88126F12EB600372D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Goer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.debug.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF604CBD133272719113157 /* Pods_Music_Goer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CA8811160605376D8EDA62A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B5BCE86726F12EB500372D05 = {
 			isa = PBXGroup;
 			children = (
 				B5BCE87226F12EB500372D05 /* Music Goer */,
 				B5BCE87126F12EB500372D05 /* Products */,
+				F506FB23901539FB3B6271E0 /* Pods */,
+				0CA8811160605376D8EDA62A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +73,7 @@
 		B5BCE87226F12EB500372D05 /* Music Goer */ = {
 			isa = PBXGroup;
 			children = (
+				B505882E26F135E1002F542C /* GoogleService-Info.plist */,
 				B5BCE88B26F131D700372D05 /* Views */,
 				B5BCE88826F131B600372D05 /* Controllers */,
 				B5BCE88726F131AB00372D05 /* Resources */,
@@ -107,6 +125,16 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		F506FB23901539FB3B6271E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */,
+				4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5BCE88426F12EB600372D05 /* Build configuration list for PBXNativeTarget "Music Goer" */;
 			buildPhases = (
+				CD04F46DED14232D3407758B /* [CP] Check Pods Manifest.lock */,
 				B5BCE86C26F12EB500372D05 /* Sources */,
 				B5BCE86D26F12EB500372D05 /* Frameworks */,
 				B5BCE86E26F12EB500372D05 /* Resources */,
+				40F2F0380016B91D0287A647 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,12 +195,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5BCE88026F12EB600372D05 /* LaunchScreen.storyboard in Resources */,
+				B505882F26F135E1002F542C /* GoogleService-Info.plist in Resources */,
 				B5BCE87D26F12EB600372D05 /* Assets.xcassets in Resources */,
 				B5BCE87B26F12EB500372D05 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40F2F0380016B91D0287A647 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Music Goer/Pods-Music Goer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Music Goer/Pods-Music Goer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Music Goer/Pods-Music Goer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD04F46DED14232D3407758B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Music Goer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B5BCE86C26F12EB500372D05 /* Sources */ = {
@@ -323,17 +396,18 @@
 		};
 		B5BCE88526F12EB600372D05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5WKQ59823;
-				INFOPLIST_FILE = "Music Goer/Info.plist";
+				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.BenEreksonIsReallyBored.Music-Goer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -342,17 +416,18 @@
 		};
 		B5BCE88626F12EB600372D05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5WKQ59823;
-				INFOPLIST_FILE = "Music Goer/Info.plist";
+				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.BenEreksonIsReallyBored.Music-Goer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
