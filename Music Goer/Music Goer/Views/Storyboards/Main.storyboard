@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -92,8 +93,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="b3p-dc-1xc" kind="relationship" relationship="viewControllers" id="nSE-P9-Ivw"/>
                         <segue destination="Xlx-9K-9ux" kind="relationship" relationship="viewControllers" id="ojo-an-T34"/>
+                        <segue destination="b3p-dc-1xc" kind="relationship" relationship="viewControllers" id="nSE-P9-Ivw"/>
                         <segue destination="pbU-mr-vJl" kind="relationship" relationship="viewControllers" id="KSR-ni-dAD"/>
                     </connections>
                 </tabBarController>
@@ -127,7 +128,9 @@
                             <outlet property="delegate" destination="S87-1z-mP6" id="gir-EA-EDI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Events" id="fEu-ae-L56"/>
+                    <navigationItem key="navigationItem" title="Events" id="fEu-ae-L56">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hWP-bj-1Hx"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUD-df-pmR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -279,7 +282,9 @@
         <scene sceneID="wE9-P8-gve">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b3p-dc-1xc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Events" image="list.bullet" catalog="system" selectedImage="list.bullet" id="hxp-Hc-vQz"/>
+                    <tabBarItem key="tabBarItem" title="My Events" selectedImage="list.bullet" catalog="system" id="hxp-Hc-vQz">
+                        <imageReference key="image" image="list.bullet" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ufK-ef-YDl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
