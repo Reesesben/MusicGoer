@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Messages-->
+        <!--Group Chat-->
         <scene sceneID="SuX-Gx-9lp">
             <objects>
                 <viewController id="sPc-fl-RRw" customClass="MessagesViewController" customModule="Music_Goer" customModuleProvider="target" sceneMemberID="viewController">
@@ -59,13 +59,20 @@
                             <constraint firstItem="Ex9-Hj-CRn" firstAttribute="top" secondItem="fSd-k3-BEr" secondAttribute="bottom" id="zRB-eJ-JEx"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" image="message.fill" catalog="system" selectedImage="message.fill" id="ojn-4D-o5V"/>
+                    <tabBarItem key="tabBarItem" title="Group Chat" image="message.fill" catalog="system" id="fjO-AZ-kjw"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="9kG-ry-ddp">
+                        <barButtonItem key="rightBarButtonItem" title="Group Management" image="gearshape" catalog="system" id="gme-xz-NtG">
+                            <connections>
+                                <segue destination="98s-QD-UrC" kind="show" id="jMY-NP-zvI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zst-ie-T2h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225" y="990"/>
+            <point key="canvasLocation" x="1225" y="978"/>
         </scene>
         <!--Travel-->
         <scene sceneID="dXk-dK-lll">
@@ -81,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ud-Gj-tVC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2593" y="69"/>
+            <point key="canvasLocation" x="2584" y="-190"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="SON-nl-zca">
@@ -140,13 +147,7 @@
         <scene sceneID="8qJ-5G-g5J">
             <objects>
                 <tabBarController id="hvU-xe-5gP" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="L2K-D3-xHS">
-                        <barButtonItem key="rightBarButtonItem" title="Group Management" image="gearshape" catalog="system" id="gme-xz-NtG">
-                            <connections>
-                                <segue destination="98s-QD-UrC" kind="show" id="jMY-NP-zvI"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="L2K-D3-xHS"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jsR-Yg-BJB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -154,30 +155,75 @@
                     </tabBar>
                     <connections>
                         <segue destination="UdF-X9-PAd" kind="relationship" relationship="viewControllers" id="aMd-6d-hsZ"/>
-                        <segue destination="sPc-fl-RRw" kind="relationship" relationship="viewControllers" id="9m5-II-QD4"/>
-                        <segue destination="z6Y-ip-dtL" kind="relationship" relationship="viewControllers" id="U8j-e8-SdE"/>
+                        <segue destination="sPc-fl-RRw" kind="relationship" relationship="viewControllers" id="02z-Fm-hZ2"/>
+                        <segue destination="sHr-91-RLm" kind="relationship" relationship="viewControllers" id="ytP-n2-s69"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyG-5P-idF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1226" y="226"/>
         </scene>
-        <!--Tasks-->
+        <!--To Do-->
         <scene sceneID="5fZ-Fh-fvT">
             <objects>
-                <tableViewController id="z6Y-ip-dtL" customClass="RemindersTableViewController" customModule="Music_Goer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="To Do" id="z6Y-ip-dtL" customClass="RemindersTableViewController" customModule="Music_Goer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="V3p-ec-eEx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8QW-OV-bGo">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoCell" rowHeight="60" id="8QW-OV-bGo" customClass="ToDoTableViewCell" customModule="Music_Goer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8QW-OV-bGo" id="r3G-rE-YXH">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Sa-K5-2eE">
+                                            <rect key="frame" x="8" y="0.0" width="398" height="60"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7ts-ln-B2e">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="7ts-ln-B2e" secondAttribute="height" multiplier="1:1" id="448-Uw-Zhf"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9K-Zd-6l4">
+                                                    <rect key="frame" x="48" y="0.0" width="282" height="60"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0er-Bc-DkH">
+                                                    <rect key="frame" x="338" y="0.0" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="0er-Bc-DkH" secondAttribute="height" multiplier="1:1" id="5E4-VG-vbu"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="ToDoButtonWasTapped:" destination="8QW-OV-bGo" eventType="touchUpInside" id="T2k-wR-aP1"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7ts-ln-B2e" firstAttribute="width" secondItem="9Sa-K5-2eE" secondAttribute="width" multiplier="0.1" id="WlW-FB-aKM"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9Sa-K5-2eE" firstAttribute="top" secondItem="r3G-rE-YXH" secondAttribute="top" id="3pp-F8-5eX"/>
+                                        <constraint firstItem="9Sa-K5-2eE" firstAttribute="leading" secondItem="r3G-rE-YXH" secondAttribute="leading" constant="8" id="FVl-El-R8j"/>
+                                        <constraint firstAttribute="trailing" secondItem="9Sa-K5-2eE" secondAttribute="trailing" constant="8" id="Q3w-KR-Yxd"/>
+                                        <constraint firstAttribute="bottom" secondItem="9Sa-K5-2eE" secondAttribute="bottom" id="jxb-tH-R4d"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ToDoButton" destination="0er-Bc-DkH" id="sSb-xt-Ga3"/>
+                                    <outlet property="ToDoImage" destination="7ts-ln-B2e" id="0S0-ak-0rg"/>
+                                    <outlet property="ToDoText" destination="I9K-Zd-6l4" id="YCX-7u-erD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -185,11 +231,14 @@
                             <outlet property="delegate" destination="z6Y-ip-dtL" id="q1y-EN-bII"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Tasks" image="list.bullet.indent" catalog="system" selectedImage="list.bullet.indent" id="z6G-FS-iV3"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="To Do" id="hah-Y3-R43">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nUK-l5-1nu"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czF-Cq-wzl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2275" y="758"/>
+            <point key="canvasLocation" x="3853.6231884057975" y="468.08035714285711"/>
         </scene>
         <!--User Settings-->
         <scene sceneID="3Iy-Xx-5kf">
@@ -276,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hgi-MX-444" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2086" y="-583"/>
+            <point key="canvasLocation" x="1923" y="978"/>
         </scene>
         <!--My Events-->
         <scene sceneID="wE9-P8-gve">
@@ -328,10 +377,30 @@
             </objects>
             <point key="canvasLocation" x="-368" y="1013"/>
         </scene>
+        <!--To Do-->
+        <scene sceneID="xlY-4M-Crw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sHr-91-RLm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="To Do" image="list.bullet.indent" catalog="system" id="29d-SG-4ti"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T3g-GW-MsJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="z6Y-ip-dtL" kind="relationship" relationship="rootViewController" id="mgW-xY-Hje"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zUp-AY-u9c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2942.0289855072465" y="467.41071428571428"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="car.fill" catalog="system" width="128" height="93"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="list.bullet.indent" catalog="system" width="128" height="74"/>

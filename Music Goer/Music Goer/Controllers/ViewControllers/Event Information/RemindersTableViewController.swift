@@ -9,38 +9,51 @@ import UIKit
 
 class RemindersTableViewController: UITableViewController {
 
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        eventIndex = EventController.shared.currentEventIndex
+        event = EventController.shared.events[eventIndex]
+//        let add: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTodo))
+//        navigationController?.navigationItem.rightBarButtonItem = add
     }
-
+    //MARK: - Properties
+    var eventIndex: Int = 0
+    var event: Event? {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let event = event else { return 0}
+        return event.todos.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as? ToDoTableViewCell,
+              let event = event else { return UITableViewCell()}
 
-        // Configure the cell...
+        cell.todo = event.todos[indexPath.row]
 
         return cell
     }
-    */
 
+    //MARK: - Actions
+    @objc func addTodo() {
+        print("Add pressed")
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
