@@ -3,30 +3,48 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0DF604CBD133272719113157 /* Pods_Music_Goer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */; };
 		B505882F26F135E1002F542C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B505882E26F135E1002F542C /* GoogleService-Info.plist */; };
+		B5817B1E26F270C40070271E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B1C26F270C30070271E /* LaunchScreen.storyboard */; };
+		B5817B1F26F270C40070271E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B1D26F270C40070271E /* Main.storyboard */; };
+		B5817B2126F270C90070271E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B2026F270C90070271E /* Login.storyboard */; };
+		B5817B2326F2724B0070271E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2226F2724B0070271E /* LoginViewController.swift */; };
+		B5817B2526F272550070271E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2426F272550070271E /* SignUpViewController.swift */; };
+		B5817B2826F272AE0070271E /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2726F272AE0070271E /* AccountSettingsViewController.swift */; };
+		B5817B2A26F272E30070271E /* PendingInvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2926F272E30070271E /* PendingInvitationsTableViewController.swift */; };
+		B5817B2C26F2730D0070271E /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2B26F2730D0070271E /* EventsTableViewController.swift */; };
+		B5817B2E26F273300070271E /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2D26F273300070271E /* MessagesViewController.swift */; };
+		B5817B3026F273550070271E /* RemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2F26F273550070271E /* RemindersTableViewController.swift */; };
+		B5817B3226F273840070271E /* TravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B3126F273840070271E /* TravelViewController.swift */; };
+		B5817B3626F273CE0070271E /* EventManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B3526F273CE0070271E /* EventManagementViewController.swift */; };
 		B5BCE87426F12EB500372D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCE87326F12EB500372D05 /* AppDelegate.swift */; };
 		B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCE87526F12EB500372D05 /* SceneDelegate.swift */; };
-		B5BCE87826F12EB500372D05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCE87726F12EB500372D05 /* ViewController.swift */; };
-		B5BCE87B26F12EB500372D05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5BCE87926F12EB500372D05 /* Main.storyboard */; };
 		B5BCE87D26F12EB600372D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5BCE87C26F12EB600372D05 /* Assets.xcassets */; };
-		B5BCE88026F12EB600372D05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5BCE87E26F12EB600372D05 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.release.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.release.xcconfig"; sourceTree = "<group>"; };
 		B505882E26F135E1002F542C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B5817B1C26F270C30070271E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B5817B1D26F270C40070271E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B5817B2026F270C90070271E /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B5817B2226F2724B0070271E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B5817B2426F272550070271E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B5817B2726F272AE0070271E /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
+		B5817B2926F272E30070271E /* PendingInvitationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingInvitationsTableViewController.swift; sourceTree = "<group>"; };
+		B5817B2B26F2730D0070271E /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		B5817B2D26F273300070271E /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		B5817B2F26F273550070271E /* RemindersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
+		B5817B3126F273840070271E /* TravelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelViewController.swift; sourceTree = "<group>"; };
+		B5817B3526F273CE0070271E /* EventManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagementViewController.swift; sourceTree = "<group>"; };
 		B5BCE87026F12EB500372D05 /* Music Goer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Goer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5BCE87326F12EB500372D05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5BCE87526F12EB500372D05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B5BCE87726F12EB500372D05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B5BCE87A26F12EB500372D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5BCE87C26F12EB600372D05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B5BCE87F26F12EB600372D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5BCE88126F12EB600372D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Goer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.debug.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -50,6 +68,36 @@
 				F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5817B2626F272590070271E /* Login Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B5817B2226F2724B0070271E /* LoginViewController.swift */,
+				B5817B2426F272550070271E /* SignUpViewController.swift */,
+			);
+			path = "Login Storyboard";
+			sourceTree = "<group>";
+		};
+		B5817B3326F273A00070271E /* Event Information */ = {
+			isa = PBXGroup;
+			children = (
+				B5817B3526F273CE0070271E /* EventManagementViewController.swift */,
+				B5817B2D26F273300070271E /* MessagesViewController.swift */,
+				B5817B2F26F273550070271E /* RemindersTableViewController.swift */,
+				B5817B3126F273840070271E /* TravelViewController.swift */,
+			);
+			path = "Event Information";
+			sourceTree = "<group>";
+		};
+		B5817B3426F273B70070271E /* First Page */ = {
+			isa = PBXGroup;
+			children = (
+				B5817B2926F272E30070271E /* PendingInvitationsTableViewController.swift */,
+				B5817B2726F272AE0070271E /* AccountSettingsViewController.swift */,
+				B5817B2B26F2730D0070271E /* EventsTableViewController.swift */,
+			);
+			path = "First Page";
 			sourceTree = "<group>";
 		};
 		B5BCE86726F12EB500372D05 = {
@@ -103,7 +151,9 @@
 		B5BCE88926F131C500372D05 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B5BCE87726F12EB500372D05 /* ViewController.swift */,
+				B5817B3426F273B70070271E /* First Page */,
+				B5817B3326F273A00070271E /* Event Information */,
+				B5817B2626F272590070271E /* Login Storyboard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -119,8 +169,9 @@
 		B5BCE88C26F131DE00372D05 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				B5BCE87926F12EB500372D05 /* Main.storyboard */,
-				B5BCE87E26F12EB600372D05 /* LaunchScreen.storyboard */,
+				B5817B1C26F270C30070271E /* LaunchScreen.storyboard */,
+				B5817B1D26F270C40070271E /* Main.storyboard */,
+				B5817B2026F270C90070271E /* Login.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -131,7 +182,6 @@
 				FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */,
 				4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -194,10 +244,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5BCE88026F12EB600372D05 /* LaunchScreen.storyboard in Resources */,
+				B5817B1E26F270C40070271E /* LaunchScreen.storyboard in Resources */,
 				B505882F26F135E1002F542C /* GoogleService-Info.plist in Resources */,
 				B5BCE87D26F12EB600372D05 /* Assets.xcassets in Resources */,
-				B5BCE87B26F12EB500372D05 /* Main.storyboard in Resources */,
+				B5817B2126F270C90070271E /* Login.storyboard in Resources */,
+				B5817B1F26F270C40070271E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,32 +301,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5BCE87826F12EB500372D05 /* ViewController.swift in Sources */,
+				B5817B2A26F272E30070271E /* PendingInvitationsTableViewController.swift in Sources */,
+				B5817B2C26F2730D0070271E /* EventsTableViewController.swift in Sources */,
+				B5817B2326F2724B0070271E /* LoginViewController.swift in Sources */,
 				B5BCE87426F12EB500372D05 /* AppDelegate.swift in Sources */,
+				B5817B3226F273840070271E /* TravelViewController.swift in Sources */,
+				B5817B3026F273550070271E /* RemindersTableViewController.swift in Sources */,
+				B5817B2826F272AE0070271E /* AccountSettingsViewController.swift in Sources */,
+				B5817B3626F273CE0070271E /* EventManagementViewController.swift in Sources */,
+				B5817B2526F272550070271E /* SignUpViewController.swift in Sources */,
+				B5817B2E26F273300070271E /* MessagesViewController.swift in Sources */,
 				B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B5BCE87926F12EB500372D05 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5BCE87A26F12EB500372D05 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B5BCE87E26F12EB600372D05 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5BCE87F26F12EB600372D05 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B5BCE88226F12EB600372D05 /* Debug */ = {
