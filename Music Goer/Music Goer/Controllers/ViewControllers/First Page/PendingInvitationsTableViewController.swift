@@ -8,7 +8,19 @@
 import UIKit
 
 class PendingInvitationsTableViewController: UITableViewController {
+    
+    //MARK: - Properties
+    var freshLaunch = true
 
+    //MARK: - Lifecycles
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if freshLaunch {
+            freshLaunch.toggle()
+            self.tabBarController?.selectedIndex = 1
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
