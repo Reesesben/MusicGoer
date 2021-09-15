@@ -58,7 +58,7 @@
                             <constraint firstItem="Ex9-Hj-CRn" firstAttribute="top" secondItem="fSd-k3-BEr" secondAttribute="bottom" id="zRB-eJ-JEx"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" selectedImage="message.fill" catalog="system" id="ojn-4D-o5V"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="message.fill" catalog="system" selectedImage="message.fill" id="ojn-4D-o5V"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -76,7 +76,7 @@
                         <viewLayoutGuide key="safeArea" id="Knr-Ch-JhV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Travel" selectedImage="car.fill" catalog="system" id="1jX-Qj-8DS"/>
+                    <tabBarItem key="tabBarItem" title="Travel" image="car.fill" catalog="system" selectedImage="car.fill" id="1jX-Qj-8DS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ud-Gj-tVC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -182,7 +182,7 @@
                             <outlet property="delegate" destination="z6Y-ip-dtL" id="q1y-EN-bII"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Tasks" selectedImage="list.bullet" catalog="system" id="z6G-FS-iV3"/>
+                    <tabBarItem key="tabBarItem" title="Tasks" image="list.bullet.indent" catalog="system" selectedImage="list.bullet.indent" id="z6G-FS-iV3"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czF-Cq-wzl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -279,7 +279,7 @@
         <scene sceneID="wE9-P8-gve">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b3p-dc-1xc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Events" selectedImage="list.bullet.rectangle.fill" catalog="system" id="hxp-Hc-vQz"/>
+                    <tabBarItem key="tabBarItem" title="My Events" image="list.bullet" catalog="system" selectedImage="list.bullet" id="hxp-Hc-vQz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ufK-ef-YDl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -317,7 +317,7 @@
                             <outlet property="delegate" destination="Xlx-9K-9ux" id="oCv-vs-ZvU"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Pending Invitations" selectedImage="list.bullet.rectangle.portrait.fill" catalog="system" id="Hlm-QJ-jHf"/>
+                    <tabBarItem key="tabBarItem" title="Pending Invitations" image="bell.fill" catalog="system" selectedImage="bell.fill" id="Hlm-QJ-jHf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUp-d0-EKM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -325,11 +325,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="car.fill" catalog="system" width="128" height="93"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
-        <image name="list.bullet.rectangle.fill" catalog="system" width="128" height="93"/>
-        <image name="list.bullet.rectangle.portrait.fill" catalog="system" width="115" height="128"/>
+        <image name="list.bullet.indent" catalog="system" width="128" height="74"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
