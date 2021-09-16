@@ -8,13 +8,13 @@
 import UIKit
 
 class ToDo {
-    let image: UIImage
+    let image: UIImage?
     let title: String
     let category: String
     let dueDate: Date?
-    let isComplete: Bool
+    var isComplete: Bool
 
-    init(image: UIImage, title: String, category: String, dueDate: Date?, isComplete: Bool) {
+    init(image: UIImage?, title: String, category: String, dueDate: Date?, isComplete: Bool) {
         self.image = image
         self.title = title
         self.category = category

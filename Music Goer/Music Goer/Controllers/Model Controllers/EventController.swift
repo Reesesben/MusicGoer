@@ -5,7 +5,7 @@
 //  Created by Ben Erekson on 9/15/21.
 //
 
-import Foundation
+import UIKit
 
 class EventController {
     static var shared = EventController()
@@ -38,4 +38,9 @@ class EventController {
         events.insert(event, at: newIndex)
     }
     
+    //MARK: - ToDo's
+    
+    func createToDo(image: UIImage?, title: String, category: String, address: String, date: Date, members: [String]) {
+        events[currentEventIndex].todos.append(ToDo(image: image, title: title, category: category, dueDate: date, isComplete: false))
+    }    
 }

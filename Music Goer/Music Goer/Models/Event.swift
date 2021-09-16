@@ -9,7 +9,7 @@ import Foundation
 
 class Event {
     let title: String
-    let todos: [ToDo]
+    var todos: [ToDo]
     let address: String
     let date: Date
     let members: [String]

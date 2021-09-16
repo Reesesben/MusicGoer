@@ -7,9 +7,6 @@
 
 import UIKit
 
-protocol ToDoCellDelegate {
-    func stateWasChanged(newState: Bool)
-}
 
 class ToDoTableViewCell: UITableViewCell {
 
@@ -37,23 +34,40 @@ class ToDoTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        ToDoImage.isHidden = false
+        ToDoText.text = ""
+        ToDoButton.setImage(UIImage(systemName: "circle"), for: .normal)
+    }
+    
     //MARK: - Helper Methods
     func updateViews() {
         guard let todo = todo else { return }
-        ToDoImage.image = todo.image
+        ToDoButton.setTitle("", for: .normal)
         ToDoText.text = todo.title
         if todo.isComplete {
             ToDoButton.setImage(UIImage(systemName: "circle.inset.filled"), for: .normal)
         } else {
             ToDoButton.setImage(UIImage(systemName: "circle"), for: .normal)
         }
+        if let image = todo.image {
+            ToDoImage.image = image
+        } else {
+            ToDoImage.isHidden = true
+        }
         
     }
     
     //MARK: - Actions
     @IBAction func ToDoButtonWasTapped(_ sender: Any) {
-        
+        if ToDoButton.image(for: .normal) == UIImage(systemName: "circle") {
+            ToDoButton.setImage(UIImage(systemName: "circle.inset.filled"), for: .normal)
+            todo?.isComplete = true
+        } else {
+            ToDoButton.setImage(UIImage(systemName: "circle"), for: .normal)
+            todo?.isComplete = false
+        }
     }
     
-
 }
