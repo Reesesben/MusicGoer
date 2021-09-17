@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fSd-k3-BEr">
-                                <rect key="frame" x="0.0" y="88" width="414" height="642"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="735"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="messageCell" textLabel="ZmV-b9-Wxn" style="IBUITableViewCellStyleDefault" id="F3h-Zk-6np">
@@ -41,7 +41,7 @@
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ex9-Hj-CRn">
-                                <rect key="frame" x="8" y="730" width="398" height="34"/>
+                                <rect key="frame" x="8" y="779" width="398" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -87,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ud-Gj-tVC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2141" y="-364"/>
+            <point key="canvasLocation" x="2141" y="-386"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="SON-nl-zca">
@@ -125,7 +125,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="hvU-xe-5gP" kind="show" identifier="toEventDetail" id="E7x-nm-PSv"/>
+                                    <segue destination="Hng-8k-pG0" kind="show" id="X08-Wz-BXL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -142,25 +142,35 @@
             </objects>
             <point key="canvasLocation" x="497" y="266"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="8qJ-5G-g5J">
+        <!--View Controller-->
+        <scene sceneID="ISj-Vt-WX5">
             <objects>
-                <tabBarController id="hvU-xe-5gP" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="L2K-D3-xHS"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jsR-Yg-BJB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="UdF-X9-PAd" kind="relationship" relationship="viewControllers" id="aMd-6d-hsZ"/>
-                        <segue destination="sPc-fl-RRw" kind="relationship" relationship="viewControllers" id="02z-Fm-hZ2"/>
-                        <segue destination="EO5-VP-UNT" kind="relationship" relationship="viewControllers" id="zg1-tD-n1o"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xyG-5P-idF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="Hng-8k-pG0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b78-bu-BBM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delstun work here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f18-pz-xa9">
+                                <rect key="frame" x="21" y="146" width="373" height="97"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FHG-3q-1lN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FHG-3q-1lN" firstAttribute="bottom" secondItem="f18-pz-xa9" secondAttribute="bottom" constant="570" id="8Yk-cD-OoE"/>
+                            <constraint firstItem="f18-pz-xa9" firstAttribute="centerX" secondItem="FHG-3q-1lN" secondAttribute="centerX" id="fQG-1o-ob7"/>
+                            <constraint firstItem="f18-pz-xa9" firstAttribute="width" secondItem="b78-bu-BBM" secondAttribute="width" multiplier="0.9" id="lcB-NF-smE"/>
+                            <constraint firstItem="f18-pz-xa9" firstAttribute="top" secondItem="FHG-3q-1lN" secondAttribute="top" constant="58" id="thK-gL-2mg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fwp-hy-ns1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wz5-Wu-gbu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225" y="266"/>
+            <point key="canvasLocation" x="1342.0289855072465" y="265.84821428571428"/>
         </scene>
         <!--To Do-->
         <scene sceneID="fAD-Yf-x7c">
@@ -171,7 +181,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6g4-pK-bea">
-                                <rect key="frame" x="0.0" y="88" width="414" height="676"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="todoCell" rowHeight="73" id="aPb-c5-hhe" customClass="ToDoTableViewCell" customModule="Music_Goer" customModuleProvider="target">
@@ -241,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vPH-Ff-WA3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2139.130434782609" y="286.60714285714283"/>
+            <point key="canvasLocation" x="2141" y="266"/>
         </scene>
         <!--Todo Editor View Controller-->
         <scene sceneID="FIo-Hb-ah9">
@@ -254,13 +264,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GLN-RI-c0B">
                                 <rect key="frame" x="47" y="312.5" width="320" height="575.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WzF-4Q-O9g">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WzF-4Q-O9g">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15H-sz-8cb">
-                                        <rect key="frame" x="0.0" y="8" width="320" height="185.5"/>
+                                    <pickerView contentMode="scaleToFill" verticalHuggingPriority="248" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="15H-sz-8cb">
+                                        <rect key="frame" x="0.0" y="42" width="320" height="151.5"/>
                                     </pickerView>
                                     <datePicker contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="3Re-9n-sTr">
                                         <rect key="frame" x="0.0" y="201.5" width="320" height="374"/>
@@ -307,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cmi-V6-qY1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2973.913043478261" y="286.60714285714283"/>
+            <point key="canvasLocation" x="2922" y="266"/>
         </scene>
         <!--User Settings-->
         <scene sceneID="3Iy-Xx-5kf">
@@ -480,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lAd-ay-tqo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3629" y="123"/>
+            <point key="canvasLocation" x="3578" y="287"/>
         </scene>
     </scenes>
     <resources>
