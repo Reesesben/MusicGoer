@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0DF604CBD133272719113157 /* Pods_Music_Goer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */; };
 		B505882F26F135E1002F542C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B505882E26F135E1002F542C /* GoogleService-Info.plist */; };
+		B524F95326F3DF1E0055AD44 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524F95226F3DF1E0055AD44 /* TodoViewController.swift */; };
+		B525DEF626F400DC00BEC65B /* TodoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525DEF526F400DC00BEC65B /* TodoEditorViewController.swift */; };
+		B525DEF826F4021E00BEC65B /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525DEF726F4021E00BEC65B /* PhotoPickerViewController.swift */; };
 		B5817B1E26F270C40070271E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B1C26F270C30070271E /* LaunchScreen.storyboard */; };
 		B5817B1F26F270C40070271E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B1D26F270C40070271E /* Main.storyboard */; };
 		B5817B2126F270C90070271E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B2026F270C90070271E /* Login.storyboard */; };
@@ -18,17 +21,23 @@
 		B5817B2A26F272E30070271E /* PendingInvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2926F272E30070271E /* PendingInvitationsTableViewController.swift */; };
 		B5817B2C26F2730D0070271E /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2B26F2730D0070271E /* EventsTableViewController.swift */; };
 		B5817B2E26F273300070271E /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2D26F273300070271E /* MessagesViewController.swift */; };
-		B5817B3026F273550070271E /* RemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2F26F273550070271E /* RemindersTableViewController.swift */; };
 		B5817B3226F273840070271E /* TravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B3126F273840070271E /* TravelViewController.swift */; };
 		B5817B3626F273CE0070271E /* EventManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B3526F273CE0070271E /* EventManagementViewController.swift */; };
 		B5BCE87426F12EB500372D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCE87326F12EB500372D05 /* AppDelegate.swift */; };
 		B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCE87526F12EB500372D05 /* SceneDelegate.swift */; };
 		B5BCE87D26F12EB600372D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5BCE87C26F12EB600372D05 /* Assets.xcassets */; };
+		B5C4C69326F292D70052BAFB /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69226F292D70052BAFB /* ToDoTableViewCell.swift */; };
+		B5C4C69726F295FE0052BAFB /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69626F295FE0052BAFB /* ToDo.swift */; };
+		B5C4C69C26F29A250052BAFB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69B26F29A250052BAFB /* Event.swift */; };
+		B5C4C6A026F29AD80052BAFB /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69F26F29AD80052BAFB /* EventController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.release.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.release.xcconfig"; sourceTree = "<group>"; };
 		B505882E26F135E1002F542C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B524F95226F3DF1E0055AD44 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		B525DEF526F400DC00BEC65B /* TodoEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditorViewController.swift; sourceTree = "<group>"; };
+		B525DEF726F4021E00BEC65B /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		B5817B1C26F270C30070271E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5817B1D26F270C40070271E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B5817B2026F270C90070271E /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -38,7 +47,6 @@
 		B5817B2926F272E30070271E /* PendingInvitationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingInvitationsTableViewController.swift; sourceTree = "<group>"; };
 		B5817B2B26F2730D0070271E /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		B5817B2D26F273300070271E /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
-		B5817B2F26F273550070271E /* RemindersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
 		B5817B3126F273840070271E /* TravelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelViewController.swift; sourceTree = "<group>"; };
 		B5817B3526F273CE0070271E /* EventManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagementViewController.swift; sourceTree = "<group>"; };
 		B5BCE87026F12EB500372D05 /* Music Goer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Goer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +54,10 @@
 		B5BCE87526F12EB500372D05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B5BCE87C26F12EB600372D05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5BCE88126F12EB600372D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5C4C69226F292D70052BAFB /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
+		B5C4C69626F295FE0052BAFB /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		B5C4C69B26F29A250052BAFB /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		B5C4C69F26F29AD80052BAFB /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Goer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.debug.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,10 +94,13 @@
 		B5817B3326F273A00070271E /* Event Information */ = {
 			isa = PBXGroup;
 			children = (
+				B5C4C69126F292B70052BAFB /* Custom Cells */,
 				B5817B3526F273CE0070271E /* EventManagementViewController.swift */,
 				B5817B2D26F273300070271E /* MessagesViewController.swift */,
-				B5817B2F26F273550070271E /* RemindersTableViewController.swift */,
 				B5817B3126F273840070271E /* TravelViewController.swift */,
+				B524F95226F3DF1E0055AD44 /* TodoViewController.swift */,
+				B525DEF526F400DC00BEC65B /* TodoEditorViewController.swift */,
+				B525DEF726F4021E00BEC65B /* PhotoPickerViewController.swift */,
 			);
 			path = "Event Information";
 			sourceTree = "<group>";
@@ -121,9 +136,10 @@
 		B5BCE87226F12EB500372D05 /* Music Goer */ = {
 			isa = PBXGroup;
 			children = (
-				B505882E26F135E1002F542C /* GoogleService-Info.plist */,
+				B5C4C69426F295AA0052BAFB /* Models */,
 				B5BCE88B26F131D700372D05 /* Views */,
 				B5BCE88826F131B600372D05 /* Controllers */,
+				B505882E26F135E1002F542C /* GoogleService-Info.plist */,
 				B5BCE88726F131AB00372D05 /* Resources */,
 			);
 			path = "Music Goer";
@@ -143,6 +159,7 @@
 		B5BCE88826F131B600372D05 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B5C4C69526F295DB0052BAFB /* Model Controllers */,
 				B5BCE88926F131C500372D05 /* ViewControllers */,
 			);
 			path = Controllers;
@@ -174,6 +191,31 @@
 				B5817B2026F270C90070271E /* Login.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B5C4C69126F292B70052BAFB /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B5C4C69226F292D70052BAFB /* ToDoTableViewCell.swift */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		B5C4C69426F295AA0052BAFB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B5C4C69626F295FE0052BAFB /* ToDo.swift */,
+				B5C4C69B26F29A250052BAFB /* Event.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B5C4C69526F295DB0052BAFB /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5C4C69F26F29AD80052BAFB /* EventController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 		F506FB23901539FB3B6271E0 /* Pods */ = {
@@ -303,14 +345,20 @@
 			files = (
 				B5817B2A26F272E30070271E /* PendingInvitationsTableViewController.swift in Sources */,
 				B5817B2C26F2730D0070271E /* EventsTableViewController.swift in Sources */,
+				B5C4C6A026F29AD80052BAFB /* EventController.swift in Sources */,
 				B5817B2326F2724B0070271E /* LoginViewController.swift in Sources */,
+				B5C4C69326F292D70052BAFB /* ToDoTableViewCell.swift in Sources */,
+				B525DEF626F400DC00BEC65B /* TodoEditorViewController.swift in Sources */,
+				B5C4C69C26F29A250052BAFB /* Event.swift in Sources */,
 				B5BCE87426F12EB500372D05 /* AppDelegate.swift in Sources */,
 				B5817B3226F273840070271E /* TravelViewController.swift in Sources */,
-				B5817B3026F273550070271E /* RemindersTableViewController.swift in Sources */,
 				B5817B2826F272AE0070271E /* AccountSettingsViewController.swift in Sources */,
 				B5817B3626F273CE0070271E /* EventManagementViewController.swift in Sources */,
+				B524F95326F3DF1E0055AD44 /* TodoViewController.swift in Sources */,
 				B5817B2526F272550070271E /* SignUpViewController.swift in Sources */,
+				B5C4C69726F295FE0052BAFB /* ToDo.swift in Sources */,
 				B5817B2E26F273300070271E /* MessagesViewController.swift in Sources */,
+				B525DEF826F4021E00BEC65B /* PhotoPickerViewController.swift in Sources */,
 				B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

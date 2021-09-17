@@ -1,16 +1,18 @@
 //
-//  MessagesViewController.swift
+//  PhotoPickerViewController.swift
 //  Music Goer
 //
-//  Created by Ben Erekson on 9/15/21.
+//  Created by Ben Erekson on 9/16/21.
 //
 
 import UIKit
 
-class MessagesViewController: UIViewController {
-    
+class PhotoPickerViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
     }
     
 
