@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1062791275739-4q9f028kdq9lginb6flbum97uni7roao.apps.googleusercontent.com</string>
+	<string>674479947542-6ev44lq50np0sojrv1c6bp0n8ep5tmd9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1062791275739-4q9f028kdq9lginb6flbum97uni7roao</string>
+	<string>com.googleusercontent.apps.674479947542-6ev44lq50np0sojrv1c6bp0n8ep5tmd9</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCzgIQ13mmZEdoo5tRu2ycyaynlK6uq9h0</string>
+	<string>AIzaSyDlRqK1gNCeTkAcHCwRx6SC7vtpGxQ2tQA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1062791275739</string>
+	<string>674479947542</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.umm.Music-Goer</string>
 	<key>PROJECT_ID</key>
-	<string>music-goer</string>
+	<string>music-goers</string>
 	<key>STORAGE_BUCKET</key>
-	<string>music-goer.appspot.com</string>
+	<string>music-goers.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1062791275739:ios:3a25beca2de059c4a358fe</string>
+	<string>1:674479947542:ios:514e6e003c755a226a5a37</string>
 </dict>
 </plist>

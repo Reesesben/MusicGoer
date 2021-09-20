@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class EventsTableViewController: UITableViewController {
     
@@ -14,7 +15,7 @@ class EventsTableViewController: UITableViewController {
         super.viewWillAppear(true)
         tabBarController?.tabBar.isHidden = false
         if EventController.shared.events.count == 0 {
-            EventController.shared.createEvent(title: "Test Event (EventsTableViewController)", address: "1234 California avenue Salt Lake City Utah", date: Date(), members: ["Test"])
+            EventController.shared.createEvent(title: "Test Event (EventsTableViewController)", address: CLLocationCoordinate2D(latitude: 1.0, longitude: 10.0), date: Date(), members: ["Test"])
             tableView.reloadData()
         }
     }
