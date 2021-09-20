@@ -1,0 +1,6 @@
+framework module Pods_Music_Goer {
+  umbrella header "Pods-Music Goer-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DF604CBD133272719113157 /* Pods_Music_Goer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */; };
+		B524F95326F3DF1E0055AD44 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524F95226F3DF1E0055AD44 /* TodoViewController.swift */; };
+		B525DEF626F400DC00BEC65B /* TodoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525DEF526F400DC00BEC65B /* TodoEditorViewController.swift */; };
+		B525DEF826F4021E00BEC65B /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525DEF726F4021E00BEC65B /* PhotoPickerViewController.swift */; };
+		B576955226F929DB00364667 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B576955126F929DB00364667 /* GoogleService-Info.plist */; };
+		B5817B1E26F270C40070271E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B1C26F270C30070271E /* LaunchScreen.storyboard */; };
+		B5817B1F26F270C40070271E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B1D26F270C40070271E /* Main.storyboard */; };
+		B5817B2126F270C90070271E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B2026F270C90070271E /* Login.storyboard */; };
+		B5817B2826F272AE0070271E /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2726F272AE0070271E /* AccountSettingsViewController.swift */; };
+		B5817B2A26F272E30070271E /* PendingInvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2926F272E30070271E /* PendingInvitationsTableViewController.swift */; };
+		B5817B2C26F2730D0070271E /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2B26F2730D0070271E /* EventsTableViewController.swift */; };
+		B5817B2E26F273300070271E /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2D26F273300070271E /* MessagesViewController.swift */; };
+		B5817B3226F273840070271E /* TravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B3126F273840070271E /* TravelViewController.swift */; };
+		B5817B3626F273CE0070271E /* EventManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B3526F273CE0070271E /* EventManagementViewController.swift */; };
+		B589BB7A26F8DC6C00A68588 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589BB7926F8DC6C00A68588 /* LoginViewController.swift */; };
+		B5BCE87426F12EB500372D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCE87326F12EB500372D05 /* AppDelegate.swift */; };
+		B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCE87526F12EB500372D05 /* SceneDelegate.swift */; };
+		B5BCE87D26F12EB600372D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5BCE87C26F12EB600372D05 /* Assets.xcassets */; };
+		B5C4C69326F292D70052BAFB /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69226F292D70052BAFB /* ToDoTableViewCell.swift */; };
+		B5C4C69726F295FE0052BAFB /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69626F295FE0052BAFB /* ToDo.swift */; };
+		B5C4C69C26F29A250052BAFB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69B26F29A250052BAFB /* Event.swift */; };
+		B5C4C6A026F29AD80052BAFB /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69F26F29AD80052BAFB /* EventController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.release.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.release.xcconfig"; sourceTree = "<group>"; };
+		B524F95226F3DF1E0055AD44 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		B525DEF526F400DC00BEC65B /* TodoEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditorViewController.swift; sourceTree = "<group>"; };
+		B525DEF726F4021E00BEC65B /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
+		B576955126F929DB00364667 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B5817B1C26F270C30070271E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B5817B1D26F270C40070271E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B5817B2026F270C90070271E /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B5817B2726F272AE0070271E /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
+		B5817B2926F272E30070271E /* PendingInvitationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingInvitationsTableViewController.swift; sourceTree = "<group>"; };
+		B5817B2B26F2730D0070271E /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		B5817B2D26F273300070271E /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		B5817B3126F273840070271E /* TravelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelViewController.swift; sourceTree = "<group>"; };
+		B5817B3526F273CE0070271E /* EventManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagementViewController.swift; sourceTree = "<group>"; };
+		B589BB7926F8DC6C00A68588 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B5BCE87026F12EB500372D05 /* Music Goer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Goer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5BCE87326F12EB500372D05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B5BCE87526F12EB500372D05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B5BCE87C26F12EB600372D05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5BCE88126F12EB600372D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5C4C69226F292D70052BAFB /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
+		B5C4C69626F295FE0052BAFB /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		B5C4C69B26F29A250052BAFB /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		B5C4C69F26F29AD80052BAFB /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
+		F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Goer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.debug.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B5BCE86D26F12EB500372D05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DF604CBD133272719113157 /* Pods_Music_Goer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0CA8811160605376D8EDA62A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5817B2626F272590070271E /* Login Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B589BB7926F8DC6C00A68588 /* LoginViewController.swift */,
+			);
+			path = "Login Storyboard";
+			sourceTree = "<group>";
+		};
+		B5817B3326F273A00070271E /* Event Information */ = {
+			isa = PBXGroup;
+			children = (
+				B5C4C69126F292B70052BAFB /* Custom Cells */,
+				B5817B3526F273CE0070271E /* EventManagementViewController.swift */,
+				B5817B2D26F273300070271E /* MessagesViewController.swift */,
+				B5817B3126F273840070271E /* TravelViewController.swift */,
+				B524F95226F3DF1E0055AD44 /* TodoViewController.swift */,
+				B525DEF526F400DC00BEC65B /* TodoEditorViewController.swift */,
+				B525DEF726F4021E00BEC65B /* PhotoPickerViewController.swift */,
+			);
+			path = "Event Information";
+			sourceTree = "<group>";
+		};
+		B5817B3426F273B70070271E /* First Page */ = {
+			isa = PBXGroup;
+			children = (
+				B5817B2926F272E30070271E /* PendingInvitationsTableViewController.swift */,
+				B5817B2726F272AE0070271E /* AccountSettingsViewController.swift */,
+				B5817B2B26F2730D0070271E /* EventsTableViewController.swift */,
+			);
+			path = "First Page";
+			sourceTree = "<group>";
+		};
+		B5BCE86726F12EB500372D05 = {
+			isa = PBXGroup;
+			children = (
+				B5BCE87226F12EB500372D05 /* Music Goer */,
+				B5BCE87126F12EB500372D05 /* Products */,
+				F506FB23901539FB3B6271E0 /* Pods */,
+				0CA8811160605376D8EDA62A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B5BCE87126F12EB500372D05 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B5BCE87026F12EB500372D05 /* Music Goer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B5BCE87226F12EB500372D05 /* Music Goer */ = {
+			isa = PBXGroup;
+			children = (
+				B5C4C69426F295AA0052BAFB /* Models */,
+				B5BCE88B26F131D700372D05 /* Views */,
+				B5BCE88826F131B600372D05 /* Controllers */,
+				B5BCE88726F131AB00372D05 /* Resources */,
+			);
+			path = "Music Goer";
+			sourceTree = "<group>";
+		};
+		B5BCE88726F131AB00372D05 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B5BCE87326F12EB500372D05 /* AppDelegate.swift */,
+				B5BCE87526F12EB500372D05 /* SceneDelegate.swift */,
+				B5BCE87C26F12EB600372D05 /* Assets.xcassets */,
+				B5BCE88126F12EB600372D05 /* Info.plist */,
+				B576955126F929DB00364667 /* GoogleService-Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B5BCE88826F131B600372D05 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5C4C69526F295DB0052BAFB /* Model Controllers */,
+				B5BCE88926F131C500372D05 /* ViewControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B5BCE88926F131C500372D05 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5817B3426F273B70070271E /* First Page */,
+				B5817B3326F273A00070271E /* Event Information */,
+				B5817B2626F272590070271E /* Login Storyboard */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B5BCE88B26F131D700372D05 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5BCE88C26F131DE00372D05 /* Storyboards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B5BCE88C26F131DE00372D05 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B5817B1C26F270C30070271E /* LaunchScreen.storyboard */,
+				B5817B1D26F270C40070271E /* Main.storyboard */,
+				B5817B2026F270C90070271E /* Login.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B5C4C69126F292B70052BAFB /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B5C4C69226F292D70052BAFB /* ToDoTableViewCell.swift */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		B5C4C69426F295AA0052BAFB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B5C4C69626F295FE0052BAFB /* ToDo.swift */,
+				B5C4C69B26F29A250052BAFB /* Event.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B5C4C69526F295DB0052BAFB /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5C4C69F26F29AD80052BAFB /* EventController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		F506FB23901539FB3B6271E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */,
+				4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B5BCE86F26F12EB500372D05 /* Music Goer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5BCE88426F12EB600372D05 /* Build configuration list for PBXNativeTarget "Music Goer" */;
+			buildPhases = (
+				CD04F46DED14232D3407758B /* [CP] Check Pods Manifest.lock */,
+				B5BCE86C26F12EB500372D05 /* Sources */,
+				B5BCE86D26F12EB500372D05 /* Frameworks */,
+				B5BCE86E26F12EB500372D05 /* Resources */,
+				40F2F0380016B91D0287A647 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Music Goer";
+			productName = "Music Goer";
+			productReference = B5BCE87026F12EB500372D05 /* Music Goer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B5BCE86826F12EB500372D05 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					B5BCE86F26F12EB500372D05 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = B5BCE86B26F12EB500372D05 /* Build configuration list for PBXProject "Music Goer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B5BCE86726F12EB500372D05;
+			productRefGroup = B5BCE87126F12EB500372D05 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B5BCE86F26F12EB500372D05 /* Music Goer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B5BCE86E26F12EB500372D05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5817B1E26F270C40070271E /* LaunchScreen.storyboard in Resources */,
+				B5BCE87D26F12EB600372D05 /* Assets.xcassets in Resources */,
+				B576955226F929DB00364667 /* GoogleService-Info.plist in Resources */,
+				B5817B2126F270C90070271E /* Login.storyboard in Resources */,
+				B5817B1F26F270C40070271E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40F2F0380016B91D0287A647 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Music Goer/Pods-Music Goer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Music Goer/Pods-Music Goer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Music Goer/Pods-Music Goer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD04F46DED14232D3407758B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Music Goer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B5BCE86C26F12EB500372D05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5817B2A26F272E30070271E /* PendingInvitationsTableViewController.swift in Sources */,
+				B5817B2C26F2730D0070271E /* EventsTableViewController.swift in Sources */,
+				B5C4C6A026F29AD80052BAFB /* EventController.swift in Sources */,
+				B5C4C69326F292D70052BAFB /* ToDoTableViewCell.swift in Sources */,
+				B525DEF626F400DC00BEC65B /* TodoEditorViewController.swift in Sources */,
+				B5C4C69C26F29A250052BAFB /* Event.swift in Sources */,
+				B5BCE87426F12EB500372D05 /* AppDelegate.swift in Sources */,
+				B5817B3226F273840070271E /* TravelViewController.swift in Sources */,
+				B5817B2826F272AE0070271E /* AccountSettingsViewController.swift in Sources */,
+				B5817B3626F273CE0070271E /* EventManagementViewController.swift in Sources */,
+				B524F95326F3DF1E0055AD44 /* TodoViewController.swift in Sources */,
+				B5C4C69726F295FE0052BAFB /* ToDo.swift in Sources */,
+				B5817B2E26F273300070271E /* MessagesViewController.swift in Sources */,
+				B525DEF826F4021E00BEC65B /* PhotoPickerViewController.swift in Sources */,
+				B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */,
+				B589BB7A26F8DC6C00A68588 /* LoginViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B5BCE88226F12EB600372D05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B5BCE88326F12EB600372D05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B5BCE88526F12EB600372D05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5WKQ59823;
+				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B5BCE88626F12EB600372D05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5WKQ59823;
+				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B5BCE86B26F12EB500372D05 /* Build configuration list for PBXProject "Music Goer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5BCE88226F12EB600372D05 /* Debug */,
+				B5BCE88326F12EB600372D05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5BCE88426F12EB600372D05 /* Build configuration list for PBXNativeTarget "Music Goer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5BCE88526F12EB600372D05 /* Debug */,
+				B5BCE88626F12EB600372D05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B5BCE86826F12EB500372D05 /* Project object */;
+}
