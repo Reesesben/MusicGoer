@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0DF604CBD133272719113157 /* Pods_Music_Goer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */; };
-		B505882F26F135E1002F542C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B505882E26F135E1002F542C /* GoogleService-Info.plist */; };
 		B524F95326F3DF1E0055AD44 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524F95226F3DF1E0055AD44 /* TodoViewController.swift */; };
 		B525DEF626F400DC00BEC65B /* TodoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525DEF526F400DC00BEC65B /* TodoEditorViewController.swift */; };
 		B525DEF826F4021E00BEC65B /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525DEF726F4021E00BEC65B /* PhotoPickerViewController.swift */; };
+		B576955226F929DB00364667 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B576955126F929DB00364667 /* GoogleService-Info.plist */; };
 		B5817B1E26F270C40070271E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B1C26F270C30070271E /* LaunchScreen.storyboard */; };
 		B5817B1F26F270C40070271E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B1D26F270C40070271E /* Main.storyboard */; };
 		B5817B2126F270C90070271E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B2026F270C90070271E /* Login.storyboard */; };
@@ -35,10 +35,10 @@
 
 /* Begin PBXFileReference section */
 		4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.release.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.release.xcconfig"; sourceTree = "<group>"; };
-		B505882E26F135E1002F542C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B524F95226F3DF1E0055AD44 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		B525DEF526F400DC00BEC65B /* TodoEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditorViewController.swift; sourceTree = "<group>"; };
 		B525DEF726F4021E00BEC65B /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
+		B576955126F929DB00364667 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5817B1C26F270C30070271E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5817B1D26F270C40070271E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B5817B2026F270C90070271E /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -142,7 +142,6 @@
 				B5C4C69426F295AA0052BAFB /* Models */,
 				B5BCE88B26F131D700372D05 /* Views */,
 				B5BCE88826F131B600372D05 /* Controllers */,
-				B505882E26F135E1002F542C /* GoogleService-Info.plist */,
 				B5BCE88726F131AB00372D05 /* Resources */,
 			);
 			path = "Music Goer";
@@ -155,6 +154,7 @@
 				B5BCE87526F12EB500372D05 /* SceneDelegate.swift */,
 				B5BCE87C26F12EB600372D05 /* Assets.xcassets */,
 				B5BCE88126F12EB600372D05 /* Info.plist */,
+				B576955126F929DB00364667 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -290,8 +290,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5817B1E26F270C40070271E /* LaunchScreen.storyboard in Resources */,
-				B505882F26F135E1002F542C /* GoogleService-Info.plist in Resources */,
 				B5BCE87D26F12EB600372D05 /* Assets.xcassets in Resources */,
+				B576955226F929DB00364667 /* GoogleService-Info.plist in Resources */,
 				B5817B2126F270C90070271E /* Login.storyboard in Resources */,
 				B5817B1F26F270C40070271E /* Main.storyboard in Resources */,
 			);

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class EventController {
     static var shared = EventController()
@@ -14,7 +15,7 @@ class EventController {
     var currentEventIndex: Int = 0
     
     //MARK: - CRUD Functions
-    func createEvent(title: String, address: String, date: Date, members: [String]) {
+    func createEvent(title: String, address: CLLocationCoordinate2D, date: Date, members: [String]) {
         events.append(Event(title: title, todos: [], address: address, date: date, members: members))
     }
     

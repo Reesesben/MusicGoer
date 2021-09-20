@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import CoreLocation
 
 class Event {
     let title: String
     var todos: [ToDo]
-    let address: String
+    let address: CLLocationCoordinate2D
     let date: Date
     let members: [String]
     
-    init(title: String, todos: [ToDo], address: String, date: Date, members: [String]) {
+    init(title: String, todos: [ToDo], address: CLLocationCoordinate2D, date: Date, members: [String]) {
         self.title = title
         self.todos = todos
         self.address = address
@@ -25,6 +26,6 @@ class Event {
 
 extension Event: Equatable {
     static func == (lhs: Event, rhs: Event) -> Bool {
-        return lhs.title == rhs.title && lhs.address == rhs.address && lhs.date == rhs.date
+        return lhs.title == rhs.title && lhs.date == rhs.date
     }
 }
