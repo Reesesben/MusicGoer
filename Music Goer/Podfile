@@ -13,5 +13,6 @@ target 'Music Goer' do
   pod 'Firebase/Messaging'
   pod 'Firebase/Storage'
   pod 'Firebase/InAppMessaging'
+  pod 'GoogleSignIn'
   
 end
