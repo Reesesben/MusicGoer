@@ -9,11 +9,9 @@ import UIKit
 
 class EventMainScreenViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
-
     @IBOutlet weak var chatHeadCollectionView: UICollectionView!
     @IBOutlet weak var toDoListTableView: UITableView!
-    
-    var character: [Character] = []
+    var characters: [Character] = []
     var date: [DateEntry] = []
     
     override func viewDidLoad() {
@@ -24,37 +22,41 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         chatHeadCollectionView.dataSource = self
         toDoListTableView.delegate = self
         toDoListTableView.dataSource = self
+        chatHeadCollectionView.reloadData()
         
     }
     
     func updateViews() {
         loadViewIfNeeded()
         chatHeadCollectionView.reloadData()
-    }
-    
-    @IBAction func addToListButtonTapped(_ sender: Any) {
-        addToAssignList()
         
     }
     
-    //MARK: - CollectionView Functions
+    //MARK: - Actions
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        addToAssignList()
+    }
+    
+    
+    // MARK: UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(CharacterController.character.count)
         return CharacterController.character.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath) as? CharacterCollectionViewCell else {return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatHeadCell", for: indexPath) as? UserChatHeadCollectionViewCell else {return UICollectionViewCell() }
         
         let character = CharacterController.character[indexPath.row]
         
         cell.character = character
+        cell.displayImageFor()
         
         return cell
     }
-
-    //MARK: - TableView Functions
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return JournalController.sharedInstance.journals.count
@@ -81,7 +83,19 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         
         return cell
     }
-        
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toListDetailVC" {
+//            guard let index = toDoListTableView.indexPathForSelectedRow,
+//                  let destinationVC = segue.destination as?
+//                    EventDetailViewController else { return }
+//            let event = JournalController.sharedInstance.journals[index.row]
+//            destinationVC.journal = event
+//            
+//        }
+//    }
+    
+    
     func addToAssignList() {
         
         let alert = UIAlertController(title: "Create and assign.", message: "Add title", preferredStyle: .alert)
@@ -104,7 +118,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
                   let nameLabel = alert.textFields![1].text else { return }
             
             JournalController.sharedInstance.createJournal(title: assignmentTitle, name: nameLabel, date: Date())
-            self.assigningListTableView.reloadData()
+            self.toDoListTableView.reloadData()
         }
         
         alert.addAction(cancelAction)
@@ -113,4 +127,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         present(alert, animated: true)
         
     }
+    
+
+    
 }

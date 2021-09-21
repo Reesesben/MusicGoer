@@ -25,6 +25,14 @@ class LoginViewController: UIViewController {
     
     
     //MARK: - ACTIONS
+    
+    @IBAction func guestButtonTapped(_ sender: Any) {
+         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+         let vc = storyboard.instantiateViewController(identifier: "MainTabBarController")
+         vc.modalPresentationStyle = .fullScreen
+         present(vc, animated: true, completion: nil)
+     }
+    
     @IBAction func googleSignInButtonTapped(_ sender: Any) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
 
@@ -58,7 +66,9 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func isAuth(
+    func isAuth() {
+        
+    }
     
     
 } // End of Class
