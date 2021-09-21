@@ -45,7 +45,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath) as? CharacterCollectionViewCell else {return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatHeadCell", for: indexPath) as? UserChatHeadCollectionViewCell else {return UICollectionViewCell() }
         
         let character = CharacterController.character[indexPath.row]
         
@@ -104,7 +104,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
                   let nameLabel = alert.textFields![1].text else { return }
             
             JournalController.sharedInstance.createJournal(title: assignmentTitle, name: nameLabel, date: Date())
-            self.assigningListTableView.reloadData()
+            self.toDoListTableView.reloadData()
         }
         
         alert.addAction(cancelAction)
