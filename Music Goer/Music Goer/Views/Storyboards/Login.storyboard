@@ -26,7 +26,7 @@
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Contiune as Guest"/>
                                         <connections>
-                                            <action selector="guestButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="uuK-Aa-bp5"/>
+                                            <action selector="guestButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="48X-qU-pRj"/>
                                         </connections>
                                     </button>
                                 </subviews>

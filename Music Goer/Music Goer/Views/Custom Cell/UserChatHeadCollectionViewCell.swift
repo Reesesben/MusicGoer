@@ -28,5 +28,4 @@ class UserChatHeadCollectionViewCell: UICollectionViewCell {
         characterImageView.layer.masksToBounds = true
 
     }
-    
 }
