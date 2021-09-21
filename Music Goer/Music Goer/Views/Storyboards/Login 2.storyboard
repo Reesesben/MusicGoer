@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="LoginViewController" customModule="Music_Goer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="uxp-0e-WW2">
+                                <rect key="frame" x="83" y="438" width="248" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxX-qs-1Wa">
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Contiune as Guest"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Music Goer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P63-do-k8Y">
+                                <rect key="frame" x="46" y="122" width="322" height="37"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apq-j6-EAP" customClass="GIDSignInButton">
+                                <rect key="frame" x="137" y="311" width="140" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <action selector="googleSignInButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zdR-rX-HLC"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="P63-do-k8Y" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="G75-bI-Rgl"/>
+                            <constraint firstItem="uxp-0e-WW2" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="K25-gd-dN6"/>
+                            <constraint firstItem="P63-do-k8Y" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="78" id="LEe-ha-4Jf"/>
+                            <constraint firstItem="uxp-0e-WW2" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.6" id="MXI-ck-5f6"/>
+                            <constraint firstItem="uxp-0e-WW2" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="muF-CX-6Ys"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="googleSignIn" destination="apq-j6-EAP" id="GIi-kP-vOt"/>
+                        <outlet property="guestButton" destination="BxX-qs-1Wa" id="agg-kU-A9x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5.7971014492753632" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
