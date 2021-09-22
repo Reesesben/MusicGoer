@@ -48,7 +48,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="J9e-eJ-FP9" kind="show" id="56J-Qm-Nke"/>
+                                    <segue destination="J9e-eJ-FP9" kind="show" identifier="toEventDetail" id="Vwn-kS-Vuq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -246,7 +246,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="100" height="100"/>
                                         <connections>
-                                            <outlet property="characterImageView" destination="Yah-Fy-uFf" id="Cka-HO-3eZ"/>
+                                            <outlet property="characterImageView" destination="Yah-Fy-uFf" id="vki-CH-g8K"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -278,6 +278,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="YCe-bU-nMx" kind="presentation" identifier="toListDetailVC" id="6o7-3y-YqD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -288,7 +291,7 @@
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                 </state>
                                 <connections>
-                                    <action selector="addButtonTapped:" destination="J9e-eJ-FP9" eventType="touchUpInside" id="Abx-UH-UUX"/>
+                                    <action selector="addButtonTapped:" destination="J9e-eJ-FP9" eventType="touchUpInside" id="e8l-Gj-q06"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To do list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73s-Cb-4fX">
@@ -326,22 +329,167 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IsD-KM-s7l">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="car" catalog="system" id="vsa-7j-o74"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="car" catalog="system" id="vsa-7j-o74">
+                            <connections>
+                                <segue destination="xdx-GV-FsU" kind="show" identifier="driverDetails" id="CG3-o4-x6A"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="chatHeadCollectionView" destination="Haq-yl-8NI" id="pqt-8u-gBR"/>
-                        <outlet property="toDoListTableView" destination="1SL-4H-fSg" id="btP-5u-fIR"/>
+                        <outlet property="chatHeadCollectionView" destination="Haq-yl-8NI" id="iHs-4W-buk"/>
+                        <outlet property="toDoListTableView" destination="1SL-4H-fSg" id="1y1-fS-f7o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0O-Jh-ac1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1224.6376811594205" y="265.84821428571428"/>
         </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="5c6-IY-U0z">
+            <objects>
+                <viewController id="YCe-bU-nMx" customClass="EventDetailViewController" customModule="Music_Goer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S7h-BX-hk0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Objective" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHy-Od-aft">
+                                <rect key="frame" x="10" y="25" width="394" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxI-AX-UhN">
+                                <rect key="frame" x="10" y="70" width="394" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="8a5-Lx-R6N">
+                                <rect key="frame" x="0.0" y="265" width="414" height="393"/>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ks-kk-tGD">
+                                <rect key="frame" x="20" y="777" width="374" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="YCe-bU-nMx" eventType="touchUpInside" id="mCW-ln-qs0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="47D-PH-UMl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="47D-PH-UMl" firstAttribute="trailing" secondItem="3ks-kk-tGD" secondAttribute="trailing" constant="20" id="25Y-dl-09t"/>
+                            <constraint firstItem="nxI-AX-UhN" firstAttribute="top" secondItem="fHy-Od-aft" secondAttribute="bottom" constant="15" id="2KX-Bb-pYj"/>
+                            <constraint firstItem="fHy-Od-aft" firstAttribute="leading" secondItem="47D-PH-UMl" secondAttribute="leading" constant="10" id="5ee-4a-H1Y"/>
+                            <constraint firstItem="47D-PH-UMl" firstAttribute="bottom" secondItem="8a5-Lx-R6N" secondAttribute="bottom" constant="150" id="8nw-sy-mkG"/>
+                            <constraint firstItem="nxI-AX-UhN" firstAttribute="leading" secondItem="47D-PH-UMl" secondAttribute="leading" constant="10" id="DqN-OR-3cL"/>
+                            <constraint firstAttribute="bottom" secondItem="3ks-kk-tGD" secondAttribute="bottom" constant="29" id="HWE-17-PEi"/>
+                            <constraint firstItem="fHy-Od-aft" firstAttribute="top" secondItem="47D-PH-UMl" secondAttribute="top" constant="25" id="I6U-fZ-fDb"/>
+                            <constraint firstItem="3ks-kk-tGD" firstAttribute="leading" secondItem="47D-PH-UMl" secondAttribute="leading" constant="20" id="ZxI-0c-jKO"/>
+                            <constraint firstItem="47D-PH-UMl" firstAttribute="trailing" secondItem="nxI-AX-UhN" secondAttribute="trailing" constant="10" id="cAP-Us-c9Z"/>
+                            <constraint firstItem="8a5-Lx-R6N" firstAttribute="trailing" secondItem="47D-PH-UMl" secondAttribute="trailing" id="dvn-Ot-VaG"/>
+                            <constraint firstItem="8a5-Lx-R6N" firstAttribute="leading" secondItem="47D-PH-UMl" secondAttribute="leading" id="i2m-KQ-xmm"/>
+                            <constraint firstItem="47D-PH-UMl" firstAttribute="trailing" secondItem="fHy-Od-aft" secondAttribute="trailing" constant="10" id="qhm-M6-cFh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mNS-Ct-1tJ"/>
+                    <connections>
+                        <outlet property="eventDatePicker" destination="8a5-Lx-R6N" id="Z4G-0e-AFg"/>
+                        <outlet property="nameLabel" destination="nxI-AX-UhN" id="ZHh-Kp-u1n"/>
+                        <outlet property="toDoLabel" destination="fHy-Od-aft" id="cOe-oz-8Qc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mj4-dH-re4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1990" y="622"/>
+        </scene>
+        <!--Driver Detail View Controller-->
+        <scene sceneID="H3M-0M-oAz">
+            <objects>
+                <viewController id="xdx-GV-FsU" customClass="DriverDetailViewController" customModule="Music_Goer" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hyf-aS-hRo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who's Driving?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNI-Iq-M5H">
+                                <rect key="frame" x="15" y="96" width="384" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iz8-Uf-WTP">
+                                <rect key="frame" x="15" y="125" width="384" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s93-cp-ehD">
+                                <rect key="frame" x="15" y="133" width="384" height="30"/>
+                                <state key="normal" title="Press to name driver"/>
+                                <connections>
+                                    <action selector="driverButtonTapped:" destination="xdx-GV-FsU" eventType="touchUpInside" id="4mm-LL-wJ6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWA-rG-jP6">
+                                <rect key="frame" x="82" y="302" width="250" height="222"/>
+                                <state key="normal" title="Button" image="maps"/>
+                                <connections>
+                                    <action selector="mapsButtonTapped:" destination="xdx-GV-FsU" eventType="touchUpInside" id="WCZ-R5-qYA"/>
+                                    <segue destination="5we-34-iDi" kind="show" id="BDh-P1-Ojm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mTt-FJ-mx0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mTt-FJ-mx0" firstAttribute="trailing" secondItem="ZNI-Iq-M5H" secondAttribute="trailing" constant="15" id="2bI-jY-jxs"/>
+                            <constraint firstItem="mTt-FJ-mx0" firstAttribute="trailing" secondItem="EWA-rG-jP6" secondAttribute="trailing" constant="82" id="9vr-li-Nwn"/>
+                            <constraint firstItem="ZNI-Iq-M5H" firstAttribute="leading" secondItem="mTt-FJ-mx0" secondAttribute="leading" constant="15" id="NFe-KE-ZJS"/>
+                            <constraint firstItem="mTt-FJ-mx0" firstAttribute="trailing" secondItem="iz8-Uf-WTP" secondAttribute="trailing" constant="15" id="Ogt-Lz-lFz"/>
+                            <constraint firstItem="ZNI-Iq-M5H" firstAttribute="top" secondItem="mTt-FJ-mx0" secondAttribute="top" constant="8" id="Pe2-GG-dmY"/>
+                            <constraint firstItem="mTt-FJ-mx0" firstAttribute="bottom" secondItem="EWA-rG-jP6" secondAttribute="bottom" constant="289" id="TVa-bW-C9g"/>
+                            <constraint firstItem="s93-cp-ehD" firstAttribute="leading" secondItem="mTt-FJ-mx0" secondAttribute="leading" constant="15" id="bUO-fv-xfH"/>
+                            <constraint firstItem="mTt-FJ-mx0" firstAttribute="trailing" secondItem="s93-cp-ehD" secondAttribute="trailing" constant="15" id="iHv-Pv-UEu"/>
+                            <constraint firstItem="iz8-Uf-WTP" firstAttribute="leading" secondItem="mTt-FJ-mx0" secondAttribute="leading" constant="15" id="iPz-e9-f9b"/>
+                            <constraint firstItem="EWA-rG-jP6" firstAttribute="top" secondItem="s93-cp-ehD" secondAttribute="bottom" constant="139" id="nGk-7n-Q1N"/>
+                            <constraint firstItem="EWA-rG-jP6" firstAttribute="leading" secondItem="mTt-FJ-mx0" secondAttribute="leading" constant="82" id="oNK-us-Uuc"/>
+                            <constraint firstItem="s93-cp-ehD" firstAttribute="top" secondItem="iz8-Uf-WTP" secondAttribute="bottom" constant="8" symbolic="YES" id="rZU-4q-i9y"/>
+                            <constraint firstItem="iz8-Uf-WTP" firstAttribute="top" secondItem="ZNI-Iq-M5H" secondAttribute="bottom" constant="8" symbolic="YES" id="uGg-Tr-fjK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="nTP-Cd-GUp"/>
+                    <connections>
+                        <outlet property="driverLabel" destination="iz8-Uf-WTP" id="tXV-Rd-f4h"/>
+                        <outlet property="mapsButton" destination="EWA-rG-jP6" id="F2d-am-NQW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="loY-YR-FWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1990" y="-22"/>
+        </scene>
+        <!--Location View Controller-->
+        <scene sceneID="boX-oo-2rq">
+            <objects>
+                <viewController storyboardIdentifier="MapsViewController" id="5we-34-iDi" customClass="LocationViewController" customModule="Music_Goer" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Znr-Rq-76d">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="LoC-sI-35W"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Jbr-e9-Vd9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i4b-IL-Jd8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2754" y="-22"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="car" catalog="system" width="128" height="93"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <image name="maps" width="1280" height="728"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="secondaryLabelColor">
