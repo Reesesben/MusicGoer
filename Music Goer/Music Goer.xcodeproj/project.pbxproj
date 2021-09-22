@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0DF604CBD133272719113157 /* Pods_Music_Goer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */; };
+		B52E0A7D26FA53BC005B740E /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E0A7C26FA53BC005B740E /* MUser.swift */; };
+		B52E0A7F26FA5621005B740E /* MUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E0A7E26FA5621005B740E /* MUserController.swift */; };
 		B576955226F929DB00364667 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B576955126F929DB00364667 /* GoogleService-Info.plist */; };
 		B5817B1E26F270C40070271E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B1C26F270C30070271E /* LaunchScreen.storyboard */; };
 		B5817B1F26F270C40070271E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B1D26F270C40070271E /* Main.storyboard */; };
@@ -16,6 +18,10 @@
 		B5817B2A26F272E30070271E /* PendingInvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2926F272E30070271E /* PendingInvitationsTableViewController.swift */; };
 		B5817B2C26F2730D0070271E /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2B26F2730D0070271E /* EventsTableViewController.swift */; };
 		B589BB7A26F8DC6C00A68588 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589BB7926F8DC6C00A68588 /* LoginViewController.swift */; };
+		B5AFDA6126FA8C3E00153143 /* LoginWithEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AFDA6026FA8C3E00153143 /* LoginWithEmailViewController.swift */; };
+		B5AFDA6326FA8C5700153143 /* SignUpWithEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AFDA6226FA8C5700153143 /* SignUpWithEmailViewController.swift */; };
+		B5AFDA6526FA8CB600153143 /* CustomizeationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AFDA6426FA8CB600153143 /* CustomizeationViewController.swift */; };
+		B5AFDA6726FAAE1700153143 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AFDA6626FAAE1700153143 /* PhotoPickerViewController.swift */; };
 		B5BCE87426F12EB500372D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCE87326F12EB500372D05 /* AppDelegate.swift */; };
 		B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCE87526F12EB500372D05 /* SceneDelegate.swift */; };
 		B5BCE87D26F12EB600372D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5BCE87C26F12EB600372D05 /* Assets.xcassets */; };
@@ -38,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.release.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.release.xcconfig"; sourceTree = "<group>"; };
+		B52E0A7C26FA53BC005B740E /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
+		B52E0A7E26FA5621005B740E /* MUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUserController.swift; sourceTree = "<group>"; };
 		B576955126F929DB00364667 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5817B1C26F270C30070271E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5817B1D26F270C40070271E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -46,6 +54,10 @@
 		B5817B2926F272E30070271E /* PendingInvitationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingInvitationsTableViewController.swift; sourceTree = "<group>"; };
 		B5817B2B26F2730D0070271E /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		B589BB7926F8DC6C00A68588 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B5AFDA6026FA8C3E00153143 /* LoginWithEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailViewController.swift; sourceTree = "<group>"; };
+		B5AFDA6226FA8C5700153143 /* SignUpWithEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailViewController.swift; sourceTree = "<group>"; };
+		B5AFDA6426FA8CB600153143 /* CustomizeationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeationViewController.swift; sourceTree = "<group>"; };
+		B5AFDA6626FAAE1700153143 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		B5BCE87026F12EB500372D05 /* Music Goer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Goer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5BCE87326F12EB500372D05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5BCE87526F12EB500372D05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				B589BB7926F8DC6C00A68588 /* LoginViewController.swift */,
+				B5AFDA6026FA8C3E00153143 /* LoginWithEmailViewController.swift */,
+				B5AFDA6226FA8C5700153143 /* SignUpWithEmailViewController.swift */,
+				B5AFDA6426FA8CB600153143 /* CustomizeationViewController.swift */,
+				B5AFDA6626FAAE1700153143 /* PhotoPickerViewController.swift */,
 			);
 			path = "Login Storyboard";
 			sourceTree = "<group>";
@@ -207,6 +223,7 @@
 				FCFF7F0926FA3FF5009CCB58 /* Character.swift */,
 				FCFF7F0F26FA400D009CCB58 /* Entry.swift */,
 				FCFF7F0826FA3FDE009CCB58 /* DelstunModels */,
+				B52E0A7C26FA53BC005B740E /* MUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,6 +237,7 @@
 				FCFF7F1826FA403C009CCB58 /* JournalController.swift */,
 				FCFF7F1726FA403C009CCB58 /* LocationController.swift */,
 				FCFF7F1326FA4022009CCB58 /* Delstun Model Controllers */,
+				B52E0A7E26FA5621005B740E /* MUserController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -389,17 +407,23 @@
 				B5C4C6A026F29AD80052BAFB /* EventController.swift in Sources */,
 				B5C4C69C26F29A250052BAFB /* Event.swift in Sources */,
 				FCFF7F1226FA4012009CCB58 /* DateEntry.swift in Sources */,
+				B5AFDA6526FA8CB600153143 /* CustomizeationViewController.swift in Sources */,
 				FCFF7F0726FA3E9B009CCB58 /* EventMainScreenViewController.swift in Sources */,
+				B5AFDA6726FAAE1700153143 /* PhotoPickerViewController.swift in Sources */,
 				B5BCE87426F12EB500372D05 /* AppDelegate.swift in Sources */,
 				FCFF7F1D26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift in Sources */,
+				B5AFDA6126FA8C3E00153143 /* LoginWithEmailViewController.swift in Sources */,
 				B5817B2826F272AE0070271E /* AccountSettingsViewController.swift in Sources */,
 				B5C4C69726F295FE0052BAFB /* ToDo.swift in Sources */,
+				B52E0A7F26FA5621005B740E /* MUserController.swift in Sources */,
 				B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */,
 				FCFF7F1926FA403C009CCB58 /* EntryController.swift in Sources */,
 				FCFF7F1B26FA403C009CCB58 /* JournalController.swift in Sources */,
 				FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */,
 				FCFF7F1A26FA403C009CCB58 /* LocationController.swift in Sources */,
 				B589BB7A26F8DC6C00A68588 /* LoginViewController.swift in Sources */,
+				B52E0A7D26FA53BC005B740E /* MUser.swift in Sources */,
+				B5AFDA6326FA8C5700153143 /* SignUpWithEmailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
