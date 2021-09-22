@@ -14,12 +14,16 @@ class LoginViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet var guestButton: UIButton!
     @IBOutlet weak var googleSignIn: GIDSignInButton!
+    @IBOutlet var loginWithEmailButton: UIButton!
+    @IBOutlet var signUpEmailButton: UIButton!
     
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         guestButton.layer.cornerRadius = guestButton.frame.height / 2
+        loginWithEmailButton.layer.cornerRadius = loginWithEmailButton.frame.height / 2
+        signUpEmailButton.layer.cornerRadius = signUpEmailButton.frame.height / 2
     }
     
     
