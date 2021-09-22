@@ -33,8 +33,11 @@
 		B5C4C69726F295FE0052BAFB /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69626F295FE0052BAFB /* ToDo.swift */; };
 		B5C4C69C26F29A250052BAFB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69B26F29A250052BAFB /* Event.swift */; };
 		B5C4C6A026F29AD80052BAFB /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69F26F29AD80052BAFB /* EventController.swift */; };
+		B5CE3EE026FBAB9A009B9188 /* ErrorPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE3EDF26FBAB9A009B9188 /* ErrorPresent.swift */; };
+		B5CE3EE226FBC86F009B9188 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE3EE126FBC86F009B9188 /* Credentials.swift */; };
+		B5CE3EE426FBC8F3009B9188 /* CredentialsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE3EE326FBC8F3009B9188 /* CredentialsController.swift */; };
 		FC690E6926FA5734003BBACE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E6826FA5734003BBACE /* DateFormatter.swift */; };
-		FCFF7F0A26FA3FF5009CCB58 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F0926FA3FF5009CCB58 /* Character.swift */; };
+		FCFF7F0A26FA3FF5009CCB58 /* fakeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F0926FA3FF5009CCB58 /* fakeUser.swift */; };
 		FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F0B26FA3FFB009CCB58 /* Location.swift */; };
 		FCFF7F0E26FA4001009CCB58 /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F0D26FA4001009CCB58 /* ToDoList.swift */; };
 		FCFF7F1026FA400D009CCB58 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F0F26FA400D009CCB58 /* Entry.swift */; };
@@ -75,10 +78,13 @@
 		B5C4C69626F295FE0052BAFB /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		B5C4C69B26F29A250052BAFB /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B5C4C69F26F29AD80052BAFB /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
+		B5CE3EDF26FBAB9A009B9188 /* ErrorPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresent.swift; sourceTree = "<group>"; };
+		B5CE3EE126FBC86F009B9188 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		B5CE3EE326FBC8F3009B9188 /* CredentialsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsController.swift; sourceTree = "<group>"; };
 		F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Goer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.debug.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.debug.xcconfig"; sourceTree = "<group>"; };
 		FC690E6826FA5734003BBACE /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
-		FCFF7F0926FA3FF5009CCB58 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		FCFF7F0926FA3FF5009CCB58 /* fakeUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fakeUser.swift; sourceTree = "<group>"; };
 		FCFF7F0B26FA3FFB009CCB58 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FCFF7F0D26FA4001009CCB58 /* ToDoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoList.swift; sourceTree = "<group>"; };
 		FCFF7F0F26FA400D009CCB58 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
@@ -232,9 +238,10 @@
 				FCFF7F0B26FA3FFB009CCB58 /* Location.swift */,
 				FCFF7F0D26FA4001009CCB58 /* ToDoList.swift */,
 				FCFF7F1126FA4012009CCB58 /* DateEntry.swift */,
-				FCFF7F0926FA3FF5009CCB58 /* Character.swift */,
+				FCFF7F0926FA3FF5009CCB58 /* fakeUser.swift */,
 				FCFF7F0F26FA400D009CCB58 /* Entry.swift */,
 				B52E0A7C26FA53BC005B740E /* MUser.swift */,
+				B5CE3EE126FBC86F009B9188 /* Credentials.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -248,6 +255,7 @@
 				FCFF7F1826FA403C009CCB58 /* JournalController.swift */,
 				FCFF7F1726FA403C009CCB58 /* LocationController.swift */,
 				B52E0A7E26FA5621005B740E /* MUserController.swift */,
+				B5CE3EE326FBC8F3009B9188 /* CredentialsController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				FC690E6826FA5734003BBACE /* DateFormatter.swift */,
+				B5CE3EDF26FBAB9A009B9188 /* ErrorPresent.swift */,
 			);
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
@@ -396,9 +405,10 @@
 				FCFF7F1026FA400D009CCB58 /* Entry.swift in Sources */,
 				FCFF7F0E26FA4001009CCB58 /* ToDoList.swift in Sources */,
 				B5817B2A26F272E30070271E /* PendingInvitationsTableViewController.swift in Sources */,
+				B5CE3EE226FBC86F009B9188 /* Credentials.swift in Sources */,
 				FC690E6926FA5734003BBACE /* DateFormatter.swift in Sources */,
 				B5817B2C26F2730D0070271E /* EventsTableViewController.swift in Sources */,
-				FCFF7F0A26FA3FF5009CCB58 /* Character.swift in Sources */,
+				FCFF7F0A26FA3FF5009CCB58 /* fakeUser.swift in Sources */,
 				B55C869126FB9D2E009F31FB /* LocationViewController.swift in Sources */,
 				B55C869526FB9D2E009F31FB /* DriverDetailViewController.swift in Sources */,
 				FCFF7F1526FA402F009CCB58 /* CharacterController.swift in Sources */,
@@ -417,6 +427,8 @@
 				B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */,
 				FCFF7F1926FA403C009CCB58 /* EntryController.swift in Sources */,
 				FCFF7F1B26FA403C009CCB58 /* JournalController.swift in Sources */,
+				B5CE3EE026FBAB9A009B9188 /* ErrorPresent.swift in Sources */,
+				B5CE3EE426FBC8F3009B9188 /* CredentialsController.swift in Sources */,
 				FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */,
 				FCFF7F1A26FA403C009CCB58 /* LocationController.swift in Sources */,
 				B589BB7A26F8DC6C00A68588 /* LoginViewController.swift in Sources */,

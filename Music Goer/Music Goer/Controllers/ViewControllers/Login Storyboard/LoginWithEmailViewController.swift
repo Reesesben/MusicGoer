@@ -43,30 +43,28 @@ class LoginWithEmailViewController: UIViewController {
                     self.displayError(title: "Could not find account!", Body: "There was an error retrieving your account. Ensure you have the correct username and password")
                 }
                 
+                CredentialsController.shared.currentCredentials = Credentials(email: email, password: password, type: CredentialsConstants.emailTypeKey)
+                CredentialsController.shared.saveToPresistenceStore()
+                
                 guard let currentUser = Auth.auth().currentUser else { return }
-                MUserController.shared.fetchUser(googleRef: currentUser.uid) { _ in
-                    print("Sucessfully logged in!")
-                    DispatchQueue.main.async {
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let vc = storyboard.instantiateViewController(identifier: "MainTabBarController")
-                        vc.modalPresentationStyle = .fullScreen
-                        self.present(vc, animated: true, completion: nil)
+                MUserController.shared.fetchUser(googleRef: currentUser.uid) { didFind in
+                    if didFind {
+                        DispatchQueue.main.async {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let vc = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                            vc.modalPresentationStyle = .fullScreen
+                            self.present(vc, animated: true, completion: nil)
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                            let vc = storyboard.instantiateViewController(identifier: "requiredSetUp")
+                            vc.modalPresentationStyle = .fullScreen
+                            self.present(vc, animated: true, completion: nil)
+                        }
                     }
                 }
             }
-            
         }
-        
     }
-    
-    //MARK: - Helper Methods
-    func displayError(title: String, Body: String) {
-        let Alert = UIAlertController(title: title, message: Body, preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Okay", style: .default) { _ in
-            self.emailTextField.text = ""
-        }
-        Alert.addAction(okay)
-        self.present(Alert, animated: true, completion: nil)
-    }
-    
-}
+}//End Of Class

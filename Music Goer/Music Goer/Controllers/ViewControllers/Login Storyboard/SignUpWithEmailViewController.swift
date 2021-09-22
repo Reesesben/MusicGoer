@@ -54,6 +54,8 @@ class SignUpWithEmailViewController: UIViewController {
                     }
                     return
                 }
+                CredentialsController.shared.currentCredentials = Credentials(email: email, password: password, type: CredentialsConstants.emailTypeKey)
+                CredentialsController.shared.saveToPresistenceStore()
                 print("Successfully created user")
                 let storyboard = UIStoryboard(name: "Login", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "requiredSetUp")
@@ -67,15 +69,4 @@ class SignUpWithEmailViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    //MARK: - Helper Methods
-    func displayError(title: String, Body: String) {
-        let Alert = UIAlertController(title: title, message: Body, preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Okay", style: .default) { _ in
-            self.emailTextField.text = ""
-        }
-        Alert.addAction(okay)
-        self.present(Alert, animated: true, completion: nil)
-    }
-    
 }
