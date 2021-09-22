@@ -82,7 +82,7 @@
                                             <constraint firstAttribute="width" secondItem="0Z1-cw-Ghn" secondAttribute="height" multiplier="1:1" id="XR2-y9-xyG"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(User Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWl-XP-kxo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWl-XP-kxo">
                                         <rect key="frame" x="70" y="0.0" width="344" height="62"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -94,23 +94,29 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="jHu-5X-7KG">
-                                <rect key="frame" x="8" y="122" width="398" height="74.5"/>
+                                <rect key="frame" x="8" y="122" width="398" height="104"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Email)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3D-8i-8SN">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3D-8i-8SN">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebG-OG-Vmq">
-                                        <rect key="frame" x="0.0" y="44.5" width="398" height="30"/>
+                                        <rect key="frame" x="0.0" y="74" width="398" height="30"/>
                                         <state key="normal" title="Change Password"/>
+                                        <connections>
+                                            <action selector="changePasswordButtonTapped:" destination="pbU-mr-vJl" eventType="touchUpInside" id="FaK-3O-AfJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ui-BZ-Wbo">
-                                <rect key="frame" x="145.5" y="759" width="123" height="30"/>
+                                <rect key="frame" x="145.5" y="710" width="123" height="30"/>
                                 <state key="normal" title="Delete Account"/>
+                                <connections>
+                                    <action selector="deleteAccountButtonTapped:" destination="pbU-mr-vJl" eventType="touchUpInside" id="UH2-sp-BOV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hl3-2v-twz"/>
@@ -128,13 +134,23 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account Info" image="person.fill" catalog="system" id="Pt4-8H-PPA"/>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="User Settings" id="cn7-4b-avp">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="3Ue-Hi-Suf"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="XoE-gu-18H"/>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="changePasswordButton" destination="ebG-OG-Vmq" id="mdb-fP-cQn"/>
+                        <outlet property="deleteAccountButton" destination="1ui-BZ-Wbo" id="gRB-zD-xM8"/>
+                        <outlet property="emailLabel" destination="A3D-8i-8SN" id="X6r-lm-SZ0"/>
+                        <outlet property="userImage" destination="0Z1-cw-Ghn" id="ppG-uq-ZNr"/>
+                        <outlet property="userName" destination="JWl-XP-kxo" id="9Pt-h1-zKg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOl-r2-Lbn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1168" y="1000"/>
+            <point key="canvasLocation" x="-516" y="992"/>
         </scene>
         <!--Pending Invitations-->
         <scene sceneID="0sm-78-VJX">
@@ -163,7 +179,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUp-d0-EKM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-351" y="1000"/>
+            <point key="canvasLocation" x="-1404" y="992"/>
         </scene>
         <!--Events-->
         <scene sceneID="Mxs-If-TgT">
