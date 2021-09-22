@@ -37,7 +37,6 @@ class LoginViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
-    
     @IBAction func googleSignInButtonTapped(_ sender: Any) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
 
@@ -66,15 +65,18 @@ class LoginViewController: UIViewController {
                 if let error = error {
                   return
                 }
-                //performSegue(withIdentifier: "toDetailVC", sender: self)
+                // segue to MainTabBarController after logging in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if (Auth.auth().currentUser != nil) {
+                    let vc = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                    vc.modalPresentationStyle = .fullScreen
+                    present(vc, animated: true, completion: nil)
+                } else {
+                    return
+                }
             }
         }
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
-    
 } // End of Class
 
 
