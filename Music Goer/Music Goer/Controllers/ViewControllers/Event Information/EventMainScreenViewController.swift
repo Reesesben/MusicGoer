@@ -6,14 +6,21 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class EventMainScreenViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
+    //MARK: - Outlets
     @IBOutlet weak var chatHeadCollectionView: UICollectionView!
     @IBOutlet weak var toDoListTableView: UITableView!
+    
+    //MARK: - Properties
     var characters: [Character] = []
     var date: [DateEntry] = []
+
     
+    //MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         loadViewIfNeeded()
@@ -25,6 +32,8 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         chatHeadCollectionView.reloadData()
         
     }
+    
+    //MARK: - Helper funcs
     
     func updateViews() {
         loadViewIfNeeded()
@@ -40,6 +49,17 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     
     
     // MARK: UICollectionViewDataSource
+    
+//    let channel = channels[indexPath.row]
+//    let viewController = ChatViewController(user: currentUser, channel: channel)
+//    navigationController?.pushViewController(viewController, animated: true)
+//  }
+    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let channel = channel[indexPath.row]
+//        let vc = ChatViewController(user: currentUser, channel: channel)
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(CharacterController.character.count)
@@ -58,22 +78,24 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         return cell
     }
     
+    //MARK: - TableView things
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return JournalController.sharedInstance.journals.count
     }
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let journal = JournalController.sharedInstance.journals[indexPath.row]
             JournalController.sharedInstance.deleteJournal(journal: journal)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
-
+            
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "toDoListTableViewCell", for: indexPath)
         
         let journal = JournalController.sharedInstance.journals[indexPath.row]
@@ -84,16 +106,16 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         return cell
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toListDetailVC" {
-//            guard let index = toDoListTableView.indexPathForSelectedRow,
-//                  let destinationVC = segue.destination as?
-//                    EventDetailViewController else { return }
-//            let event = JournalController.sharedInstance.journals[index.row]
-//            destinationVC.journal = event
-//            
-//        }
-//    }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "toListDetailVC" {
+                guard let index = toDoListTableView.indexPathForSelectedRow,
+                      let destinationVC = segue.destination as?
+                        EventDetailViewController else { return }
+                let event = JournalController.sharedInstance.journals[index.row]
+                destinationVC.journal = event
+    
+            }
+        }
     
     
     func addToAssignList() {
@@ -128,6 +150,6 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         
     }
     
-
+    
     
 }

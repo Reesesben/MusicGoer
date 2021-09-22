@@ -23,6 +23,16 @@
 		B5C4C69C26F29A250052BAFB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69B26F29A250052BAFB /* Event.swift */; };
 		B5C4C6A026F29AD80052BAFB /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C4C69F26F29AD80052BAFB /* EventController.swift */; };
 		FC690E6926FA5734003BBACE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E6826FA5734003BBACE /* DateFormatter.swift */; };
+		FC690E6B26FA7887003BBACE /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E6A26FA7887003BBACE /* EventDetailViewController.swift */; };
+		FC690E6D26FA79FE003BBACE /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E6C26FA79FE003BBACE /* LocationViewController.swift */; };
+		FC690E6F26FA7A04003BBACE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E6E26FA7A04003BBACE /* SearchViewController.swift */; };
+		FC690E7126FA7A0A003BBACE /* DriverDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E7026FA7A0A003BBACE /* DriverDetailViewController.swift */; };
+		FC690E7626FA8443003BBACE /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E7226FA843F003BBACE /* UIView+Additions.swift */; };
+		FC690E7726FA8443003BBACE /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E7326FA8440003BBACE /* UICollectionView+Additions.swift */; };
+		FC690E7826FA8443003BBACE /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E7426FA8441003BBACE /* UIColor+Additions.swift */; };
+		FC690E7926FA8443003BBACE /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E7526FA8442003BBACE /* UIImage+Additions.swift */; };
+		FC690E8326FA84A4003BBACE /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E8126FA84A1003BBACE /* AppSettings.swift */; };
+		FC690E8426FA84A4003BBACE /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E8226FA84A4003BBACE /* AppController.swift */; };
 		FCFF7F0726FA3E9B009CCB58 /* EventMainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F0626FA3E9B009CCB58 /* EventMainScreenViewController.swift */; };
 		FCFF7F0A26FA3FF5009CCB58 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F0926FA3FF5009CCB58 /* Character.swift */; };
 		FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F0B26FA3FFB009CCB58 /* Location.swift */; };
@@ -57,6 +67,16 @@
 		F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Goer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.debug.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.debug.xcconfig"; sourceTree = "<group>"; };
 		FC690E6826FA5734003BBACE /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		FC690E6A26FA7887003BBACE /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		FC690E6C26FA79FE003BBACE /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		FC690E6E26FA7A04003BBACE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		FC690E7026FA7A0A003BBACE /* DriverDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverDetailViewController.swift; sourceTree = "<group>"; };
+		FC690E7226FA843F003BBACE /* UIView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
+		FC690E7326FA8440003BBACE /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
+		FC690E7426FA8441003BBACE /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		FC690E7526FA8442003BBACE /* UIImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
+		FC690E8126FA84A1003BBACE /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		FC690E8226FA84A4003BBACE /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		FCFF7F0626FA3E9B009CCB58 /* EventMainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMainScreenViewController.swift; sourceTree = "<group>"; };
 		FCFF7F0926FA3FF5009CCB58 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		FCFF7F0B26FA3FFB009CCB58 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -102,6 +122,10 @@
 			isa = PBXGroup;
 			children = (
 				FCFF7F0626FA3E9B009CCB58 /* EventMainScreenViewController.swift */,
+				FC690E6A26FA7887003BBACE /* EventDetailViewController.swift */,
+				FC690E6C26FA79FE003BBACE /* LocationViewController.swift */,
+				FC690E6E26FA7A04003BBACE /* SearchViewController.swift */,
+				FC690E7026FA7A0A003BBACE /* DriverDetailViewController.swift */,
 			);
 			path = "Event Information";
 			sourceTree = "<group>";
@@ -150,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				B5BCE87326F12EB500372D05 /* AppDelegate.swift */,
+				FC690E8226FA84A4003BBACE /* AppController.swift */,
+				FC690E8126FA84A1003BBACE /* AppSettings.swift */,
 				B5BCE87526F12EB500372D05 /* SceneDelegate.swift */,
 				B5BCE87C26F12EB600372D05 /* Assets.xcassets */,
 				B5BCE88126F12EB600372D05 /* Info.plist */,
@@ -206,7 +232,6 @@
 				FCFF7F1126FA4012009CCB58 /* DateEntry.swift */,
 				FCFF7F0926FA3FF5009CCB58 /* Character.swift */,
 				FCFF7F0F26FA400D009CCB58 /* Entry.swift */,
-				FCFF7F0826FA3FDE009CCB58 /* DelstunModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,7 +244,6 @@
 				FCFF7F1626FA403C009CCB58 /* EntryController.swift */,
 				FCFF7F1826FA403C009CCB58 /* JournalController.swift */,
 				FCFF7F1726FA403C009CCB58 /* LocationController.swift */,
-				FCFF7F1326FA4022009CCB58 /* Delstun Model Controllers */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -245,22 +269,12 @@
 			isa = PBXGroup;
 			children = (
 				FC690E6826FA5734003BBACE /* DateFormatter.swift */,
+				FC690E7326FA8440003BBACE /* UICollectionView+Additions.swift */,
+				FC690E7426FA8441003BBACE /* UIColor+Additions.swift */,
+				FC690E7526FA8442003BBACE /* UIImage+Additions.swift */,
+				FC690E7226FA843F003BBACE /* UIView+Additions.swift */,
 			);
 			path = "Helpers+Extensions";
-			sourceTree = "<group>";
-		};
-		FCFF7F0826FA3FDE009CCB58 /* DelstunModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DelstunModels;
-			sourceTree = "<group>";
-		};
-		FCFF7F1326FA4022009CCB58 /* Delstun Model Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Delstun Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,18 +401,28 @@
 				FCFF7F0A26FA3FF5009CCB58 /* Character.swift in Sources */,
 				FCFF7F1526FA402F009CCB58 /* CharacterController.swift in Sources */,
 				B5C4C6A026F29AD80052BAFB /* EventController.swift in Sources */,
+				FC690E8426FA84A4003BBACE /* AppController.swift in Sources */,
 				B5C4C69C26F29A250052BAFB /* Event.swift in Sources */,
 				FCFF7F1226FA4012009CCB58 /* DateEntry.swift in Sources */,
 				FCFF7F0726FA3E9B009CCB58 /* EventMainScreenViewController.swift in Sources */,
 				B5BCE87426F12EB500372D05 /* AppDelegate.swift in Sources */,
+				FC690E6D26FA79FE003BBACE /* LocationViewController.swift in Sources */,
+				FC690E7826FA8443003BBACE /* UIColor+Additions.swift in Sources */,
 				FCFF7F1D26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift in Sources */,
+				FC690E7726FA8443003BBACE /* UICollectionView+Additions.swift in Sources */,
 				B5817B2826F272AE0070271E /* AccountSettingsViewController.swift in Sources */,
 				B5C4C69726F295FE0052BAFB /* ToDo.swift in Sources */,
 				B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */,
 				FCFF7F1926FA403C009CCB58 /* EntryController.swift in Sources */,
+				FC690E6F26FA7A04003BBACE /* SearchViewController.swift in Sources */,
 				FCFF7F1B26FA403C009CCB58 /* JournalController.swift in Sources */,
+				FC690E7126FA7A0A003BBACE /* DriverDetailViewController.swift in Sources */,
+				FC690E7926FA8443003BBACE /* UIImage+Additions.swift in Sources */,
 				FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */,
 				FCFF7F1A26FA403C009CCB58 /* LocationController.swift in Sources */,
+				FC690E8326FA84A4003BBACE /* AppSettings.swift in Sources */,
+				FC690E6B26FA7887003BBACE /* EventDetailViewController.swift in Sources */,
+				FC690E7626FA8443003BBACE /* UIView+Additions.swift in Sources */,
 				B589BB7A26F8DC6C00A68588 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -58,6 +58,7 @@ class EventsTableViewController: UITableViewController {
             tabBarController?.tabBar.isHidden = true
             guard let index = tableView.indexPathForSelectedRow else { return }
             EventController.shared.currentEventIndex = index.row
+            
         }
     }
     

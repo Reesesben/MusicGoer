@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        guestButton.layer.cornerRadius = guestButton.frame.height / 2
+        //guestButton.layer.cornerRadius = guestButton.frame.height / 2
     }
     
     
