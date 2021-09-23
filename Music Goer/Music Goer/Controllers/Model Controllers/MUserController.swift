@@ -116,7 +116,7 @@ class MUserController {
                 return completion(false)
             } else {
                 self.currentUser = nil
-                guard let user = Auth.auth().currentUser else { return }
+                guard let user = Auth.auth().currentUser else { return completion(false)}
                 user.delete { error in
                     if let error = error {
                         print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")

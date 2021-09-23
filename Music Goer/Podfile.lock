@@ -441,7 +441,7 @@ PODS:
   - FirebaseStorage (8.7.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
-  - FloatingPanel (2.4.1)
+  - FloatingPanel (2.4.0)
   - GoogleAppMeasurement (8.7.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.7.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -510,20 +510,22 @@ PODS:
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.7.0)
-  - InputBarAccessoryView (5.1.0):
-    - InputBarAccessoryView/Core (= 5.1.0)
-  - InputBarAccessoryView/Core (5.1.0)
+  - InputBarAccessoryView (5.4.0):
+    - InputBarAccessoryView/Core (= 5.4.0)
+  - InputBarAccessoryView/Core (5.4.0)
   - leveldb-library (1.22.1)
-  - MessageKit (3.3.0):
-    - InputBarAccessoryView (~> 5.1.0)
+  - MessageKit (3.7.0):
+    - InputBarAccessoryView (~> 5.4.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
+  - SwiftProtobuf (1.17.0)
 
 DEPENDENCIES:
+  - AppAuth
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Firestore
@@ -532,8 +534,10 @@ DEPENDENCIES:
   - Firebase/Storage
   - FloatingPanel
   - GoogleSignIn
-  - InputBarAccessoryView (= 5.1.0)
-  - MessageKit (~> 3.3.0)
+  - GTMAppAuth
+  - InputBarAccessoryView
+  - MessageKit
+  - SwiftProtobuf
 
 SPEC REPOS:
   trunk:
@@ -565,6 +569,7 @@ SPEC REPOS:
     - MessageKit
     - nanopb
     - PromisesObjC
+    - SwiftProtobuf
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -581,7 +586,7 @@ SPEC CHECKSUMS:
   FirebaseInstallations: ede6fb72bb6337914e5888b399271259d0c4910c
   FirebaseMessaging: 93227dd71d7888e200baef65043f81acb2b6596e
   FirebaseStorage: 2e6e58fe31fb0061fdce3f156d0ebc964e9de6ba
-  FloatingPanel: 1d58b4d05af0e6286cbefa6a6922d9f6a266d855
+  FloatingPanel: fa60183672ed86313b9e241e34465e82211260e8
   GoogleAppMeasurement: 2be61ce546ad074dbe4dd545f222ac6033bb1d9e
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleSignIn: fd381840dbe7c1137aa6dc30849a5c3e070c034a
@@ -590,12 +595,13 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
-  InputBarAccessoryView: 19953f486a23e846e9487099f92bbe3456e46ce5
+  InputBarAccessoryView: 74d471ab1fa1736806be50328df79257e52865a9
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
-  MessageKit: 1f07618183be6d92b648ba7a384aafa097362a00
+  MessageKit: 8e76dd8d65ad44b49e1651c673497146416461e9
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  SwiftProtobuf: 9c85136c6ba74b0a1b84279dbf0f6db8efb714e0
 
-PODFILE CHECKSUM: 332667ca9fcc18b44270454d681dc635ac3514b3
+PODFILE CHECKSUM: 60dcc9df7de4f8389bb3439bfdae7cb6194bd3bd
 
 COCOAPODS: 1.11.2

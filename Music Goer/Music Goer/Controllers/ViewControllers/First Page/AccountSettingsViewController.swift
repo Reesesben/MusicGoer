@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 import MapKit
+import GoogleSignIn
+
 
 protocol PhotoSelectorDelegate: AnyObject {
     
@@ -87,6 +90,7 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
         MUserController.shared.deleteUser(user: currentUser) { didFinish in
             if didFinish {
                 print("Sucessfully deleted user")
+                CredentialsController.shared.deletePersistentStore()
                 DispatchQueue.main.async {
                     let storyboard = UIStoryboard(name: "Login", bundle: nil)
                     let vc = storyboard.instantiateViewController(identifier: "LoginScreen")
@@ -94,7 +98,45 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
                     self.present(vc, animated: true, completion: nil)
                 }
             } else {
+                if CredentialsController.shared.currentCredentials?.type == CredentialsConstants.googleTypeKey {
+                guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+                // Create Google Sign In configuration object.
+                let config = GIDConfiguration(clientID: clientID)
+                // Start the sign in flow!
+                GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
+                    if let error = error {
+                        print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                        return
+                    }
+                    guard let authentication = user?.authentication,
+                        let idToken = authentication.idToken else {return}
+                    
+                    let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                                   accessToken: authentication.accessToken)
+                    
+                    Auth.auth().signIn(with: credential) { authResult, error in
+                        if let error = error {
+                            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                            return
+                        }
+                        guard let user = Auth.auth().currentUser else { return }
+                        user.delete { error in
+                            if let error = error {
+                                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                            }
+                            do {
+                             try Auth.auth().signOut()
+                            } catch {
+                                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                            }
+                            CredentialsController.shared.deletePersistentStore()
+                            print("User Sucessfully deleted")
+                        }
+                    }
+                    }
+                } else {
                 print("It didn't work and I don't know why.")
+                }
             }
             
         }

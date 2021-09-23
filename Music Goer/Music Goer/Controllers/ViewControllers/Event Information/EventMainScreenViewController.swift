@@ -16,8 +16,9 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var toDoListTableView: UITableView!
     
     //MARK: - Properties
-    var characters: [Character] = []
+    var characters: [fakeUser] = []
     var date: [DateEntry] = []
+    private let currentUser: User = Auth.auth().currentUser!
 
     
     //MARK: - Life cycles
@@ -55,11 +56,10 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
 //    navigationController?.pushViewController(viewController, animated: true)
 //  }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let channel = channel[indexPath.row]
-//        let vc = ChatViewController(user: currentUser, channel: channel)
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ChannelsViewController(currentUser: currentUser)
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(CharacterController.character.count)

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Character {
+class fakeUser {
     var name: String
     var bio: String
     var photo: String

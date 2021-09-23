@@ -316,7 +316,9 @@
                                 </connections>
                             </button>
                         </subviews>
+
                         <viewLayoutGuide key="safeArea" id="ClS-QW-FNW"/>
+
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IdE-6A-FHW" secondAttribute="trailing" id="6bZ-xb-FGh"/>
