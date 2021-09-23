@@ -46,14 +46,6 @@ class CustomizeationViewController: UIViewController {
         }
     }
     
-    //MARK: - Helper Methods
-    func displayError(title: String, Body: String) {
-        let Alert = UIAlertController(title: title, message: Body, preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Okay", style: .default)
-        Alert.addAction(okay)
-        self.present(Alert, animated: true, completion: nil)
-    }
-    
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "photoPickerSegue" {

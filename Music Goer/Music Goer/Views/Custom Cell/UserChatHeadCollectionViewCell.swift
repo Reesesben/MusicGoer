@@ -11,7 +11,7 @@ class UserChatHeadCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var characterImageView: UIImageView!
     
-    var character: Character? {
+    var character: fakeUser? {
         didSet {
             layoutIfNeeded()
             displayImageFor()

@@ -16,7 +16,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var toDoListTableView: UITableView!
     
     //MARK: - Properties
-    var characters: [Character] = []
+    var characters: [fakeUser] = []
     var date: [DateEntry] = []
     private let currentUser: User = Auth.auth().currentUser!
 
