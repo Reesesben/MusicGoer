@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0DF604CBD133272719113157 /* Pods_Music_Goer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */; };
+		27B6C3DE26FBE7310020EC98 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3DD26FBE7310020EC98 /* Channel.swift */; };
+		27B6C3E026FBE75C0020EC98 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3DF26FBE75C0020EC98 /* Message.swift */; };
+		27B6C3E226FBE76A0020EC98 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3E126FBE76A0020EC98 /* Sender.swift */; };
+		27B6C3E426FBE77E0020EC98 /* ImageMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3E326FBE77E0020EC98 /* ImageMediaItem.swift */; };
+		27B6C3E826FBE8720020EC98 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3E726FBE8720020EC98 /* ChannelsViewController.swift */; };
+		27B6C3EA26FBE8880020EC98 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3E926FBE8880020EC98 /* ChatViewController.swift */; };
+		27B6C3EC26FBE8E00020EC98 /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3EB26FBE8E00020EC98 /* UICollectionView+Additions.swift */; };
+		27B6C3EE26FBE8FB0020EC98 /* DatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3ED26FBE8FB0020EC98 /* DatabaseRepresentation.swift */; };
+		27B6C3F026FBE90B0020EC98 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3EF26FBE90B0020EC98 /* UIView+Additions.swift */; };
+		27B6C3F226FBE93E0020EC98 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3F126FBE93E0020EC98 /* AppController.swift */; };
+		27B6C3F426FBE9530020EC98 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3F326FBE9530020EC98 /* AppSettings.swift */; };
 		B52E0A7D26FA53BC005B740E /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E0A7C26FA53BC005B740E /* MUser.swift */; };
 		B52E0A7F26FA5621005B740E /* MUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E0A7E26FA5621005B740E /* MUserController.swift */; };
 		B55C868826FB9C35009F31FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B55C868726FB9C35009F31FB /* Main.storyboard */; };
@@ -50,6 +61,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27B6C3DD26FBE7310020EC98 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		27B6C3DF26FBE75C0020EC98 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		27B6C3E126FBE76A0020EC98 /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
+		27B6C3E326FBE77E0020EC98 /* ImageMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMediaItem.swift; sourceTree = "<group>"; };
+		27B6C3E726FBE8720020EC98 /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
+		27B6C3E926FBE8880020EC98 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		27B6C3EB26FBE8E00020EC98 /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
+		27B6C3ED26FBE8FB0020EC98 /* DatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepresentation.swift; sourceTree = "<group>"; };
+		27B6C3EF26FBE90B0020EC98 /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
+		27B6C3F126FBE93E0020EC98 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		27B6C3F326FBE9530020EC98 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.release.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.release.xcconfig"; sourceTree = "<group>"; };
 		B52E0A7C26FA53BC005B740E /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 		B52E0A7E26FA5621005B740E /* MUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUserController.swift; sourceTree = "<group>"; };
@@ -114,6 +136,26 @@
 				F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27B6C3DC26FBE7200020EC98 /* ChatModel */ = {
+			isa = PBXGroup;
+			children = (
+				27B6C3DD26FBE7310020EC98 /* Channel.swift */,
+				27B6C3DF26FBE75C0020EC98 /* Message.swift */,
+				27B6C3E126FBE76A0020EC98 /* Sender.swift */,
+				27B6C3E326FBE77E0020EC98 /* ImageMediaItem.swift */,
+			);
+			path = ChatModel;
+			sourceTree = "<group>";
+		};
+		27B6C3E626FBE8650020EC98 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				27B6C3E726FBE8720020EC98 /* ChannelsViewController.swift */,
+				27B6C3E926FBE8880020EC98 /* ChatViewController.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		B55C868B26FB9D1C009F31FB /* Event Information */ = {
@@ -185,6 +227,8 @@
 			children = (
 				B5BCE87326F12EB500372D05 /* AppDelegate.swift */,
 				B5BCE87526F12EB500372D05 /* SceneDelegate.swift */,
+				27B6C3F126FBE93E0020EC98 /* AppController.swift */,
+				27B6C3F326FBE9530020EC98 /* AppSettings.swift */,
 				B5BCE87C26F12EB600372D05 /* Assets.xcassets */,
 				B5BCE88126F12EB600372D05 /* Info.plist */,
 				B576955126F929DB00364667 /* GoogleService-Info.plist */,
@@ -204,6 +248,7 @@
 		B5BCE88926F131C500372D05 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				27B6C3E626FBE8650020EC98 /* Chat */,
 				B5817B3426F273B70070271E /* First Page */,
 				B55C868B26FB9D1C009F31FB /* Event Information */,
 				B5817B2626F272590070271E /* Login Storyboard */,
@@ -241,7 +286,10 @@
 				FCFF7F0926FA3FF5009CCB58 /* fakeUser.swift */,
 				FCFF7F0F26FA400D009CCB58 /* Entry.swift */,
 				B52E0A7C26FA53BC005B740E /* MUser.swift */,
+
+				27B6C3DC26FBE7200020EC98 /* ChatModel */,
 				B5CE3EE126FBC86F009B9188 /* Credentials.swift */,
+
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,7 +329,13 @@
 			isa = PBXGroup;
 			children = (
 				FC690E6826FA5734003BBACE /* DateFormatter.swift */,
+
+				27B6C3EB26FBE8E00020EC98 /* UICollectionView+Additions.swift */,
+				27B6C3ED26FBE8FB0020EC98 /* DatabaseRepresentation.swift */,
+				27B6C3EF26FBE90B0020EC98 /* UIView+Additions.swift */,
+
 				B5CE3EDF26FBAB9A009B9188 /* ErrorPresent.swift */,
+
 			);
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
@@ -403,21 +457,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCFF7F1026FA400D009CCB58 /* Entry.swift in Sources */,
+				27B6C3DE26FBE7310020EC98 /* Channel.swift in Sources */,
+				27B6C3F426FBE9530020EC98 /* AppSettings.swift in Sources */,
+				27B6C3E226FBE76A0020EC98 /* Sender.swift in Sources */,
 				FCFF7F0E26FA4001009CCB58 /* ToDoList.swift in Sources */,
 				B5817B2A26F272E30070271E /* PendingInvitationsTableViewController.swift in Sources */,
 				B5CE3EE226FBC86F009B9188 /* Credentials.swift in Sources */,
 				FC690E6926FA5734003BBACE /* DateFormatter.swift in Sources */,
 				B5817B2C26F2730D0070271E /* EventsTableViewController.swift in Sources */,
+
+				27B6C3E026FBE75C0020EC98 /* Message.swift in Sources */,
+				FCFF7F0A26FA3FF5009CCB58 /* Character.swift in Sources */,
+
 				FCFF7F0A26FA3FF5009CCB58 /* fakeUser.swift in Sources */,
+
 				B55C869126FB9D2E009F31FB /* LocationViewController.swift in Sources */,
 				B55C869526FB9D2E009F31FB /* DriverDetailViewController.swift in Sources */,
 				FCFF7F1526FA402F009CCB58 /* CharacterController.swift in Sources */,
 				B5C4C6A026F29AD80052BAFB /* EventController.swift in Sources */,
 				B5C4C69C26F29A250052BAFB /* Event.swift in Sources */,
 				FCFF7F1226FA4012009CCB58 /* DateEntry.swift in Sources */,
+				27B6C3E426FBE77E0020EC98 /* ImageMediaItem.swift in Sources */,
 				B5AFDA6526FA8CB600153143 /* CustomizeationViewController.swift in Sources */,
 				B5AFDA6726FAAE1700153143 /* PhotoPickerViewController.swift in Sources */,
+				27B6C3F226FBE93E0020EC98 /* AppController.swift in Sources */,
+				27B6C3E826FBE8720020EC98 /* ChannelsViewController.swift in Sources */,
 				B5BCE87426F12EB500372D05 /* AppDelegate.swift in Sources */,
+				27B6C3F026FBE90B0020EC98 /* UIView+Additions.swift in Sources */,
 				B55C869426FB9D2E009F31FB /* EventMainScreenViewController.swift in Sources */,
 				FCFF7F1D26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift in Sources */,
 				B5AFDA6126FA8C3E00153143 /* LoginWithEmailViewController.swift in Sources */,
@@ -425,14 +491,17 @@
 				B5C4C69726F295FE0052BAFB /* ToDo.swift in Sources */,
 				B52E0A7F26FA5621005B740E /* MUserController.swift in Sources */,
 				B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */,
+				27B6C3EE26FBE8FB0020EC98 /* DatabaseRepresentation.swift in Sources */,
 				FCFF7F1926FA403C009CCB58 /* EntryController.swift in Sources */,
 				FCFF7F1B26FA403C009CCB58 /* JournalController.swift in Sources */,
 				B5CE3EE026FBAB9A009B9188 /* ErrorPresent.swift in Sources */,
 				B5CE3EE426FBC8F3009B9188 /* CredentialsController.swift in Sources */,
 				FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */,
+				27B6C3EC26FBE8E00020EC98 /* UICollectionView+Additions.swift in Sources */,
 				FCFF7F1A26FA403C009CCB58 /* LocationController.swift in Sources */,
 				B589BB7A26F8DC6C00A68588 /* LoginViewController.swift in Sources */,
 				B52E0A7D26FA53BC005B740E /* MUser.swift in Sources */,
+				27B6C3EA26FBE8880020EC98 /* ChatViewController.swift in Sources */,
 				B55C869226FB9D2E009F31FB /* EventDetailViewController.swift in Sources */,
 				B5AFDA6326FA8C5700153143 /* SignUpWithEmailViewController.swift in Sources */,
 				B55C869326FB9D2E009F31FB /* SearchViewController.swift in Sources */,

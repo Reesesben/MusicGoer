@@ -7,5 +7,5 @@ import UIKit
 public class BackdropView: UIView {
 
     /// The gesture recognizer for tap gestures to dismiss a panel.
-    @objc public var dismissalTapGestureRecognizer: UITapGestureRecognizer!
+    public var dismissalTapGestureRecognizer: UITapGestureRecognizer!
 }
