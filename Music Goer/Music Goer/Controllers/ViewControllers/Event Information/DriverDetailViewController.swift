@@ -23,6 +23,7 @@ class DriverDetailViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func driverButtonTapped(_ sender: Any) {
+        driverAlertController()
         
     }
     

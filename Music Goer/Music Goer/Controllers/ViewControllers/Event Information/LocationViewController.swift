@@ -87,7 +87,7 @@ extension LocationViewController: MKMapViewDelegate, CLLocationManagerDelegate, 
             return nil
         }
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
-        annotationView.image = UIImage(systemName: "mappin.circle.fill")
+        annotationView.image = UIImage(named: "plopdog")
         annotationView.canShowCallout = true
         annotationView.calloutOffset = CGPoint(x: -5, y: 5)
         annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
