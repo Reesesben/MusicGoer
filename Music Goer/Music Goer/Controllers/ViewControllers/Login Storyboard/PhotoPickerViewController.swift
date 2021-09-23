@@ -43,22 +43,41 @@ class PhotoPickerViewController: UIViewController, UIImagePickerControllerDelega
     //MARK: - Actions
     @IBAction func selectImageButtonTapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Add a photo", message: nil, preferredStyle: .alert)
+        //Initialize Image Picker.
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        //Create an alert controler to check where the image is coming from.
+        let alertController = UIAlertController(title: "Import image", message: nil, preferredStyle: .actionSheet)
+        let camera = UIAlertAction(title: "Take a Photo", style: .default) { _ in
+            imagePickerController.sourceType = .camera
+            self.present(imagePickerController, animated: true)
+        }
+        let photoLibrary = UIAlertAction(title: "From Library", style: .default) { _ in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (_) in
-            self.openCamera()        }
+        //Check if device has the options available and add them to the Alert Controller
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            alertController.addAction(camera)
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            alertController.addAction(photoLibrary)
+        }
+        //Add the cancle action no matter what.
+        alertController.addAction(cancel)
         
-        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (_) in
-            self.openGallery()
+        
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.maxY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
         }
         
-        alert.addAction(cancelAction)
-        alert.addAction(cameraAction)
-        alert.addAction(photoLibraryAction)
-        
-        present(alert, animated: true)
+        //Present the alert Controller to the User
+        self.present(alertController, animated: true)
     }
     
     //MARK: - Helper Methods
