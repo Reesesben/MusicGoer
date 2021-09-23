@@ -38,7 +38,7 @@ struct UserConstants {
 class MUser {
     let userID: String
     let userName: String
-    let userImage: Data
+    var userImage: Data
     let googleRef: String
     let accepted: [String]
     let pending: [String]

@@ -14,15 +14,20 @@ class SignUpWithEmailViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var confirmPasswordTextField: UITextField!
     @IBOutlet var signupButton: UIButton!
+    @IBOutlet var passwordInformationButton: UIButton!
     
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        passwordInformationButton.setTitle("", for: .normal)
         signupButton.layer.cornerRadius = signupButton.frame.height / 2
     }
     
     //MARK: - Actions
+    @IBAction func passwordInfoPressed(_ sender: Any) {
+        displayError(title: "Password Format", Body: "Password must be 8 characters long and contain 1 symbol")
+    }
     @IBAction func signUpButtonTapped(_ sender: Any) {
         if signupButton.title(for: .normal) == "Sign Up" {
         guard let email = emailTextField.text,

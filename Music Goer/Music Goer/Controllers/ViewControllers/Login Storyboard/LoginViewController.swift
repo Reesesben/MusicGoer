@@ -19,11 +19,16 @@ class LoginViewController: UIViewController {
     
     
     //MARK: - Lifecycles
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         guestButton.layer.cornerRadius = guestButton.frame.height / 2
         loginWithEmailButton.layer.cornerRadius = loginWithEmailButton.frame.height / 2
         signUpEmailButton.layer.cornerRadius = signUpEmailButton.frame.height / 2
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         CredentialsController.shared.loadFromPresistenceStore { sucess in
             if sucess {
                 guard let credentials = CredentialsController.shared.currentCredentials else { return }
