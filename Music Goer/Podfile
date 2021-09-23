@@ -14,8 +14,11 @@ target 'Music Goer' do
   pod 'Firebase/Storage'
   pod 'Firebase/InAppMessaging'
   pod 'GoogleSignIn'
+  pod 'AppAuth'
+  pod 'GTMAppAuth'
+  pod 'InputBarAccessoryView'
+  pod 'MessageKit'
+  pod 'SwiftProtobuf'
   pod 'FloatingPanel'
-  pod 'MessageKit', '~> 3.3.0'
-  pod 'InputBarAccessoryView', '5.1.0'
-
+  
 end
