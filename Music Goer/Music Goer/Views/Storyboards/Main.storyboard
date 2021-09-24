@@ -19,7 +19,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R7u-AD-cdr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="Xlx-9K-9ux" kind="relationship" relationship="viewControllers" id="ojo-an-T34"/>
@@ -47,6 +47,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="J9e-eJ-FP9" kind="show" identifier="toEventDetail" id="Vwn-kS-Vuq"/>
                                 </connections>
@@ -188,7 +189,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ItP-3f-mG2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="invitationCell" id="w48-vl-hYA">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
@@ -197,6 +198,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.02" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -397,12 +399,12 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ad3-RS-QZN">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Person" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xub-6Z-b7K">
                                         <rect key="frame" x="0.0" y="42" width="290" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -444,13 +446,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who's Driving?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNI-Iq-M5H">
                                 <rect key="frame" x="15" y="96" width="384" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iz8-Uf-WTP">
                                 <rect key="frame" x="15" y="125" width="384" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s93-cp-ehD">
@@ -460,12 +462,19 @@
                                     <action selector="driverButtonTapped:" destination="xdx-GV-FsU" eventType="touchUpInside" id="4mm-LL-wJ6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWA-rG-jP6">
-                                <rect key="frame" x="82" y="302" width="250" height="222"/>
-                                <state key="normal" title="Button" image="maps"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7P-dB-Xk2">
+                                <rect key="frame" x="19.5" y="285" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="4uK-JO-5Tq"/>
+                                    <constraint firstAttribute="width" constant="375" id="j0T-M4-otq"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title=" " image="Aatrox">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                </state>
                                 <connections>
-                                    <action selector="mapsButtonTapped:" destination="xdx-GV-FsU" eventType="touchUpInside" id="WCZ-R5-qYA"/>
-                                    <segue destination="5we-34-iDi" kind="show" id="BDh-P1-Ojm"/>
+                                    <action selector="mapsButtonTapped:" destination="xdx-GV-FsU" eventType="touchUpInside" id="61P-QV-4or"/>
+                                    <segue destination="5we-34-iDi" kind="show" id="bu2-GY-TWD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -473,16 +482,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mTt-FJ-mx0" firstAttribute="trailing" secondItem="ZNI-Iq-M5H" secondAttribute="trailing" constant="15" id="2bI-jY-jxs"/>
-                            <constraint firstItem="mTt-FJ-mx0" firstAttribute="trailing" secondItem="EWA-rG-jP6" secondAttribute="trailing" constant="82" id="9vr-li-Nwn"/>
+                            <constraint firstItem="mTt-FJ-mx0" firstAttribute="bottom" secondItem="I7P-dB-Xk2" secondAttribute="bottom" constant="153" id="5u6-kK-aUq"/>
+                            <constraint firstItem="I7P-dB-Xk2" firstAttribute="top" secondItem="s93-cp-ehD" secondAttribute="bottom" constant="122" id="8Ea-II-bRJ"/>
                             <constraint firstItem="ZNI-Iq-M5H" firstAttribute="leading" secondItem="mTt-FJ-mx0" secondAttribute="leading" constant="15" id="NFe-KE-ZJS"/>
                             <constraint firstItem="mTt-FJ-mx0" firstAttribute="trailing" secondItem="iz8-Uf-WTP" secondAttribute="trailing" constant="15" id="Ogt-Lz-lFz"/>
                             <constraint firstItem="ZNI-Iq-M5H" firstAttribute="top" secondItem="mTt-FJ-mx0" secondAttribute="top" constant="8" id="Pe2-GG-dmY"/>
-                            <constraint firstItem="mTt-FJ-mx0" firstAttribute="bottom" secondItem="EWA-rG-jP6" secondAttribute="bottom" constant="289" id="TVa-bW-C9g"/>
                             <constraint firstItem="s93-cp-ehD" firstAttribute="leading" secondItem="mTt-FJ-mx0" secondAttribute="leading" constant="15" id="bUO-fv-xfH"/>
+                            <constraint firstItem="I7P-dB-Xk2" firstAttribute="centerX" secondItem="s93-cp-ehD" secondAttribute="centerX" id="ePA-6a-fLs"/>
                             <constraint firstItem="mTt-FJ-mx0" firstAttribute="trailing" secondItem="s93-cp-ehD" secondAttribute="trailing" constant="15" id="iHv-Pv-UEu"/>
                             <constraint firstItem="iz8-Uf-WTP" firstAttribute="leading" secondItem="mTt-FJ-mx0" secondAttribute="leading" constant="15" id="iPz-e9-f9b"/>
-                            <constraint firstItem="EWA-rG-jP6" firstAttribute="top" secondItem="s93-cp-ehD" secondAttribute="bottom" constant="139" id="nGk-7n-Q1N"/>
-                            <constraint firstItem="EWA-rG-jP6" firstAttribute="leading" secondItem="mTt-FJ-mx0" secondAttribute="leading" constant="82" id="oNK-us-Uuc"/>
                             <constraint firstItem="s93-cp-ehD" firstAttribute="top" secondItem="iz8-Uf-WTP" secondAttribute="bottom" constant="8" symbolic="YES" id="rZU-4q-i9y"/>
                             <constraint firstItem="iz8-Uf-WTP" firstAttribute="top" secondItem="ZNI-Iq-M5H" secondAttribute="bottom" constant="8" symbolic="YES" id="uGg-Tr-fjK"/>
                         </constraints>
@@ -490,16 +498,17 @@
                     <navigationItem key="navigationItem" id="nTP-Cd-GUp"/>
                     <connections>
                         <outlet property="driverLabel" destination="iz8-Uf-WTP" id="tXV-Rd-f4h"/>
-                        <outlet property="mapsButton" destination="EWA-rG-jP6" id="F2d-am-NQW"/>
+                        <outlet property="mapsButton" destination="I7P-dB-Xk2" id="CSi-QF-oqJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="loY-YR-FWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1990" y="-22"/>
+            <point key="canvasLocation" x="1989.8550724637682" y="-22.098214285714285"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="boX-oo-2rq">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i4b-IL-Jd8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MapsViewController" id="5we-34-iDi" customClass="LocationViewController" customModule="Music_Goer" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Znr-Rq-76d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -509,19 +518,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="Jbr-e9-Vd9"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i4b-IL-Jd8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2754" y="-22"/>
+            <point key="canvasLocation" x="2841" y="-22"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="6o7-3y-YqD"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Aatrox" width="1600" height="900"/>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="car" catalog="system" width="128" height="93"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
-        <image name="maps" width="1280" height="728"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="secondaryLabelColor">

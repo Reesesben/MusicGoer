@@ -58,7 +58,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         EventController.shared.fetchTodos(for: event, completion: {
             self.toDoListTableView.reloadData()
         })
-        
+
     }
     // MARK: UICollectionViewDataSource
     
