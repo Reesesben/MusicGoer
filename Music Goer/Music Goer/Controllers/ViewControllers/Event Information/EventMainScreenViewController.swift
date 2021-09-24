@@ -68,7 +68,9 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     //  }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = ChannelsViewController(currentUser: currentUser)
+        let vc = ChannelsViewController(currentUser: currentUser, event: event!)
+        guard let event = event else { return }
+        vc.events = event
         navigationController?.pushViewController(vc, animated: true)
     }
     
