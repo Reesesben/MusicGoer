@@ -16,10 +16,18 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var toDoListTableView: UITableView!
     
     //MARK: - Properties
-    var characters: [fakeUser] = []
-    var date: [DateEntry] = []
+    var members: [UIImage] = [] {
+        didSet {
+            chatHeadCollectionView?.reloadData()
+        }
+    }
+    var event: Event? {
+        didSet {
+           getPhotos()
+        }
+    }
     private let currentUser: User = Auth.auth().currentUser!
-
+    
     
     //MARK: - Life cycles
     override func viewDidLoad() {
@@ -31,30 +39,33 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         toDoListTableView.delegate = self
         toDoListTableView.dataSource = self
         chatHeadCollectionView.reloadData()
-        
     }
     
     //MARK: - Helper funcs
     
+    func getPhotos() {
+        guard let event = event else { return }
+        EventController.shared.getPhoto(userRefs: event.members, completion: { images in
+            print(images.count)
+                self.members = images
+        })
+    }
+    
     func updateViews() {
         loadViewIfNeeded()
         chatHeadCollectionView.reloadData()
+        guard let event = event else { return }
+        EventController.shared.fetchTodos(for: event, completion: {
+            self.toDoListTableView.reloadData()
+        })
         
     }
-    
-    //MARK: - Actions
-    
-    @IBAction func addButtonTapped(_ sender: Any) {
-        addToAssignList()
-    }
-    
-    
     // MARK: UICollectionViewDataSource
     
-//    let channel = channels[indexPath.row]
-//    let viewController = ChatViewController(user: currentUser, channel: channel)
-//    navigationController?.pushViewController(viewController, animated: true)
-//  }
+    //    let channel = channels[indexPath.row]
+    //    let viewController = ChatViewController(user: currentUser, channel: channel)
+    //    navigationController?.pushViewController(viewController, animated: true)
+    //  }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = ChannelsViewController(currentUser: currentUser)
@@ -62,18 +73,14 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(CharacterController.character.count)
-        return CharacterController.character.count
+        return members.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatHeadCell", for: indexPath) as? UserChatHeadCollectionViewCell else {return UICollectionViewCell() }
         
-        let character = CharacterController.character[indexPath.row]
-        
-        cell.character = character
-        cell.displayImageFor()
+        cell.member = members[indexPath.row]
         
         return cell
     }
@@ -81,16 +88,17 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     //MARK: - TableView things
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return JournalController.sharedInstance.journals.count
+        guard let event = event else { return 0}
+        return event.todos.count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let journal = JournalController.sharedInstance.journals[indexPath.row]
-            JournalController.sharedInstance.deleteJournal(journal: journal)
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
+            guard let event = event else { return }
+            let todo = event.todos[indexPath.row]
+            EventController.shared.deleteToDo(event: event, todo: todo, completion: { _ in
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            })
         }
     }
     
@@ -98,58 +106,35 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "toDoListTableViewCell", for: indexPath)
         
-        let journal = JournalController.sharedInstance.journals[indexPath.row]
+        guard let event = event else { return UITableViewCell()}
         
-        cell.textLabel?.text = journal.title
-        cell.detailTextLabel?.text = journal.name
+        cell.textLabel?.text = event.todos[indexPath.row].title
+        cell.detailTextLabel?.text = event.todos[indexPath.row].person
         
         return cell
     }
     
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "toListDetailVC" {
-                guard let index = toDoListTableView.indexPathForSelectedRow,
-                      let destinationVC = segue.destination as?
-                        EventDetailViewController else { return }
-                let event = JournalController.sharedInstance.journals[index.row]
-                destinationVC.journal = event
-    
-            }
-        }
-    
-    
-    func addToAssignList() {
-        
-        let alert = UIAlertController(title: "Create and assign.", message: "Add title", preferredStyle: .alert)
-        
-        alert.addTextField { toDoList in
-            toDoList.placeholder = "Write To Do here...."
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toListDetailVC" {
+            guard let index = toDoListTableView.indexPathForSelectedRow,
+                  let destinationVC = segue.destination as? TodoDetailViewController,
+                  let event = event else { return }
+            destinationVC.event = event
+            destinationVC.delegate = self
+            destinationVC.todo = event.todos[index.row]
             
+        } else if segue.identifier == "newTodo" {
+            guard let destinationVC = segue.destination as? TodoDetailViewController,
+                  let event = event else { return }
+            destinationVC.event = event
+            destinationVC.delegate = self
         }
-        
-        alert.addTextField { assigningTo in
-            assigningTo.placeholder = "Who is in charge of this?"
-            
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        let addAction = UIAlertAction(title: "Add", style: .default) { _ in
-            
-            guard let assignmentTitle = alert.textFields![0].text,
-                  let nameLabel = alert.textFields![1].text else { return }
-            
-            JournalController.sharedInstance.createJournal(title: assignmentTitle, name: nameLabel, date: Date())
-            self.toDoListTableView.reloadData()
-        }
-        
-        alert.addAction(cancelAction)
-        alert.addAction(addAction)
-        
-        present(alert, animated: true)
-        
     }
-    
-    
-    
+}
+
+extension EventMainScreenViewController: TodoDetailDelegate {
+    func didUpdateToDo() {
+        self.toDoListTableView.reloadData()
+    }
 }

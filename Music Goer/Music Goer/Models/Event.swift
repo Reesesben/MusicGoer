@@ -8,15 +8,27 @@
 import Foundation
 import CoreLocation
 
+struct EventConstants {
+    static let RecordTypeKey = "Event"
+    static let eventIDKey = "EventID"
+    static let titleKey = "Title"
+    static let addressKey = "address"
+    static let dateKey = "EventDate"
+    static let membersKey = "MemberIDs"
+    static let todosKey = "Todos"
+}
+
 class Event {
     let title: String
+    let eventID: String
     var todos: [ToDo]
-    let address: CLLocationCoordinate2D
+    let address: String
     let date: Date
-    let members: [String]
+    var members: [String]
     
-    init(title: String, todos: [ToDo], address: CLLocationCoordinate2D, date: Date, members: [String]) {
+    init(title: String, eventID: String = UUID().uuidString, todos: [ToDo], address: String, date: Date, members: [String]) {
         self.title = title
+        self.eventID = eventID
         self.todos = todos
         self.address = address
         self.date = date
@@ -26,6 +38,6 @@ class Event {
 
 extension Event: Equatable {
     static func == (lhs: Event, rhs: Event) -> Bool {
-        return lhs.title == rhs.title && lhs.date == rhs.date
+        return lhs.eventID == rhs.eventID && lhs.title == rhs.title
     }
 }
