@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,60 +19,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Music Goer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P63-do-k8Y">
-                                <rect key="frame" x="46" y="190" width="322" height="37"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="30m-de-vr4">
-                                <rect key="frame" x="83" y="251" width="248" height="448"/>
+                                <rect key="frame" x="82" y="363" width="250" height="224"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zm7-5e-Csi">
-                                        <rect key="frame" x="0.0" y="0.0" width="248" height="106"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zm7-5e-Csi">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Login With Email"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="𝙇𝙤𝙜𝙞𝙣 𝙒𝙞𝙩𝙝 𝙀𝙢𝙖𝙞𝙡">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                        </state>
                                         <connections>
                                             <segue destination="Kdq-Df-NmY" kind="show" id="Aob-yi-NsX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQq-oK-4y6">
-                                        <rect key="frame" x="0.0" y="114" width="248" height="106"/>
+                                        <rect key="frame" x="0.0" y="58" width="250" height="50"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="dqz-gT-pDY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Sign Up With Email"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="𝙎𝙞𝙜𝙣 𝙐𝙥 𝙒𝙞𝙩𝙝 𝙀𝙢𝙖𝙞𝙡">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                        </state>
                                         <connections>
                                             <segue destination="J90-UL-P61" kind="show" id="deB-dO-ahj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxX-qs-1Wa">
-                                        <rect key="frame" x="0.0" y="228" width="248" height="106"/>
+                                        <rect key="frame" x="0.0" y="116" width="250" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="tintColor" systemColor="labelColor"/>
-                                        <state key="normal" title="Contiune as Guest"/>
+                                        <state key="normal" title="𝙂𝙪𝙚𝙨𝙩 𝙎𝙞𝙜𝙣 𝙄𝙣">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="guestButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="48X-qU-pRj"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apq-j6-EAP" customClass="GIDSignInButton">
-                                        <rect key="frame" x="0.0" y="342" width="248" height="106"/>
+                                        <rect key="frame" x="0.0" y="174" width="250" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <action selector="googleSignInButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zdR-rX-HLC"/>
                                         </connections>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Zgp-cr-e8p"/>
+                                </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MusicGoersLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-AE-55g">
+                                <rect key="frame" x="70" y="164" width="274" height="179"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="P63-do-k8Y" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="G75-bI-Rgl"/>
-                            <constraint firstItem="30m-de-vr4" firstAttribute="top" secondItem="P63-do-k8Y" secondAttribute="bottom" constant="24" id="IBv-mS-yMd"/>
-                            <constraint firstItem="30m-de-vr4" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.6" id="rcA-R3-RDB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Y5i-AE-55g" secondAttribute="trailing" constant="70" id="1g4-MU-eYf"/>
+                            <constraint firstItem="Y5i-AE-55g" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="70" id="HeT-wX-ErB"/>
+                            <constraint firstItem="30m-de-vr4" firstAttribute="top" secondItem="Y5i-AE-55g" secondAttribute="bottom" constant="20" id="MHJ-Jb-Tkv"/>
                             <constraint firstItem="30m-de-vr4" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="sDF-iu-7hM"/>
                             <constraint firstItem="30m-de-vr4" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="sSJ-YS-0ad"/>
                         </constraints>
@@ -101,14 +114,11 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOZ-kY-tZF">
                                         <rect key="frame" x="0.0" y="0.0" width="248" height="34"/>
-                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                        <color key="tintColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mag-ZK-rMB">
                                         <rect key="frame" x="0.0" y="56" width="248" height="34"/>
-                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -116,11 +126,13 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vK6-j4-cih">
-                                <rect key="frame" x="103.5" y="528" width="207" height="31"/>
+                                <rect key="frame" x="103.5" y="528" width="207" height="38"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                                <buttonConfiguration key="configuration" style="plain" title="𝙇𝙤𝙜𝙞𝙣">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="LoginWasTapped:" destination="Kdq-Df-NmY" eventType="touchUpInside" id="AzZ-6N-SZw"/>
                                 </connections>
@@ -167,7 +179,6 @@
                             </containerView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHj-GG-QGz">
                                 <rect key="frame" x="83" y="382" width="248" height="34"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -219,21 +230,18 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e4W-JZ-CIB">
                                         <rect key="frame" x="0.0" y="0.0" width="248" height="34"/>
-                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Wx-T5-7IU">
                                         <rect key="frame" x="0.0" y="42" width="248" height="34"/>
-                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aby-eB-mti">
                                         <rect key="frame" x="0.0" y="84" width="248" height="34"/>
-                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
@@ -241,11 +249,13 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGw-Wk-zfG">
-                                <rect key="frame" x="103.5" y="542" width="207" height="31"/>
+                                <rect key="frame" x="103.5" y="542" width="207" height="38"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
+                                <buttonConfiguration key="configuration" style="plain" title="𝙎𝙞𝙜𝙣 𝙐𝙥">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="signUpButtonTapped:" destination="J90-UL-P61" eventType="touchUpInside" id="uL9-Ur-Gsh"/>
                                 </connections>
@@ -256,7 +266,9 @@
                                     <constraint firstAttribute="width" secondItem="qF0-gD-4Lh" secondAttribute="height" multiplier="1:1" id="V0d-ai-PbK"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="info.circle" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="passwordInfoPressed:" destination="J90-UL-P61" eventType="touchUpInside" id="hSJ-ya-984"/>
                                 </connections>
@@ -353,6 +365,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="MusicGoersLogo" width="300" height="179"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -362,9 +375,6 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

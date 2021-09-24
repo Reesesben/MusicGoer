@@ -14,6 +14,7 @@ class EventsTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         tabBarController?.tabBar.isHidden = false
+        tableView.addSubview(refresh)
         print("Attempting to fetch events")
         EventController.shared.fetchEvents { sucess in
             if sucess {
@@ -32,12 +33,51 @@ class EventsTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
     }
+    
+    @objc func updateViews() {
+        
+        EventController.shared.fetchEvents { success in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.refresh.endRefreshing()
+            }
+        }
+    }
+    
+    func setupViews() {
+        refresh.addTarget(self, action: #selector(updateViews), for: .valueChanged)
+    }
+    
+    func colorGradient() {
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.view.bounds
+        
+        gradientLayer.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.yellow]
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    var refresh: UIRefreshControl = UIRefreshControl()
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return EventController.shared.events.count
+    }
+    
+    override func viewDidLayoutSubviews() {
+//        
+//        let gradientLayer = CAGradientLayer()
+//        
+//        gradientLayer.frame = self.view.bounds
+//        
+//        gradientLayer.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.yellow]
+//        
+//        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

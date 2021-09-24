@@ -23,6 +23,7 @@ class TodoDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        colorGradient()
         updateViews()
         
     }
@@ -63,6 +64,17 @@ class TodoDetailViewController: UIViewController {
         personTextField.text = todo.person
         dueDatePicker.date = todo.dueDate
         
+    }
+    
+    func colorGradient() {
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.view.bounds
+        
+        gradientLayer.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.yellow]
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     

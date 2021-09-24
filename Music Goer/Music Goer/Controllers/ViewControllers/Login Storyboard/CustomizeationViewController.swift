@@ -16,10 +16,24 @@ class CustomizeationViewController: UIViewController {
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        colorGradient()
         finishButton.layer.cornerRadius = finishButton.frame.height / 2
+        
     }
     //MARK: - Properties
     var userImage: UIImage?
+    
+    //MARK: - Helper Func
+    func colorGradient() {
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.view.bounds
+        
+        gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.red.cgColor, UIColor.red.cgColor, UIColor.systemOrange.cgColor, UIColor.yellow.cgColor]
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
     
     //MARK: - Actions
     @IBAction func finishButtonTapped(_ sender: Any) {

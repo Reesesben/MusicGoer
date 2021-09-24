@@ -25,6 +25,7 @@ class PhotoPickerViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        colorGradient()
         setupViews()
         imagePicker.delegate = self
         imagePicker.modalPresentationStyle = .currentContext
@@ -32,7 +33,7 @@ class PhotoPickerViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        colorGradient()
         //view.backgroundColor = .black
         userImage.layer.cornerRadius = userImage.frame.height / 2
         userImage.contentMode = .scaleAspectFill
@@ -40,11 +41,24 @@ class PhotoPickerViewController: UIViewController, UIImagePickerControllerDelega
         //userImage.backgroundColor = .black
     }
     
+    //MARK: - Helper Func
+    func colorGradient() {
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.view.bounds
+        
+        gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.red.cgColor, UIColor.red.cgColor, UIColor.systemOrange.cgColor, UIColor.yellow.cgColor]
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
     //MARK: - Actions
     @IBAction func selectImageButtonTapped(_ sender: Any) {
         
         //Initialize Image Picker.
         let imagePickerController = UIImagePickerController()
+        imagePickerController.allowsEditing = true
         imagePickerController.delegate = self
         
         //Create an alert controler to check where the image is coming from.
