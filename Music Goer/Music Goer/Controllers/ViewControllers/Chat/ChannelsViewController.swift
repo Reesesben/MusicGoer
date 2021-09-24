@@ -35,6 +35,9 @@ import FirebaseAuth
 import FirebaseFirestore
 
 final class ChannelsViewController: UITableViewController {
+    
+    static let shared = ChannelsViewController(currentUser: Auth.auth().currentUser!)
+    
   private let toolbarLabel: UILabel = {
     let label = UILabel()
     label.textAlignment = .center
@@ -50,7 +53,7 @@ final class ChannelsViewController: UITableViewController {
     return database.collection("channels")
   }
 
-  private var channels: [Channel] = []
+  var channels: [Channel] = []
   private var channelListener: ListenerRegistration?
 
   private let currentUser: User
