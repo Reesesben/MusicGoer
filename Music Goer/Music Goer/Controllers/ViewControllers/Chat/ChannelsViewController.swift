@@ -36,7 +36,7 @@ import FirebaseFirestore
 
 final class ChannelsViewController: UITableViewController {
     
-    static let shared = ChannelsViewController(currentUser: Auth.auth().currentUser!)
+    var events: Event
     
   private let toolbarLabel: UILabel = {
     let label = UILabel()
@@ -50,7 +50,7 @@ final class ChannelsViewController: UITableViewController {
 
   private let database = Firestore.firestore()
   private var channelReference: CollectionReference {
-    return database.collection("channels")
+    return database.collection(EventConstants.RecordTypeKey).document(events.eventID).collection("channels")
   }
 
   var channels: [Channel] = []
@@ -62,10 +62,10 @@ final class ChannelsViewController: UITableViewController {
     channelListener?.remove()
   }
 
-  init(currentUser: User) {
+    init(currentUser: User, event: Event) {
     self.currentUser = currentUser
+    self.events = event
     super.init(style: .grouped)
-
     title = "Channels"
   }
 
