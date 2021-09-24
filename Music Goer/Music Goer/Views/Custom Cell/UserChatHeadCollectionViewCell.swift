@@ -11,7 +11,7 @@ class UserChatHeadCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var characterImageView: UIImageView!
     
-    var character: fakeUser? {
+    var member: UIImage? {
         didSet {
             layoutIfNeeded()
             displayImageFor()
@@ -19,9 +19,9 @@ class UserChatHeadCollectionViewCell: UICollectionViewCell {
     }
     
     func displayImageFor() {
-        guard let character = character else { return }
+        guard let member = member else { return }
         //let image = UIImage(named: character.photo)
-        characterImageView.image = UIImage(named: character.photo)
+        characterImageView.image = member
 
         characterImageView.contentMode = .scaleAspectFill
         characterImageView.layer.cornerRadius = 50

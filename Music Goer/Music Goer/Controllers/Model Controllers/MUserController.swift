@@ -30,7 +30,6 @@ class MUserController {
      - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
      */
     func createUser(userName: String, userImage: Data, googleRef: String, completion: @escaping () -> Void) {
-        //BEREK Get google ref
         currentUser = MUser(userName: userName, userImageData: userImage, googleRef: googleRef, lastReport: nil)
         guard let currentUser = currentUser else {return}
         saveUser(user: currentUser, completion: {

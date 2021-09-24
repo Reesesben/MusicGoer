@@ -7,19 +7,34 @@
 
 import UIKit
 
+struct ToDoConstants {
+    static let RecordTypeKey = "Todo"
+    static let todoIDKey = "EventID"
+    static let titleKey = "Title"
+    static let person = "Person"
+    static let dueDate = "dueDate"
+    static let isComplete = "isComplete"
+}
+
 class ToDo {
-    let image: UIImage?
-    let title: String
-    let category: String
-    let dueDate: Date?
+    let todoID: String
+    var title: String
+    var person: String
+    var dueDate: Date
     var isComplete: Bool
 
-    init(image: UIImage?, title: String, category: String, dueDate: Date?, isComplete: Bool) {
-        self.image = image
+    init(todoID: String = UUID().uuidString, title: String, person: String, dueDate: Date, isComplete: Bool) {
+        self.todoID = todoID
         self.title = title
-        self.category = category
+        self.person = person
         self.dueDate = dueDate
         self.isComplete = isComplete
     }
     
+}
+
+extension ToDo: Equatable {
+    static func == (lhs: ToDo, rhs: ToDo) -> Bool {
+        return lhs.title == rhs.title && lhs.person == rhs.person && rhs.todoID == lhs.todoID
+    }
 }

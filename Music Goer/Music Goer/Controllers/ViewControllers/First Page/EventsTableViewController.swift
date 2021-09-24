@@ -11,13 +11,24 @@ import CoreLocation
 class EventsTableViewController: UITableViewController {
     
     //MARK: - Lifecycles
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         tabBarController?.tabBar.isHidden = false
-        if EventController.shared.events.count == 0 {
-            EventController.shared.createEvent(title: "Test Event (EventsTableViewController)", address: CLLocationCoordinate2D(latitude: 1.0, longitude: 10.0), date: Date(), members: ["Test"])
-            tableView.reloadData()
+        print("Attempting to fetch events")
+        EventController.shared.fetchEvents { sucess in
+            if sucess {
+                print("Sucessfully retrieved Events")
+                if EventController.shared.events.count == 0 {
+                    EventController.shared.createEvent(title: "Test Event", address: "New York City", date: Date(), members: ["ACDC9B5F-EB75-4B65-AC12-C83C10EA0998", "5F902D19-BD15-4F26-8663-5670BF3D2DD6"], completion: {
+                        self.tableView.reloadData()
+                    })
+                } else {
+                    self.tableView.reloadData()
+                    print("Number of TODOS \(EventController.shared.events[0].todos.count)")
+                }
+            }
         }
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,23 +52,19 @@ class EventsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let event = EventController.shared.events[indexPath.row]
-            EventController.shared.deleteEvent(event: event)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            EventController.shared.leaveEvent(event: event, completion: {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            })
         }
-    }
-    
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let event = EventController.shared.events[fromIndexPath.row]
-        EventController.shared.moveEvent(event: event, newIndex: to.row)
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEventDetail" {
             tabBarController?.tabBar.isHidden = true
-            guard let index = tableView.indexPathForSelectedRow else { return }
-            EventController.shared.currentEventIndex = index.row
+            guard let index = tableView.indexPathForSelectedRow,
+                  let destination = segue.destination as? EventMainScreenViewController else { return }
+            destination.event = EventController.shared.events[index.row]
         }
     }
     
