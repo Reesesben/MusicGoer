@@ -19,11 +19,11 @@ struct EventConstants {
 }
 
 class Event {
-    let title: String
+    var title: String
     let eventID: String
     var todos: [ToDo]
-    let address: String
-    let date: Date
+    var address: String
+    var date: Date
     var members: [String]
     
     init(title: String, eventID: String = UUID().uuidString, todos: [ToDo], address: String, date: Date, members: [String]) {

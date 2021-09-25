@@ -17,6 +17,12 @@ class MUserController {
     ///Reference to the main firestore where the app reads and writes data
     let db = Firestore.firestore()
     
+    var dateFormatter: DateFormatter {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MM-dd-yyyy HH:mm"
+        return dateformatter
+    }
+    
     //MARK: - CRUD Functions
     /**
      Method creates a user and saves information to the databse stored along side the google Auth user.
@@ -53,12 +59,12 @@ class MUserController {
                          UserConstants.userNameKey : user.userName,
                          UserConstants.imageDataKey : user.userImage,
                          UserConstants.googleRefKey : user.googleRef,
-                         UserConstants.acceptedKey : user.accepted,
                          UserConstants.pendingKey : user.pending,
                          UserConstants.reportsKey : user.reports,], merge: true)
         
         if let lastReport = user.lastReport {
-            userRef.setData([UserConstants.lastReportKey : lastReport], merge: true)
+            let date = dateFormatter.string(from: lastReport)
+            userRef.setData([UserConstants.lastReportKey : date], merge: true)
         }
         print("User saved sucessfully")
         return completion()
@@ -87,15 +93,92 @@ class MUserController {
                       let userName = userData[UserConstants.userNameKey] as? String,
                       let imageData = userData[UserConstants.imageDataKey] as? Data,
                       let googleRef = userData[UserConstants.googleRefKey] as? String,
-                      let accepted = userData[UserConstants.acceptedKey] as? [String],
                       let pending = userData[UserConstants.pendingKey] as? [String],
                       let reports = userData[UserConstants.reportsKey] as? Int else { return completion(false)}
+                var date: Date? = nil
+                if let lastReport = userData[UserConstants.lastReportKey] as? String {
+                    date = self.dateFormatter.date(from: lastReport)
+                }
                 
-                let lastReport = userData[UserConstants.lastReportKey] as? Date ?? nil
                 
-                self.currentUser = MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, accepted: accepted, pending: pending, reports: reports, lastReport: lastReport)
+                self.currentUser = MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date)
                 return completion(true)
             } else { return completion(false) }
+        }
+    }
+    
+    func searchUser(userName: String, completion: @escaping ([MUser]?, Bool?) -> Void) {
+        db.collection(UserConstants.recordTypeKey).whereField(UserConstants.userNameKey, isGreaterThanOrEqualTo: userName).getDocuments { snapshot, error in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                return completion(nil, true)
+            }
+            var users: [MUser] = []
+            if let snapshot = snapshot {
+                for doc in snapshot.documents {
+                let userData = doc.data()
+                guard let userID = userData[UserConstants.userIDKey] as? String,
+                      let userName = userData[UserConstants.userNameKey] as? String,
+                      let imageData = userData[UserConstants.imageDataKey] as? Data,
+                      let googleRef = userData[UserConstants.googleRefKey] as? String,
+                      let pending = userData[UserConstants.pendingKey] as? [String],
+                      let reports = userData[UserConstants.reportsKey] as? Int else { return completion(nil, true)}
+                
+                var date: Date? = nil
+                if let lastReport = userData[UserConstants.lastReportKey] as? String {
+                    date = self.dateFormatter.date(from: lastReport)
+                }
+                
+                users.append(MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date))
+                }
+                return completion(users, nil)
+            } else { return completion(nil, false) }
+        }
+    }
+    
+    func getUsers(userNames: [String], completion: @escaping ([MUser]?, Bool?) -> Void) {
+        db.collection(UserConstants.recordTypeKey).whereField(UserConstants.userIDKey, in: userNames).getDocuments { snapshot, error in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                return completion(nil, true)
+            }
+            var users: [MUser] = []
+            if let snapshot = snapshot {
+                for doc in snapshot.documents {
+                let userData = doc.data()
+                guard let userID = userData[UserConstants.userIDKey] as? String,
+                      let userName = userData[UserConstants.userNameKey] as? String,
+                      let imageData = userData[UserConstants.imageDataKey] as? Data,
+                      let googleRef = userData[UserConstants.googleRefKey] as? String,
+                      let pending = userData[UserConstants.pendingKey] as? [String],
+                      let reports = userData[UserConstants.reportsKey] as? Int else { return completion(nil, true)}
+                
+                var date: Date? = nil
+                if let lastReport = userData[UserConstants.lastReportKey] as? String {
+                    date = self.dateFormatter.date(from: lastReport)
+                }
+                
+                users.append(MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date))
+                }
+                return completion(users, nil)
+            } else { return completion(nil, false) }
+        }
+    }
+    
+    func inviteUsers(memberRefs: [String], eventID: String, completion: @escaping (Bool) -> Void) {
+        MUserController.shared.getUsers(userNames: memberRefs) { users, error in
+            if error != nil {
+                return completion(false)
+            }
+            
+            guard let users = users else { return }
+            for user in users {
+                user.pending.append(eventID)
+                let userRef = self.db.collection(UserConstants.recordTypeKey).document(user.userID)
+                userRef.setData([UserConstants.pendingKey : user.pending], merge: true)
+                print("Added user \(user.userName) to event")
+            }
+            return completion(true)
         }
     }
     

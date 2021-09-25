@@ -22,12 +22,23 @@ class EventController {
     var events: [Event] = []
     
     //MARK: - CRUD Functions
-    func createEvent(title: String, address: String, date: Date, members: [String], completion: @escaping () -> Void) {
-        let newEvent = Event(title: title, todos: [], address: address, date: date, members: members)
-        updateEvent(event: newEvent, completion: {
-            print("Event Created Sucessfully")
-            return completion()
-        })
+    func createEvent(title: String, address: String, date: Date, members: [String], completion: @escaping (Bool) -> Void) {
+        guard let admin = members.first else { return }
+        var toInvite = members
+        toInvite.remove(at: 0)
+        let newEvent = Event(title: title, todos: [], address: address, date: date, members: [admin])
+        if toInvite.count > 0 {
+            MUserController.shared.inviteUsers(memberRefs: toInvite, eventID: newEvent.eventID, completion: { sucess in
+                if sucess {
+                self.updateEvent(event: newEvent, completion: {
+                    print("Event Created Sucessfully")
+                    return completion(true)
+                })
+                } else {
+                    return completion(false)
+                }
+            })
+        }
     }
     
     func updateEvent(event: Event, completion: @escaping ()-> Void) {
@@ -79,6 +90,34 @@ class EventController {
         }
     }
     
+    func fetchEvents(with IDs: [String],completion: @escaping ([Event]?, Bool) -> Void){
+        db.collection(EventConstants.RecordTypeKey).whereField(EventConstants.eventIDKey, in: IDs).getDocuments { snapshot, error in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                return completion(nil, false)
+            }
+            
+            if let snapshot = snapshot {
+                self.events = []
+                
+                for doc in snapshot.documents {
+                    let eventData = doc.data()
+                    
+                    guard let eventID = eventData[EventConstants.eventIDKey] as? String,
+                          let title = eventData[EventConstants.titleKey] as? String,
+                          let address = eventData[EventConstants.addressKey] as? String,
+                          let date = eventData[EventConstants.dateKey] as?
+                            String,
+                          let members = eventData[EventConstants.membersKey] as? [String] else { return completion(nil, false)}
+                    
+                    guard let newDate = self.dateFormatter.date(from: date) else { return }
+                    self.events.append(Event(title: title, eventID: eventID, todos: [], address: address, date: newDate, members: members))
+                }
+                return completion(self.events, true)
+            } else { return completion(nil, false) }
+        }
+    }
+    
     func fetchTodos(for event: Event, completion: @escaping () -> Void) {
         db.collection(EventConstants.RecordTypeKey).document(event.eventID).collection(EventConstants.todosKey).getDocuments { snapshot, error in
             if let error = error {
@@ -105,8 +144,10 @@ class EventController {
     
     func leaveEvent(event: Event, completion: @escaping () -> Void) {
         guard let currentUser = MUserController.shared.currentUser,
-        let index = event.members.firstIndex(of: currentUser.userID) else { return }
+              let eIndex = events.firstIndex(of: event),
+              let index = event.members.firstIndex(of: currentUser.userID) else { return }
         event.members.remove(at: index)
+        events.remove(at: eIndex)
         updateEvent(event: event) {
             return completion()
         }
