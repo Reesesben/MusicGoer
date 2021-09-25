@@ -11,32 +11,15 @@ import CoreLocation
 class EventsTableViewController: UITableViewController {
     
     //MARK: - Lifecycles
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        tabBarController?.tabBar.isHidden = false
-        tableView.addSubview(refresh)
-        print("Attempting to fetch events")
-        EventController.shared.fetchEvents { sucess in
-            if sucess {
-                print("Sucessfully retrieved Events")
-                if EventController.shared.events.count == 0 {
-                    EventController.shared.createEvent(title: "Test Event", address: "New York City", date: Date(), members: ["ACDC9B5F-EB75-4B65-AC12-C83C10EA0998", "5F902D19-BD15-4F26-8663-5670BF3D2DD6"], completion: { _ in
-                        self.tableView.reloadData()
-                    })
-                } else {
-                    self.tableView.reloadData()
-                    print("Number of TODOS \(EventController.shared.events[0].todos.count)")
-                }
-            }
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Events"
         setupViews()
+        tabBarController?.tabBar.isHidden = false
+        updateViews()
     }
     
     @objc func updateViews() {
-        
         EventController.shared.fetchEvents { success in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -46,6 +29,7 @@ class EventsTableViewController: UITableViewController {
     }
     
     func setupViews() {
+        tableView.addSubview(refresh)
         refresh.addTarget(self, action: #selector(updateViews), for: .valueChanged)
     }
     

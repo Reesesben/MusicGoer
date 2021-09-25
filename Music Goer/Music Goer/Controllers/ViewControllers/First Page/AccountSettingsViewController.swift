@@ -97,6 +97,21 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
 
     
     //MARK: - Actions
+    @IBAction func signOutButtonTapped(_ sender: Any) {
+        CredentialsController.shared.deletePersistentStore()
+        do {
+            try Auth.auth().signOut()
+            DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "LoginScreen")
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        } catch {
+            displayError(title: "Error signing out", Body: "An error occured trying to sign out please try again later.")
+        }
+        
+    }
     @IBAction func deleteAccountButtonTapped(_ sender: Any) {
         guard let currentUser = currentUser else { return }
         MUserController.shared.deleteUser(user: currentUser) { didFinish in
@@ -143,6 +158,12 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
                             }
                             CredentialsController.shared.deletePersistentStore()
                             print("User Sucessfully deleted")
+                            DispatchQueue.main.async {
+                                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                                let vc = storyboard.instantiateViewController(identifier: "LoginScreen")
+                                vc.modalPresentationStyle = .fullScreen
+                                self.present(vc, animated: true, completion: nil)
+                            }
                         }
                     }
                     }

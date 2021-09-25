@@ -24,7 +24,7 @@
                     <connections>
                         <segue destination="Xlx-9K-9ux" kind="relationship" relationship="viewControllers" id="ojo-an-T34"/>
                         <segue destination="Rvv-DB-rXH" kind="relationship" relationship="viewControllers" id="utK-5Z-RW4"/>
-                        <segue destination="pbU-mr-vJl" kind="relationship" relationship="viewControllers" id="KSR-ni-dAD"/>
+                        <segue destination="SJD-ZB-MN7" kind="relationship" relationship="viewControllers" id="KSR-ni-dAD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TtH-IP-Uph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -296,19 +296,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kap-J5-F02">
-                                <rect key="frame" x="10" y="431" width="394" height="36"/>
+                                <rect key="frame" x="10" y="475" width="394" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3y-80-x8p">
-                                <rect key="frame" x="10" y="514" width="394" height="30"/>
+                                <rect key="frame" x="10" y="558" width="394" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAO-K6-s7m">
-                                <rect key="frame" x="100" y="569" width="214" height="35.5"/>
+                                <rect key="frame" x="100" y="613" width="214" height="35.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Change Password">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
@@ -318,26 +318,26 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" ͟ ͟E͟m͟a͟i͟l͟ ͟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzx-Kk-mIk">
-                                <rect key="frame" x="10" y="482" width="394" height="22"/>
+                                <rect key="frame" x="10" y="526" width="394" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" ͟ ͟U͟͟͟s͟͟͟e͟͟͟r͟͟͟n͟͟͟a͟͟͟m͟͟͟e͟͟͟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TW-NS-MKI">
-                                <rect key="frame" x="15" y="399" width="384" height="22"/>
+                                <rect key="frame" x="15" y="443" width="384" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2UN-cd-Cwi">
-                                <rect key="frame" x="62" y="64" width="290" height="290"/>
+                                <rect key="frame" x="62" y="108" width="290" height="290"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="290" id="3mF-4O-Idt"/>
                                     <constraint firstAttribute="height" constant="290" id="dbh-TI-zEg"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCH-9Q-4rC">
-                                <rect key="frame" x="100" y="359" width="214" height="37"/>
+                                <rect key="frame" x="100" y="403" width="214" height="37"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Change Image">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="19"/>
@@ -375,11 +375,14 @@
                             <constraint firstItem="Hl3-2v-twz" firstAttribute="trailing" secondItem="rAO-K6-s7m" secondAttribute="trailing" constant="100" id="yTX-Qi-SiL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account Info" image="person.fill" catalog="system" id="Pt4-8H-PPA"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="User Settings" id="cn7-4b-avp">
-                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="3Ue-Hi-Suf"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="XoE-gu-18H"/>
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="3Ue-Hi-Suf">
+                            <color key="tintColor" systemColor="tintColor"/>
+                            <connections>
+                                <action selector="signOutButtonTapped:" destination="pbU-mr-vJl" id="JRc-bi-RD3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -393,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOl-r2-Lbn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-517.39130434782612" y="991.74107142857133"/>
+            <point key="canvasLocation" x="392.75362318840581" y="991.74107142857133"/>
         </scene>
         <!--Pending Invitations-->
         <scene sceneID="0sm-78-VJX">
@@ -483,14 +486,11 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="MeB-Ux-jsB" secondAttribute="bottom" id="pRW-MV-54z"/>
                                     </constraints>
                                 </tableViewCellContentView>
-
+                                <color key="backgroundColor" white="0.02" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="adminNameLabel" destination="rTl-O9-L19" id="IuA-H6-Sc4"/>
                                     <outlet property="eventNameLabel" destination="FSC-Wc-icE" id="bJw-kg-Vyy"/>
                                 </connections>
-
-                                <color key="backgroundColor" white="0.02" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
-
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -725,7 +725,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mj4-dH-re4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1990" y="622"/>
+            <point key="canvasLocation" x="2900" y="621.42857142857144"/>
         </scene>
         <!--Driver Detail View Controller-->
         <scene sceneID="H3M-0M-oAz">
@@ -800,7 +800,6 @@
         <!--Location View Controller-->
         <scene sceneID="boX-oo-2rq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i4b-IL-Jd8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MapsViewController" id="5we-34-iDi" customClass="LocationViewController" customModule="Music_Goer" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Znr-Rq-76d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -810,8 +809,28 @@
                     </view>
                     <navigationItem key="navigationItem" id="Jbr-e9-Vd9"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i4b-IL-Jd8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2841" y="-22"/>
+        </scene>
+        <!--Account Info-->
+        <scene sceneID="xRr-w2-hUh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SJD-ZB-MN7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Account Info" image="person.fill" catalog="system" id="Pt4-8H-PPA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b7T-Cs-eFw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pbU-mr-vJl" kind="relationship" relationship="rootViewController" id="2hF-pc-qeW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4yg-8p-7vp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-517.39130434782612" y="991.74107142857133"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -834,6 +853,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

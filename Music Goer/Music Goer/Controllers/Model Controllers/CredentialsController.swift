@@ -82,7 +82,6 @@ class CredentialsController {
             
             encryptedString += "\(newCharecter)"
         }
-        print("Encrypted String: \(encryptedString)")
         return encryptedString
     }
 }
