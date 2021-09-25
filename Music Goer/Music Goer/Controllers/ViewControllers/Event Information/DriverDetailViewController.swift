@@ -17,6 +17,7 @@ class DriverDetailViewController: UIViewController {
     //MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        colorGradient()
         updateViews()
 
     }
@@ -42,6 +43,17 @@ class DriverDetailViewController: UIViewController {
         loadViewIfNeeded()
         driverLabel.text = driverLabel.text
         
+    }
+    
+    func colorGradient() {
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.view.bounds
+        
+        gradientLayer.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.yellow]
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     func driverAlertController() {

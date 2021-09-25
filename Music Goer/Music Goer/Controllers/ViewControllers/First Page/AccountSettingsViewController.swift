@@ -45,6 +45,7 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        colorGradient()
         updateViews()
         setupViews()
         imagePicker.delegate = self
@@ -81,6 +82,17 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
         userImage.image = UIImage(data: currentUser.userImage)
         userImage.layer.cornerRadius = userImage.frame.height / 2
         
+    }
+    
+    func colorGradient() {
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.view.bounds
+        
+        gradientLayer.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.yellow]
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 
     
@@ -149,6 +161,7 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
     @IBAction func changeImageButtonTapped(_ sender: Any) {
         //Initialize Image Picker.
         let imagePickerController = UIImagePickerController()
+        imagePickerController.allowsEditing = true
         imagePickerController.delegate = self
         
         //Create an alert controler to check where the image is coming from.
@@ -212,6 +225,7 @@ extension AccountSettingsViewController: UINavigationControllerDelegate {
             imagePicker.sourceType = .photoLibrary
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true)
+            print("I am running")
             
         } else {
             self.presentNoAccessAlert()

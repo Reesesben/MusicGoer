@@ -28,7 +28,6 @@ class LocationManager: NSObject {
                 if let locationName = place.name {
                     name += locationName
                 }
-                
                 if let locality = place.locality {
                     name += ", \(locality)"
                 }
@@ -36,6 +35,7 @@ class LocationManager: NSObject {
                 if let adminRegion = place.administrativeArea {
                     name += ", \(adminRegion)"
                 }
+                
                 
                 if let country = place.country {
                     name += ", \(country)"

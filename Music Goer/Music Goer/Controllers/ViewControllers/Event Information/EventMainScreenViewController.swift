@@ -58,7 +58,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         EventController.shared.fetchTodos(for: event, completion: {
             self.toDoListTableView.reloadData()
         })
-        
+
     }
     // MARK: UICollectionViewDataSource
     
@@ -68,7 +68,9 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     //  }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = ChannelsViewController(currentUser: currentUser)
+        guard let event = event else { return }
+        let vc = ChannelsViewController(currentUser: currentUser, event: event)
+        vc.events = event
         navigationController?.pushViewController(vc, animated: true)
     }
     

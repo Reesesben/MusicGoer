@@ -35,6 +35,9 @@ import FirebaseAuth
 import FirebaseFirestore
 
 final class ChannelsViewController: UITableViewController {
+    
+    var events: Event
+    
   private let toolbarLabel: UILabel = {
     let label = UILabel()
     label.textAlignment = .center
@@ -47,10 +50,10 @@ final class ChannelsViewController: UITableViewController {
 
   private let database = Firestore.firestore()
   private var channelReference: CollectionReference {
-    return database.collection("channels")
+    return database.collection(EventConstants.RecordTypeKey).document(events.eventID).collection("channels")
   }
 
-  private var channels: [Channel] = []
+  var channels: [Channel] = []
   private var channelListener: ListenerRegistration?
 
   private let currentUser: User
@@ -59,10 +62,10 @@ final class ChannelsViewController: UITableViewController {
     channelListener?.remove()
   }
 
-  init(currentUser: User) {
+    init(currentUser: User, event: Event) {
     self.currentUser = currentUser
+    self.events = event
     super.init(style: .grouped)
-
     title = "Channels"
   }
 
