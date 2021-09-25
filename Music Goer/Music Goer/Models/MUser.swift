@@ -40,19 +40,23 @@ class MUser {
     let userName: String
     var userImage: Data
     let googleRef: String
-    let accepted: [String]
-    let pending: [String]
-    let reports: Int
-    let lastReport: Date?
+    var pending: [String]
+    var reports: Int
+    var lastReport: Date?
     
-    init(userID: String = UUID().uuidString, userName: String, userImageData: Data, googleRef: String, accepted: [String] = [], pending: [String] = [], reports: Int = 0, lastReport: Date?) {
+    init(userID: String = UUID().uuidString, userName: String, userImageData: Data, googleRef: String, pending: [String] = [], reports: Int = 0, lastReport: Date?) {
         self.userID = userID
         self.userName = userName
         self.userImage = userImageData
         self.googleRef = googleRef
-        self.accepted = accepted
         self.pending = pending
         self.reports = reports
         self.lastReport = lastReport
+    }
+}
+
+extension MUser: Equatable {
+    static func == (lhs: MUser, rhs: MUser) -> Bool {
+        return lhs.userID == rhs.userID
     }
 }

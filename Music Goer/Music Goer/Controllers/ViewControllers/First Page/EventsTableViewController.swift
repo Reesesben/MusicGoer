@@ -19,7 +19,7 @@ class EventsTableViewController: UITableViewController {
             if sucess {
                 print("Sucessfully retrieved Events")
                 if EventController.shared.events.count == 0 {
-                    EventController.shared.createEvent(title: "Test Event", address: "New York City", date: Date(), members: ["ACDC9B5F-EB75-4B65-AC12-C83C10EA0998", "5F902D19-BD15-4F26-8663-5670BF3D2DD6"], completion: {
+                    EventController.shared.createEvent(title: "Test Event", address: "New York City", date: Date(), members: ["ACDC9B5F-EB75-4B65-AC12-C83C10EA0998", "5F902D19-BD15-4F26-8663-5670BF3D2DD6"], completion: { _ in
                         self.tableView.reloadData()
                     })
                 } else {
@@ -28,7 +28,6 @@ class EventsTableViewController: UITableViewController {
                 }
             }
         }
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +64,15 @@ class EventsTableViewController: UITableViewController {
             guard let index = tableView.indexPathForSelectedRow,
                   let destination = segue.destination as? EventMainScreenViewController else { return }
             destination.event = EventController.shared.events[index.row]
+        } else if segue.identifier == "createEvent" {
+            tabBarController?.tabBar.isHidden = true
+            guard let destination = segue.destination as? CreateEventViewController else { return }
+            destination.delegate = self
         }
     }
-    
-    
+}
+extension EventsTableViewController: createEventDelegate {
+    func didCreateEvent() {
+        self.tableView.reloadData()
+    }
 }
