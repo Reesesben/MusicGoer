@@ -124,7 +124,7 @@ class EventController {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 return completion()
             }
-            
+            event.todos = []
             if let snapshot = snapshot {
                 for doc in snapshot.documents {
                     let todoData = doc.data()
