@@ -16,7 +16,6 @@ class PendingInvitationsTableViewController: UITableViewController {
     
     //MARK: - Lifecycles
     override func viewWillAppear(_ animated: Bool) {
-        pending = []
         super.viewWillAppear(true)
         if freshLaunch {
             freshLaunch = false
@@ -29,7 +28,9 @@ class PendingInvitationsTableViewController: UITableViewController {
                     EventController.shared.fetchEvents(with: current.pending) { invites, sucess  in
                         if sucess {
                             guard let invites = invites else { return }
-                            self.pending = invites
+                            self.pending = []
+                            self.pending.append(contentsOf: invites)
+                            print("Number of pending \(self.pending.count)")
                             self.tableView.reloadData()
                         }
                     }

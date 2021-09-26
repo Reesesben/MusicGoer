@@ -11,6 +11,13 @@ import CoreLocation
 class EventsTableViewController: UITableViewController {
     
     //MARK: - Lifecycles
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        tableView.reloadData()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Events"
