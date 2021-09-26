@@ -196,9 +196,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         let viewController = ChatViewController(user: currentUser, channel: channel)
         navigationController?.pushViewController(viewController, animated: true)
         } else {
-            createChannel()
             addButtonPressed()
-            // KWARR probably broken
         }
     }
     

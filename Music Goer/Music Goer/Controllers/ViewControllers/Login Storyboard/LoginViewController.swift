@@ -58,6 +58,7 @@ class LoginViewController: UIViewController {
                 }
             }
         }
+        navigationController?.navigationBar.isHidden = true
     }
     
     func colorGradient() {
