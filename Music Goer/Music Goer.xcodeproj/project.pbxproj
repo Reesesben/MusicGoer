@@ -12,7 +12,6 @@
 		27B6C3E026FBE75C0020EC98 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3DF26FBE75C0020EC98 /* Message.swift */; };
 		27B6C3E226FBE76A0020EC98 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3E126FBE76A0020EC98 /* Sender.swift */; };
 		27B6C3E426FBE77E0020EC98 /* ImageMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3E326FBE77E0020EC98 /* ImageMediaItem.swift */; };
-		27B6C3E826FBE8720020EC98 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3E726FBE8720020EC98 /* ChannelsViewController.swift */; };
 		27B6C3EA26FBE8880020EC98 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3E926FBE8880020EC98 /* ChatViewController.swift */; };
 		27B6C3EC26FBE8E00020EC98 /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3EB26FBE8E00020EC98 /* UICollectionView+Additions.swift */; };
 		27B6C3EE26FBE8FB0020EC98 /* DatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3ED26FBE8FB0020EC98 /* DatabaseRepresentation.swift */; };
@@ -63,7 +62,6 @@
 		27B6C3DF26FBE75C0020EC98 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		27B6C3E126FBE76A0020EC98 /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		27B6C3E326FBE77E0020EC98 /* ImageMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMediaItem.swift; sourceTree = "<group>"; };
-		27B6C3E726FBE8720020EC98 /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
 		27B6C3E926FBE8880020EC98 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		27B6C3EB26FBE8E00020EC98 /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
 		27B6C3ED26FBE8FB0020EC98 /* DatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepresentation.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 		27B6C3E626FBE8650020EC98 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				27B6C3E726FBE8720020EC98 /* ChannelsViewController.swift */,
 				27B6C3E926FBE8880020EC98 /* ChatViewController.swift */,
 			);
 			path = Chat;
@@ -470,7 +467,6 @@
 				B5AFDA6526FA8CB600153143 /* CustomizeationViewController.swift in Sources */,
 				B5AFDA6726FAAE1700153143 /* PhotoPickerViewController.swift in Sources */,
 				27B6C3F226FBE93E0020EC98 /* AppController.swift in Sources */,
-				27B6C3E826FBE8720020EC98 /* ChannelsViewController.swift in Sources */,
 				B5BCE87426F12EB500372D05 /* AppDelegate.swift in Sources */,
 				27B6C3F026FBE90B0020EC98 /* UIView+Additions.swift in Sources */,
 				B55C869426FB9D2E009F31FB /* EventMainScreenViewController.swift in Sources */,
