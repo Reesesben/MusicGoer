@@ -1,9 +1,34 @@
-//
-//  EventMainScreenViewController.swift
-//  Music Goer
-//
-//  Created by Delstun McCray on 9/21/21.
-//
+/// Copyright (c) 2021 Razeware LLC
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+///
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+///
+/// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
+/// distribute, sublicense, create a derivative work, and/or sell copies of the
+/// Software in any work that is designed, intended, or marketed for pedagogical or
+/// instructional purposes related to programming, coding, application development,
+/// or information technology.  Permission for such use, copying, modification,
+/// merger, publication, distribution, sublicensing, creation of derivative works,
+/// or sale is expressly withheld.
+///
+/// This project and source code may use libraries or frameworks that are
+/// released under various Open-Source licenses. Use of those libraries and
+/// frameworks are governed by their own individual licenses.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
 
 import UIKit
 import FirebaseAuth
@@ -23,15 +48,41 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     }
     var event: Event? {
         didSet {
-           getPhotos()
+            getPhotos()
         }
     }
     private let currentUser: User = Auth.auth().currentUser!
+    private let channelCellIdentifier = "channelCell"
+    private var currentChannelAlertController: UIAlertController?
     
+    private let database = Firestore.firestore()
+    private var channelReference: CollectionReference {
+        return database.collection(EventConstants.RecordTypeKey).document(event!.eventID).collection("channels")
+    }
+    
+    var channels: [Channel] = []
+    private var channelListener: ListenerRegistration?
+    private var isFreshLaunch = true
+    
+    deinit {
+        channelListener?.remove()
+    }
     
     //MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        channelListener = channelReference.addSnapshotListener { querySnapshot, error in
+            guard let snapshot = querySnapshot else {
+                print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
+                return
+            }
+            
+            snapshot.documentChanges.forEach { change in
+                self.handleDocumentChange(change)
+            }
+        }
+        
         loadViewIfNeeded()
         updateViews()
         chatHeadCollectionView.delegate = self
@@ -41,13 +92,89 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         chatHeadCollectionView.reloadData()
     }
     
+    //MARK: - ACTIONS
+    
+    @objc private func addButtonPressed() {
+        let alertController = UIAlertController(title: "Create a new Channel", message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addTextField { field in
+            field.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+            field.enablesReturnKeyAutomatically = true
+            field.autocapitalizationType = .words
+            field.clearButtonMode = .whileEditing
+            field.placeholder = "Channel name"
+            field.returnKeyType = .done
+            field.tintColor = .blue
+        }
+        
+        let createAction = UIAlertAction(
+            title: "Create",
+            style: .default) { _ in
+            self.createChannel()
+        }
+        createAction.isEnabled = false
+        alertController.addAction(createAction)
+        alertController.preferredAction = createAction
+        
+        present(alertController, animated: true) {
+            alertController.textFields?.first?.becomeFirstResponder()
+        }
+        currentChannelAlertController = alertController
+    }
+    
+    @objc private func textFieldDidChange(_ field: UITextField) {
+        guard let alertController = currentChannelAlertController else {
+            return
+        }
+        alertController.preferredAction?.isEnabled = field.hasText
+    }
+    
     //MARK: - Helper funcs
+    
+    private func createChannel() {
+        guard
+            let alertController = currentChannelAlertController,
+            let channelName = alertController.textFields?.first?.text
+        else {
+            return
+        }
+        
+        let channel = Channel(name: channelName)
+        channelReference.addDocument(data: channel.representation) { error in
+            if let error = error {
+                print("Error saving channel: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func addChannelToTable(_ channel: Channel) {
+        if channels.contains(channel) {
+            return
+        }
+        channels.append(channel)
+        channels.sort()
+        
+    }
+    func handleDocumentChange(_ change: DocumentChange) {
+        guard let channel = Channel(document: change.document) else {
+            return
+        }
+        
+        switch change.type {
+        case .added:
+            addChannelToTable(channel)
+        case .modified:
+            return
+        case .removed:
+            return
+        }
+    }
     
     func getPhotos() {
         guard let event = event else { return }
         EventController.shared.getPhoto(userRefs: event.members, completion: { images in
             print(images.count)
-                self.members = images
+            self.members = images
         })
     }
     
@@ -62,16 +189,15 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     }
     // MARK: UICollectionViewDataSource
     
-    //    let channel = channels[indexPath.row]
-    //    let viewController = ChatViewController(user: currentUser, channel: channel)
-    //    navigationController?.pushViewController(viewController, animated: true)
-    //  }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let event = event else { return }
-        let vc = ChannelsViewController(currentUser: currentUser, event: event)
-        vc.events = event
-        navigationController?.pushViewController(vc, animated: true)
+        if channels.first != nil {
+        guard let channel = channels.first else { return }
+        let viewController = ChatViewController(user: currentUser, channel: channel)
+        navigationController?.pushViewController(viewController, animated: true)
+        } else {
+            createChannel()
+            // KWARR probably broken
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -140,3 +266,4 @@ extension EventMainScreenViewController: TodoDetailDelegate {
         self.toDoListTableView.reloadData()
     }
 }
+
