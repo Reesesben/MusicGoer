@@ -17,9 +17,8 @@ class DriverDetailViewController: UIViewController {
     //MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorGradient()
+        //colorGradient()
         updateViews()
-
     }
     
     //MARK: - Actions
