@@ -197,6 +197,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         navigationController?.pushViewController(viewController, animated: true)
         } else {
             createChannel()
+            addButtonPressed()
             // KWARR probably broken
         }
     }
