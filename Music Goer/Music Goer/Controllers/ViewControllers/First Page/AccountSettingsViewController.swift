@@ -45,6 +45,7 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        colorGradient()
         updateViews()
         setupViews()
         imagePicker.delegate = self
@@ -82,9 +83,35 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
         userImage.layer.cornerRadius = userImage.frame.height / 2
         
     }
+    
+    func colorGradient() {
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.view.bounds
+        
+        gradientLayer.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.yellow]
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
 
     
     //MARK: - Actions
+    @IBAction func signOutButtonTapped(_ sender: Any) {
+        CredentialsController.shared.deletePersistentStore()
+        do {
+            try Auth.auth().signOut()
+            DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "LoginScreen")
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        } catch {
+            displayError(title: "Error signing out", Body: "An error occured trying to sign out please try again later.")
+        }
+        
+    }
     @IBAction func deleteAccountButtonTapped(_ sender: Any) {
         guard let currentUser = currentUser else { return }
         MUserController.shared.deleteUser(user: currentUser) { didFinish in
@@ -131,6 +158,12 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
                             }
                             CredentialsController.shared.deletePersistentStore()
                             print("User Sucessfully deleted")
+                            DispatchQueue.main.async {
+                                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                                let vc = storyboard.instantiateViewController(identifier: "LoginScreen")
+                                vc.modalPresentationStyle = .fullScreen
+                                self.present(vc, animated: true, completion: nil)
+                            }
                         }
                     }
                     }
@@ -149,6 +182,7 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
     @IBAction func changeImageButtonTapped(_ sender: Any) {
         //Initialize Image Picker.
         let imagePickerController = UIImagePickerController()
+        imagePickerController.allowsEditing = true
         imagePickerController.delegate = self
         
         //Create an alert controler to check where the image is coming from.
@@ -212,6 +246,7 @@ extension AccountSettingsViewController: UINavigationControllerDelegate {
             imagePicker.sourceType = .photoLibrary
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true)
+            print("I am running")
             
         } else {
             self.presentNoAccessAlert()

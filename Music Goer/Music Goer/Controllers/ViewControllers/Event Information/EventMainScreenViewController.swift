@@ -84,6 +84,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         }
         
         loadViewIfNeeded()
+        navigationController?.delegate = self
         updateViews()
         chatHeadCollectionView.delegate = self
         chatHeadCollectionView.dataSource = self
@@ -185,7 +186,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         EventController.shared.fetchTodos(for: event, completion: {
             self.toDoListTableView.reloadData()
         })
-        
+
     }
     // MARK: UICollectionViewDataSource
     
@@ -267,3 +268,11 @@ extension EventMainScreenViewController: TodoDetailDelegate {
     }
 }
 
+extension EventMainScreenViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        guard let title = viewController.title else { return }
+        if title == "Events" {
+            viewController.tabBarController?.tabBar.isHidden = false
+        }
+    }
+}
