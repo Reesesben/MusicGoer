@@ -26,6 +26,7 @@ class CreateEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let current = MUserController.shared.currentUser else { return }
+        navigationController?.delegate = self
         members.insert(current, at: 0)
         self.hideKeyboardWhenTappedAround()
     }
@@ -126,5 +127,12 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource 
     }
 
 }
-
+extension CreateEventViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        guard let title = viewController.title else { return }
+        if title == "Events" {
+            viewController.tabBarController?.tabBar.isHidden = false
+        }
+    }
+}
 

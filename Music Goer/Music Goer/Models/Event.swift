@@ -26,7 +26,7 @@ class Event {
     var date: Date
     var members: [String]
     
-    init(title: String, eventID: String = UUID().uuidString, todos: [ToDo], address: String, date: Date, members: [String]) {
+    init(title: String, eventID: String = UUID().uuidString, todos: [ToDo], address: String, date: Date, members: [String]){
         self.title = title
         self.eventID = eventID
         self.todos = todos
