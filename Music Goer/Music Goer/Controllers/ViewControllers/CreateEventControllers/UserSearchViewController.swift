@@ -47,6 +47,7 @@ class UserSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userSearchBar.delegate = self
+        colorGradient()
     }
     
     //MARK: - Helper Methods
@@ -70,6 +71,19 @@ class UserSearchViewController: UIViewController {
             })
         }
     }
+    
+    func colorGradient() {
+        
+    let gradientTableView = CAGradientLayer()
+    
+    gradientTableView.frame = self.resultsTableView.bounds
+    
+    gradientTableView.colors = [UIColor.black.cgColor, UIColor.purple.cgColor, UIColor.purple.cgColor]
+    
+    self.resultsTableView.backgroundView = UIView.init(frame: self.view.frame)
+    
+    self.resultsTableView.backgroundView?.layer.insertSublayer(gradientTableView, at: 0)
+}
     
     //MARK: - Properties
     var delegate: UserSearchDelegate?
@@ -95,12 +109,15 @@ extension UserSearchViewController: UITableViewDataSource, UITableViewDelegate {
         if searchResults.count != 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? SearchTableViewCell else { return UITableViewCell()}
             cell.updateCell(with: searchResults[indexPath.row])
-            
+            cell.backgroundColor = .clear
+
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "noResultsCell", for: indexPath)
             cell.textLabel?.text = "No results!"
+            cell.textLabel?.textColor = .white
             cell.selectionStyle = .none
+            cell.backgroundColor = .clear
             return cell
         }
     }

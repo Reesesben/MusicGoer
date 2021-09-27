@@ -43,7 +43,7 @@ class PendingInvitationsTableViewController: UITableViewController {
         super.viewDidLoad()
         loadViewIfNeeded()
         updateViews()
-       // colorGradient()
+        colorGradient()
     }
     
     func updateViews() {
@@ -63,8 +63,8 @@ class PendingInvitationsTableViewController: UITableViewController {
         cell.indexPath = indexPath
         cell.updateCell(pending[indexPath.row])
         cell.delegate = self
-        cell.backgroundColor = .clear
-        
+        cell.layer.backgroundColor = CGColor(red: 0, green: 0.4, blue: 0.8275, alpha: 0.33)
+
         return cell
     }
     
@@ -90,7 +90,7 @@ class PendingInvitationsTableViewController: UITableViewController {
         
         self.tableView.backgroundView?.layer.insertSublayer(gradientLayer, at: 0)
         
-        self.tableView.layer.insertSublayer(gradientLayer, at: 0)
+        self.tableView.backgroundView?.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
 

@@ -16,6 +16,7 @@ class CreateEventViewController: UIViewController {
     @IBOutlet var membersTableView: UITableView!
     @IBOutlet var ConcertTitleLabel: UITextField!
     @IBOutlet var concertDatePicker: UIDatePicker!
+    @IBOutlet weak var backgroundImageForDate: UIImageView!
     
     //MARK: - Lifecycles
     override func viewDidLayoutSubviews() {
@@ -27,7 +28,31 @@ class CreateEventViewController: UIViewController {
         super.viewDidLoad()
         guard let current = MUserController.shared.currentUser else { return }
         members.insert(current, at: 0)
+        colorGradient()
+        backgroundImageForDate.layer.cornerRadius = backgroundImageForDate.frame.height / 2
     }
+    
+    func colorGradient() {
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.view.bounds
+        
+        gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor]
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        let gradientTableView = CAGradientLayer()
+        
+        gradientTableView.frame = self.membersTableView.bounds
+        
+        gradientTableView.colors = [UIColor.black.cgColor, UIColor.purple.cgColor, UIColor.purple.cgColor]
+        
+        self.membersTableView.backgroundView = UIView.init(frame: self.view.frame)
+        
+        self.membersTableView.backgroundView?.layer.insertSublayer(gradientTableView, at: 0)
+    }
+    
     //MARK: - Properties
     var delegate: createEventDelegate?
     var members: [MUser] = []
@@ -70,6 +95,7 @@ class CreateEventViewController: UIViewController {
         guard let event = event else { return }
         ConcertTitleLabel.text = event.title
         concertDatePicker.date = event.date
+        backgroundImageForDate.layer.cornerRadius = backgroundImageForDate.frame.height / 2
         MUserController.shared.getUsers(userNames: event.members) { users, error in
             if error != nil {
                 return
@@ -108,6 +134,7 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? memberTableViewCell else { return UITableViewCell()}
         
         cell.selectionStyle = .none
+        cell.backgroundColor = .clear
         cell.updateCell(with: members[indexPath.row])
         
         return cell

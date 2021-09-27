@@ -27,6 +27,7 @@ class SearchTableViewCell: UITableViewCell {
     func updateCell(with user: MUser) {
         userImage.image = UIImage(data: user.userImage)
         userName.text = user.userName
+        userImage.layer.cornerRadius = 25
     }
     
 }
