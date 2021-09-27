@@ -41,6 +41,14 @@ class PendingInvitationsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadViewIfNeeded()
+        updateViews()
+       // colorGradient()
+    }
+    
+    func updateViews() {
+        loadViewIfNeeded()
+        self.tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -55,6 +63,7 @@ class PendingInvitationsTableViewController: UITableViewController {
         cell.indexPath = indexPath
         cell.updateCell(pending[indexPath.row])
         cell.delegate = self
+        cell.backgroundColor = .clear
         
         return cell
     }
@@ -66,6 +75,22 @@ class PendingInvitationsTableViewController: UITableViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+    }
+    
+    
+    func colorGradient() {
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.tableView.bounds
+        
+        gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.purple.cgColor, UIColor.purple.cgColor]
+        
+        self.tableView.backgroundView = UIView.init(frame: self.tableView.bounds)
+        
+        self.tableView.backgroundView?.layer.insertSublayer(gradientLayer, at: 0)
+        
+        self.tableView.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
 

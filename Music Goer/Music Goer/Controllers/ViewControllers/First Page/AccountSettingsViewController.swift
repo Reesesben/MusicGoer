@@ -90,7 +90,7 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
         
         gradientLayer.frame = self.view.bounds
         
-        gradientLayer.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.yellow]
+        gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.purple.cgColor, UIColor.purple.cgColor]
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
