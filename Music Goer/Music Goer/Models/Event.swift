@@ -27,8 +27,9 @@ class Event {
     var members: [String]
     var latitude: Double
     var longitude: Double
-    
+
     init(title: String, eventID: String = UUID().uuidString, todos: [ToDo], address: String, date: Date, members: [String], latitude: Double = 0.0, longitude: Double = 0.0) {
+
         self.title = title
         self.eventID = eventID
         self.todos = todos

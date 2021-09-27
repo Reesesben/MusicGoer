@@ -19,6 +19,7 @@ struct UserConstants {
     static let reportsKey = "UserReports"
     static let lastReportKey = "LastReportDate"
     static let imageDataKey = "ImageData"
+    static let blockedKey = "BlockedUserIds"
 }
 /**
  User object attached to each user in FireStore
@@ -43,8 +44,9 @@ class MUser {
     var pending: [String]
     var reports: Int
     var lastReport: Date?
+    var blocked: [String]
     
-    init(userID: String = UUID().uuidString, userName: String, userImageData: Data, googleRef: String, pending: [String] = [], reports: Int = 0, lastReport: Date?) {
+    init(userID: String = UUID().uuidString, userName: String, userImageData: Data, googleRef: String, pending: [String] = [], reports: Int = 0, lastReport: Date?, blocked: [String] = []) {
         self.userID = userID
         self.userName = userName
         self.userImage = userImageData
@@ -52,11 +54,12 @@ class MUser {
         self.pending = pending
         self.reports = reports
         self.lastReport = lastReport
+        self.blocked = blocked
     }
 }
 
 extension MUser: Equatable {
     static func == (lhs: MUser, rhs: MUser) -> Bool {
-        return lhs.userID == rhs.userID
+        return lhs.userID == rhs.userID && lhs.googleRef == rhs.googleRef
     }
 }
