@@ -91,6 +91,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         toDoListTableView.delegate = self
         toDoListTableView.dataSource = self
         chatHeadCollectionView.reloadData()
+        colorGradient()
     }
     
     //MARK: - ACTIONS
@@ -208,6 +209,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatHeadCell", for: indexPath) as? UserChatHeadCollectionViewCell else {return UICollectionViewCell() }
         
+        cell.backgroundColor = .clear
         cell.member = members[indexPath.row]
         
         return cell
@@ -238,6 +240,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         
         cell.textLabel?.text = event.todos[indexPath.row].title
         cell.detailTextLabel?.text = event.todos[indexPath.row].person
+        cell.backgroundColor = .clear
         
         return cell
     }
@@ -258,6 +261,30 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
             destinationVC.event = event
             destinationVC.delegate = self
         }
+    }
+    
+    func colorGradient() {
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.toDoListTableView.bounds
+        
+        gradientLayer.colors = [UIColor.black.cgColor, UIColor.purple.cgColor]
+        
+        self.toDoListTableView.backgroundView = UIView.init(frame: self.view.bounds)
+        
+        self.toDoListTableView.backgroundView?.layer.insertSublayer(gradientLayer, at: 0)
+        
+        let gradientCollection = CAGradientLayer()
+        
+        gradientCollection.frame = self.chatHeadCollectionView.bounds
+        
+        gradientCollection.colors = [UIColor.systemRed.cgColor]
+        
+        self.chatHeadCollectionView.backgroundView = UIView.init(frame: self.view.bounds)
+        
+        self.chatHeadCollectionView.backgroundView?.layer.insertSublayer(gradientCollection, at: 0)
+    
     }
 }
 

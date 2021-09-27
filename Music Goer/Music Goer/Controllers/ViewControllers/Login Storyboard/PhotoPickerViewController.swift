@@ -48,7 +48,7 @@ class PhotoPickerViewController: UIViewController, UIImagePickerControllerDelega
         
         gradientLayer.frame = self.view.bounds
         
-        gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.red.cgColor, UIColor.red.cgColor, UIColor.systemOrange.cgColor, UIColor.yellow.cgColor]
+        gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.purple.cgColor, UIColor.purple.cgColor]
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }

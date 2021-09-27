@@ -17,6 +17,7 @@ class EventsTableViewController: UITableViewController {
         setupViews()
         tabBarController?.tabBar.isHidden = false
         updateViews()
+        colorGradient()
     }
     
     @objc func updateViews() {
@@ -35,13 +36,18 @@ class EventsTableViewController: UITableViewController {
     
     func colorGradient() {
         
+        //let color = #colorLiteral
+        
         let gradientLayer = CAGradientLayer()
         
-        gradientLayer.frame = self.view.bounds
+        gradientLayer.frame = self.tableView.bounds
+         
+        gradientLayer.colors = [UIColor.black.cgColor,UIColor.black.cgColor, UIColor.purple.cgColor ,UIColor.purple.cgColor]
         
-        gradientLayer.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.yellow]
+        self.tableView.backgroundView = UIView.init(frame: self.tableView.bounds)
         
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        self.tableView.backgroundView?.layer.insertSublayer(gradientLayer, at: 0)
+    
     }
     
     var refresh: UIRefreshControl = UIRefreshControl()
@@ -67,6 +73,8 @@ class EventsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
         
         cell.textLabel?.text = EventController.shared.events[indexPath.row].title
+        
+        cell.backgroundColor = .clear
         
         return cell
     }
