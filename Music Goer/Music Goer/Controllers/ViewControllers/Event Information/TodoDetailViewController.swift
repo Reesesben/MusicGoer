@@ -28,6 +28,8 @@ class TodoDetailViewController: UIViewController {
         dueDatePicker.layer.backgroundColor = CGColor.init(red: 1, green: 1, blue: 1, alpha: 0.50)
         dueDatePicker.alpha = 1
         
+        self.hideKeyboardWhenTappedAround()
+
         
     }
     

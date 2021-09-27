@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class PendingInvitationsTableViewController: UITableViewController {
+class PendingInvitationsTableViewController: UITableViewController, inviteDetailDelegate {
     
     //MARK: - Properties
     var freshLaunch = true
@@ -71,10 +71,40 @@ class PendingInvitationsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
+    //MARK: - Helper Methods
+    func reject(event: Event, completion: @escaping () -> Void) {
+        guard let current = MUserController.shared.currentUser,
+        let index = pending.firstIndex(of: event) else { return }
+        pending.remove(at: index)
+        current.pending.remove(at: index)
+        MUserController.shared.saveUser(user: current) {
+            self.tableView.reloadData()
+            return completion()
+        }
+    }
+    
+    func accept(event: Event, completion: @escaping () -> Void) {
+        guard let current = MUserController.shared.currentUser,
+        let index = pending.firstIndex(of: event) else { return }
+        event.members.append(current.userID)
+        current.pending.remove(at: index)
+        pending.remove(at: index)
+        EventController.shared.updateEvent(event: event) {
+            MUserController.shared.saveUser(user: current) {
+                self.tableView.reloadData()
+                return completion()
+            }
+        }
+    }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "toInviteDetailScreen" {
+            guard let destination = segue.destination as? InviteDetailViewController,
+                  let indexPath = tableView.indexPathForSelectedRow else { return }
+            destination.event = pending[indexPath.row]
+            destination.delegate = self
+        }
     }
     
     
@@ -96,25 +126,17 @@ class PendingInvitationsTableViewController: UITableViewController {
 
 extension PendingInvitationsTableViewController: invitationCellDelegate {
     func declineButtonTapped(indexPath: IndexPath) {
-        guard let current = MUserController.shared.currentUser else { return }
-        pending.remove(at: indexPath.row)
-        current.pending.remove(at: indexPath.row)
-        MUserController.shared.saveUser(user: current) {
+        let event = pending[indexPath.row]
+        reject(event: event, completion: {
             self.tableView.deleteRows(at: [indexPath], with: .fade)
-        }
+        })
     }
     
     func acceptButtonTapped(indexPath: IndexPath) {
-        guard let current = MUserController.shared.currentUser else { return }
         let event = pending[indexPath.row]
-        event.members.append(current.userID)
-        current.pending.remove(at: indexPath.row)
-        pending.remove(at: indexPath.row)
-        EventController.shared.updateEvent(event: event) {
+        accept(event: event, completion: {
             self.tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        MUserController.shared.saveUser(user: current) {
-            print("User Was saved")
-        }
+        })
+        
     }
 }

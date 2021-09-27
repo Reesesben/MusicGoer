@@ -18,6 +18,7 @@ class CustomizeationViewController: UIViewController {
         super.viewDidLoad()
         colorGradient()
         finishButton.layer.cornerRadius = finishButton.frame.height / 2
+        self.hideKeyboardWhenTappedAround()
         
     }
     //MARK: - Properties

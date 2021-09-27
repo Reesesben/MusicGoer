@@ -65,6 +65,7 @@ class LoginViewController: UIViewController {
             }
         }
         navigationController?.navigationBar.isHidden = true
+        self.hideKeyboardWhenTappedAround()
     }
     //MARK: - Apple sign in
     func setupSignInButton() {
@@ -288,3 +289,15 @@ private func sha256(_ input: String) -> String {
 
   return hashString
 }
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}// End of Extension

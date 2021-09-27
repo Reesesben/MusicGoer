@@ -60,6 +60,7 @@ class MUserController {
                          UserConstants.imageDataKey : user.userImage,
                          UserConstants.googleRefKey : user.googleRef,
                          UserConstants.pendingKey : user.pending,
+                         UserConstants.blockedKey : user.blocked,
                          UserConstants.reportsKey : user.reports,], merge: true)
         
         if let lastReport = user.lastReport {
@@ -94,19 +95,30 @@ class MUserController {
                       let imageData = userData[UserConstants.imageDataKey] as? Data,
                       let googleRef = userData[UserConstants.googleRefKey] as? String,
                       let pending = userData[UserConstants.pendingKey] as? [String],
+                      let blocked = userData[UserConstants.blockedKey] as? [String],
                       let reports = userData[UserConstants.reportsKey] as? Int else { return completion(false)}
+                
                 var date: Date? = nil
                 if let lastReport = userData[UserConstants.lastReportKey] as? String {
                     date = self.dateFormatter.date(from: lastReport)
                 }
                 
                 
-                self.currentUser = MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date)
+                self.currentUser = MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date, blocked: blocked)
                 return completion(true)
             } else { return completion(false) }
         }
     }
     
+    /**
+     Searches for any users who match a specific string in their username
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter userName: The string that contains the username to look for.
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func searchUser(userName: String, completion: @escaping ([MUser]?, Bool?) -> Void) {
         db.collection(UserConstants.recordTypeKey).whereField(UserConstants.userNameKey, isGreaterThanOrEqualTo: userName).getDocuments { snapshot, error in
             if let error = error {
@@ -122,6 +134,7 @@ class MUserController {
                       let imageData = userData[UserConstants.imageDataKey] as? Data,
                       let googleRef = userData[UserConstants.googleRefKey] as? String,
                       let pending = userData[UserConstants.pendingKey] as? [String],
+                      let blocked = userData[UserConstants.blockedKey] as? [String],
                       let reports = userData[UserConstants.reportsKey] as? Int else { return completion(nil, true)}
                 
                 var date: Date? = nil
@@ -129,13 +142,22 @@ class MUserController {
                     date = self.dateFormatter.date(from: lastReport)
                 }
                 
-                users.append(MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date))
+                    users.append(MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date, blocked: blocked))
                 }
                 return completion(users, nil)
             } else { return completion(nil, false) }
         }
     }
     
+    /**
+     Gets MUser Objects from userId's
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter userNames: an array of strings containing userId's for usersers to fetch.
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func getUsers(userNames: [String], completion: @escaping ([MUser]?, Bool?) -> Void) {
         db.collection(UserConstants.recordTypeKey).whereField(UserConstants.userIDKey, in: userNames).getDocuments { snapshot, error in
             if let error = error {
@@ -151,6 +173,7 @@ class MUserController {
                       let imageData = userData[UserConstants.imageDataKey] as? Data,
                       let googleRef = userData[UserConstants.googleRefKey] as? String,
                       let pending = userData[UserConstants.pendingKey] as? [String],
+                      let blocked = userData[UserConstants.blockedKey] as? [String],
                       let reports = userData[UserConstants.reportsKey] as? Int else { return completion(nil, true)}
                 
                 var date: Date? = nil
@@ -158,13 +181,22 @@ class MUserController {
                     date = self.dateFormatter.date(from: lastReport)
                 }
                 
-                users.append(MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date))
+                users.append(MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date, blocked: blocked))
                 }
                 return completion(users, nil)
             } else { return completion(nil, false) }
         }
     }
-    
+    /**
+     Adds event ID to each firebase record with userID in memberRefs
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter memberRefs: An MUser object that is the user  you would like saved to the database
+     - Parameter eventID: Event id of event to invite users to.
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func inviteUsers(memberRefs: [String], eventID: String, completion: @escaping (Bool) -> Void) {
         MUserController.shared.getUsers(userNames: memberRefs) { users, error in
             if error != nil {

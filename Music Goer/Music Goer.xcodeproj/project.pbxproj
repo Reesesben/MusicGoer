@@ -20,6 +20,7 @@
 		27B6C3F426FBE9530020EC98 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C3F326FBE9530020EC98 /* AppSettings.swift */; };
 		B52E0A7D26FA53BC005B740E /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E0A7C26FA53BC005B740E /* MUser.swift */; };
 		B52E0A7F26FA5621005B740E /* MUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E0A7E26FA5621005B740E /* MUserController.swift */; };
+		B533A5AB270236840003DAE5 /* InviteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533A5AA270236840003DAE5 /* InviteDetailViewController.swift */; };
 		B55C868826FB9C35009F31FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B55C868726FB9C35009F31FB /* Main.storyboard */; };
 		B55C869126FB9D2E009F31FB /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C868C26FB9D2D009F31FB /* LocationViewController.swift */; };
 		B55C869226FB9D2E009F31FB /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C868D26FB9D2D009F31FB /* TodoDetailViewController.swift */; };
@@ -69,9 +70,12 @@
 		27B6C3EF26FBE90B0020EC98 /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
 		27B6C3F126FBE93E0020EC98 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		27B6C3F326FBE9530020EC98 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		27CC700427022F6800B44B40 /* Music Goer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Music Goer.entitlements"; sourceTree = "<group>"; };
 		4E456D655DAB53C6EAC704C1 /* Pods-Music Goer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.release.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.release.xcconfig"; sourceTree = "<group>"; };
 		B52E0A7C26FA53BC005B740E /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 		B52E0A7E26FA5621005B740E /* MUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUserController.swift; sourceTree = "<group>"; };
+		B533A5A927022F310003DAE5 /* Music Goer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Music Goer.entitlements"; sourceTree = "<group>"; };
+		B533A5AA270236840003DAE5 /* InviteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteDetailViewController.swift; sourceTree = "<group>"; };
 		B55C868726FB9C35009F31FB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B55C868C26FB9D2D009F31FB /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		B55C868D26FB9D2D009F31FB /* TodoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				B5817B2926F272E30070271E /* PendingInvitationsTableViewController.swift */,
 				B5817B2726F272AE0070271E /* AccountSettingsViewController.swift */,
 				B5817B2B26F2730D0070271E /* EventsTableViewController.swift */,
+				B533A5AA270236840003DAE5 /* InviteDetailViewController.swift */,
 			);
 			path = "First Page";
 			sourceTree = "<group>";
@@ -208,6 +213,9 @@
 		B5BCE87226F12EB500372D05 /* Music Goer */ = {
 			isa = PBXGroup;
 			children = (
+
+				B533A5A927022F310003DAE5 /* Music Goer.entitlements */,
+
 				B5C4C69426F295AA0052BAFB /* Models */,
 				B5BCE88B26F131D700372D05 /* Views */,
 				B5BCE88826F131B600372D05 /* Controllers */,
@@ -493,6 +501,7 @@
 				B5CE3EE426FBC8F3009B9188 /* CredentialsController.swift in Sources */,
 				B5D8DCE826FE2E7600A99A32 /* UserSearchViewController.swift in Sources */,
 				FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */,
+				B533A5AB270236840003DAE5 /* InviteDetailViewController.swift in Sources */,
 				B5ED8FA727021A0F00D4C995 /* RoundedImage.swift in Sources */,
 				27B6C3EC26FBE8E00020EC98 /* UICollectionView+Additions.swift in Sources */,
 				FCFF7F1A26FA403C009CCB58 /* LocationController.swift in Sources */,
@@ -632,8 +641,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QDM5JWF95B;
+
+				DEVELOPMENT_TEAM = A5WKQ59823;
+
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -652,8 +664,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QDM5JWF95B;
+
+				DEVELOPMENT_TEAM = A5WKQ59823;
+
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
