@@ -25,6 +25,7 @@ class TodoDetailViewController: UIViewController {
         super.viewDidLoad()
         colorGradient()
         updateViews()
+        self.hideKeyboardWhenTappedAround()
         
     }
     

@@ -24,6 +24,8 @@ class SignUpWithEmailViewController: UIViewController {
         passwordInformationButton.setTitle("", for: .normal)
         signupButton.layer.cornerRadius = signupButton.frame.height / 2
         signupButton.buttonGradient(colors: [CGColor.init(red: 0.5, green: 0, blue: 0.5, alpha: 1), CGColor.init(red: 0.125, green: 0.125, blue: 0.75, alpha: 1), CGColor.init(red: 0, green: 0.5, blue: 0.5, alpha: 1)])
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     //MARK: - Helper Func
@@ -114,3 +116,5 @@ extension UIButton {
         self.titleLabel?.textColor = UIColor.white
     }
 }//End of extension
+
+
