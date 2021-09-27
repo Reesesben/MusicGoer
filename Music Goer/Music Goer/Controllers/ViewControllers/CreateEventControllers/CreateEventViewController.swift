@@ -28,6 +28,7 @@ class CreateEventViewController: UIViewController {
         guard let current = MUserController.shared.currentUser else { return }
         navigationController?.delegate = self
         members.insert(current, at: 0)
+        self.hideKeyboardWhenTappedAround()
     }
     //MARK: - Properties
     var delegate: createEventDelegate?
@@ -124,9 +125,8 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource 
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
-}
 
+}
 extension CreateEventViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         guard let title = viewController.title else { return }
@@ -135,3 +135,4 @@ extension CreateEventViewController: UINavigationControllerDelegate {
         }
     }
 }
+
