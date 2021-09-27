@@ -13,6 +13,9 @@ class DriverDetailViewController: UIViewController {
     @IBOutlet weak var driverLabel: UILabel!
     @IBOutlet weak var mapsButton: UIButton!
     
+    //MARK: - PROPERTIES
+    
+    var event: Event?
     
     //MARK: - Life cycles
     override func viewDidLoad() {
@@ -28,11 +31,7 @@ class DriverDetailViewController: UIViewController {
     }
     
     @IBAction func mapsButtonTapped(_ sender: Any) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewController(identifier: "MapsViewController")
-//        vc.modalPresentationStyle = .fullScreen
-//        present(vc, animated: true, completion: nil)
-//        driverAlertController()
+
     }
     
     
@@ -81,6 +80,14 @@ class DriverDetailViewController: UIViewController {
         
         present(alert, animated: true)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "toLocationVC",
+           let destination = segue.destination as? LocationViewController {
+            destination.event = self.event
+        }
     }
     
 }
