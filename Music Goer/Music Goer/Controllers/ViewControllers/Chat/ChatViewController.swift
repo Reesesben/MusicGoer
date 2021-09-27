@@ -182,7 +182,7 @@ extension ChatViewController: MessagesDisplayDelegate {
         at indexPath: IndexPath,
         in messagesCollectionView: MessagesCollectionView
     ) -> UIColor {
-        return isFromCurrentSender(message: message) ? .gray : .green
+        return isFromCurrentSender(message: message) ? .gray : .blue
     }
     
     // 2 Return false to remove header from message. This can be used to display timestamp

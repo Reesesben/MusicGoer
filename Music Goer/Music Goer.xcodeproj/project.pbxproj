@@ -51,6 +51,7 @@
 		B5D8DCE826FE2E7600A99A32 /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8DCE726FE2E7600A99A32 /* UserSearchViewController.swift */; };
 		B5D8DCEA26FE369400A99A32 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8DCE926FE369400A99A32 /* SearchTableViewCell.swift */; };
 		B5D8DCEC26FE526500A99A32 /* memberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8DCEB26FE526500A99A32 /* memberTableViewCell.swift */; };
+		B5ED8FA727021A0F00D4C995 /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED8FA627021A0F00D4C995 /* RoundedImage.swift */; };
 		FC690E6926FA5734003BBACE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E6826FA5734003BBACE /* DateFormatter.swift */; };
 		FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F0B26FA3FFB009CCB58 /* Location.swift */; };
 		FCFF7F1A26FA403C009CCB58 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F1726FA403C009CCB58 /* LocationController.swift */; };
@@ -104,6 +105,7 @@
 		B5D8DCE726FE2E7600A99A32 /* UserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
 		B5D8DCE926FE369400A99A32 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		B5D8DCEB26FE526500A99A32 /* memberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memberTableViewCell.swift; sourceTree = "<group>"; };
+		B5ED8FA627021A0F00D4C995 /* RoundedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
 		F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Goer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.debug.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.debug.xcconfig"; sourceTree = "<group>"; };
 		FC690E6826FA5734003BBACE /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		B5BCE88B26F131D700372D05 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B5ED8FA5270219FE00D4C995 /* Custom Views */,
 				FC21154726F94B1C00121750 /* Custom Cell */,
 				B5BCE88C26F131DE00372D05 /* Storyboards */,
 			);
@@ -300,6 +303,14 @@
 				B5D8DCE726FE2E7600A99A32 /* UserSearchViewController.swift */,
 			);
 			path = CreateEventControllers;
+			sourceTree = "<group>";
+		};
+		B5ED8FA5270219FE00D4C995 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5ED8FA627021A0F00D4C995 /* RoundedImage.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		F506FB23901539FB3B6271E0 /* Pods */ = {
@@ -482,6 +493,7 @@
 				B5CE3EE426FBC8F3009B9188 /* CredentialsController.swift in Sources */,
 				B5D8DCE826FE2E7600A99A32 /* UserSearchViewController.swift in Sources */,
 				FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */,
+				B5ED8FA727021A0F00D4C995 /* RoundedImage.swift in Sources */,
 				27B6C3EC26FBE8E00020EC98 /* UICollectionView+Additions.swift in Sources */,
 				FCFF7F1A26FA403C009CCB58 /* LocationController.swift in Sources */,
 				B5D8DCE626FE2E5300A99A32 /* CreateEventViewController.swift in Sources */,

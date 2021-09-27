@@ -98,7 +98,7 @@ class EventController {
             }
             
             if let snapshot = snapshot {
-                self.events = []
+                var pending: [Event] = []
                 
                 for doc in snapshot.documents {
                     let eventData = doc.data()
@@ -111,9 +111,9 @@ class EventController {
                           let members = eventData[EventConstants.membersKey] as? [String] else { return completion(nil, false)}
                     
                     guard let newDate = self.dateFormatter.date(from: date) else { return }
-                    self.events.append(Event(title: title, eventID: eventID, todos: [], address: address, date: newDate, members: members))
+                    pending.append(Event(title: title, eventID: eventID, todos: [], address: address, date: newDate, members: members))
                 }
-                return completion(self.events, true)
+                return completion(pending, true)
             } else { return completion(nil, false) }
         }
     }

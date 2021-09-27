@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1CK-qQ-Kur">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1CK-qQ-Kur">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="30m-de-vr4">
-                                <rect key="frame" x="82" y="363" width="250" height="224"/>
+                                <rect key="frame" x="82" y="334" width="250" height="282"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zm7-5e-Csi">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
@@ -70,13 +68,16 @@
                                             <action selector="googleSignInButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zdR-rX-HLC"/>
                                         </connections>
                                     </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NQt-wv-rs6">
+                                        <rect key="frame" x="0.0" y="232" width="250" height="50"/>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="Zgp-cr-e8p"/>
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MusicGoersLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-AE-55g">
-                                <rect key="frame" x="70" y="164" width="274" height="179"/>
+                                <rect key="frame" x="70" y="135" width="274" height="179"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -91,6 +92,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="szz-Dn-69E"/>
                     <connections>
+                        <outlet property="AppleLogin" destination="NQt-wv-rs6" id="VkV-fF-gp6"/>
                         <outlet property="googleSignIn" destination="apq-j6-EAP" id="GIi-kP-vOt"/>
                         <outlet property="guestButton" destination="BxX-qs-1Wa" id="agg-kU-A9x"/>
                         <outlet property="loginWithEmailButton" destination="zm7-5e-Csi" id="Rtg-iv-Hm7"/>
@@ -126,13 +128,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vK6-j4-cih">
-                                <rect key="frame" x="103.5" y="528" width="207" height="38"/>
+                                <rect key="frame" x="103.5" y="528" width="207" height="30"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="𝙇𝙤𝙜𝙞𝙣">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="LoginWasTapped:" destination="Kdq-Df-NmY" eventType="touchUpInside" id="AzZ-6N-SZw"/>
                                 </connections>
@@ -184,11 +183,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKB-HD-zAF">
-                                <rect key="frame" x="83" y="807" width="248" height="31"/>
+                                <rect key="frame" x="83" y="808" width="248" height="30"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Finish"/>
                                 <connections>
                                     <action selector="finishButtonTapped:" destination="Ltg-88-xik" eventType="touchUpInside" id="xQY-US-sqO"/>
                                 </connections>
@@ -249,13 +247,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGw-Wk-zfG">
-                                <rect key="frame" x="103.5" y="542" width="207" height="38"/>
+                                <rect key="frame" x="103.5" y="542" width="207" height="30"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="𝙎𝙞𝙜𝙣 𝙐𝙥">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="signUpButtonTapped:" destination="J90-UL-P61" eventType="touchUpInside" id="uL9-Ur-Gsh"/>
                                 </connections>
@@ -266,9 +261,6 @@
                                     <constraint firstAttribute="width" secondItem="qF0-gD-4Lh" secondAttribute="height" multiplier="1:1" id="V0d-ai-PbK"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <imageReference key="image" image="info.circle" catalog="system" symbolScale="large"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="passwordInfoPressed:" destination="J90-UL-P61" eventType="touchUpInside" id="hSJ-ya-984"/>
                                 </connections>
@@ -336,7 +328,6 @@
                                     <constraint firstAttribute="width" secondItem="KSx-Gp-Bvd" secondAttribute="height" multiplier="1:1" id="sN3-Pf-yiy"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Select Image"/>
                                 <connections>
                                     <action selector="selectImageButtonTapped:" destination="6Pt-rs-c7J" eventType="touchUpInside" id="TVH-KN-xAR"/>
                                 </connections>
@@ -366,7 +357,6 @@
     </scenes>
     <resources>
         <image name="MusicGoersLogo" width="300" height="179"/>
-        <image name="info.circle" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

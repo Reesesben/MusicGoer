@@ -20,5 +20,6 @@ target 'Music Goer' do
   pod 'MessageKit'
   pod 'SwiftProtobuf'
   pod 'FloatingPanel'
+  pod 'FirebaseAuthUI'
   
 end
