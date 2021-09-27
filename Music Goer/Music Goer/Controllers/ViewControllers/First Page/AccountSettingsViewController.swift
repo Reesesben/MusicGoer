@@ -48,8 +48,22 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
         colorGradient()
         updateViews()
         setupViews()
+        selectImageButton.layer.cornerRadius = 18
+        changePasswordButton.layer.cornerRadius = 18
+        deleteAccountButton.layer.cornerRadius = 18
         imagePicker.delegate = self
         imagePicker.modalPresentationStyle = .currentContext
+        deleteAccountButton.applyGradient(colors:[CGColor.init(red: 0.6078, green: 0, blue: 0, alpha: 1), CGColor.init(red: 1, green: 0, blue: 0, alpha: 1), CGColor.init(red: 0.8275, green: 0.6196, blue: 0, alpha: 1)])
+        changePasswordButton.applyGradient(colors: [CGColor.init(red: 0.3765, green: 0, blue: 0.3412, alpha: 1), CGColor.init(red: 0.0078, green: 0, blue: 0.3098, alpha: 1), CGColor.init(red: 0, green: 0.7294, blue: 0.7294, alpha: 1)])
+        selectImageButton.applyGradient(colors: [CGColor.init(red: 0.2706, green: 0, blue: 0.3098, alpha: 1), CGColor.init(red: 0.5176, green: 0, blue: 0.4588, alpha: 1), CGColor.init(red: 0.6588, green: 0, blue: 0.6353, alpha: 1)])
+        selectImageButton.layer.borderWidth = 2
+        selectImageButton.layer.borderColor = UIColor.blue.cgColor
+        changePasswordButton.layer.borderWidth = 2
+        deleteAccountButton.layer.borderWidth = 2
+        deleteAccountButton.layer.borderColor = UIColor.red.cgColor
+        
+
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -282,4 +296,30 @@ extension AccountSettingsViewController: UINavigationControllerDelegate {
         }
         
     }//end of func
-}
+}//End of class
+
+extension UIButton {
+    func colorGradience(colors: [CGColor]) {
+        self.backgroundColor = nil
+        self.layoutIfNeeded()
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = colors
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        gradientLayer.frame = self.bounds
+        gradientLayer.cornerRadius = self.frame.height/2
+
+        gradientLayer.shadowColor = UIColor.darkGray.cgColor
+        gradientLayer.shadowOffset = CGSize(width: 2.5, height: 2.5)
+        gradientLayer.shadowRadius = 5.0
+        gradientLayer.shadowOpacity = 0.3
+        gradientLayer.masksToBounds = false
+
+        self.layer.insertSublayer(gradientLayer, at: 0)
+        self.contentVerticalAlignment = .center
+        self.setTitleColor(UIColor.white, for: .normal)
+        self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
+        self.titleLabel?.textColor = UIColor.white
+
+    }
+}//End of extension

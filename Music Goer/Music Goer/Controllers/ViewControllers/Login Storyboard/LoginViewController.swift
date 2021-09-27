@@ -207,6 +207,7 @@ extension UIButton {
         self.setTitleColor(UIColor.white, for: .normal)
         self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
         self.titleLabel?.textColor = UIColor.white
+
     }
 }
 //MARK: - Apple Login extension
