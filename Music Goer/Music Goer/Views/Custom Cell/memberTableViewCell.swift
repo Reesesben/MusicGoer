@@ -26,7 +26,6 @@ class memberTableViewCell: UITableViewCell {
     
     //MARK: - Helper Methods
     func updateCell(with user: MUser) {
-        userImage.layer.cornerRadius = userImage.frame.height / 2
         userImage.image = UIImage(data: user.userImage)
         userName.text = user.userName
     }

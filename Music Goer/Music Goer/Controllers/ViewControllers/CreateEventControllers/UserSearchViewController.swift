@@ -99,7 +99,7 @@ extension UserSearchViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "noResultsCell", for: indexPath)
-            cell.textLabel?.text = "No reaults!"
+            cell.textLabel?.text = "No results!"
             cell.selectionStyle = .none
             return cell
         }

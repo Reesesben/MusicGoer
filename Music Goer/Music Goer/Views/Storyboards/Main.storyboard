@@ -77,7 +77,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gDB-zg-wc2">
                                                     <rect key="frame" x="8" y="8" width="398" height="98"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mph-53-6cy">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mph-53-6cy" customClass="RoundedImage" customModule="Music_Goer" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="58" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Mph-53-6cy" secondAttribute="height" multiplier="1:1" id="fgo-dv-1be"/>
@@ -169,7 +169,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="M7H-bL-II9">
                                                     <rect key="frame" x="20" y="11" width="374" height="53"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Yq-6J-THi">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Yq-6J-THi" customClass="RoundedImage" customModule="Music_Goer" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="37.5" height="53"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="5Yq-6J-THi" secondAttribute="height" multiplier="1:1" id="pRR-ON-3Xm"/>
