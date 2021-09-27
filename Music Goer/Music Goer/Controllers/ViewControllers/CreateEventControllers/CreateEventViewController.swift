@@ -27,6 +27,7 @@ class CreateEventViewController: UIViewController {
         super.viewDidLoad()
         guard let current = MUserController.shared.currentUser else { return }
         members.insert(current, at: 0)
+        self.hideKeyboardWhenTappedAround()
     }
     //MARK: - Properties
     var delegate: createEventDelegate?
@@ -123,5 +124,7 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource 
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
+
 }
+
+

@@ -25,6 +25,7 @@ class LoginWithEmailViewController: UIViewController {
         loginButton.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1))
         loginButton.colorGradient(colors: [CGColor.init(red: 0.5, green: 0, blue: 0.5, alpha: 1), CGColor.init(red: 0.125, green: 0.125, blue: 0.75, alpha: 1), CGColor.init(red: 0, green: 0.5, blue: 0.5, alpha: 1)])
   
+        self.hideKeyboardWhenTappedAround()
     }
     
     //MARK: - Helper Func
@@ -109,3 +110,5 @@ extension UIButton {
         self.titleLabel?.textColor = UIColor.white
     }
 }//End of extension
+
+
