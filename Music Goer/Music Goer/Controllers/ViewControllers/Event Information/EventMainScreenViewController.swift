@@ -96,6 +96,11 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     
     //MARK: - ACTIONS
     
+    @IBAction func driverButtonTapped(_ sender: Any) {
+        
+    }
+    
+    
     @objc private func addButtonPressed() {
         let alertController = UIAlertController(title: "Create a new Channel", message: nil, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -187,15 +192,15 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         EventController.shared.fetchTodos(for: event, completion: {
             self.toDoListTableView.reloadData()
         })
-
+        
     }
     // MARK: UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if channels.first != nil {
-        guard let channel = channels.first else { return }
-        let viewController = ChatViewController(user: currentUser, channel: channel)
-        navigationController?.pushViewController(viewController, animated: true)
+            guard let channel = channels.first else { return }
+            let viewController = ChatViewController(user: currentUser, channel: channel)
+            navigationController?.pushViewController(viewController, animated: true)
         } else {
             addButtonPressed()
         }
@@ -260,6 +265,9 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
                   let event = event else { return }
             destinationVC.event = event
             destinationVC.delegate = self
+        } else if segue.identifier == "toDriveVC",
+                  let destination = segue.destination as? DriverDetailViewController {
+            destination.event = self.event
         }
     }
     
@@ -284,7 +292,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         self.chatHeadCollectionView.backgroundView = UIView.init(frame: self.view.bounds)
         
         self.chatHeadCollectionView.backgroundView?.layer.insertSublayer(gradientCollection, at: 0)
-    
+        
     }
 }
 

@@ -12,10 +12,15 @@ import CoreLocation
 
 class LocationViewController: UIViewController, searchViewControllerDelegate {
     
+    //MARK: - PROPERITES
+    
     let manager = CLLocationManager()
     let mapView = MKMapView()
     let panel = FloatingPanelController()
-
+    var event: Event?
+    
+    //MARK: - LIFECYCLES
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(mapView)
@@ -25,12 +30,16 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
         panel.set(contentViewController: searchVC)
         panel.addPanel(toParent: self)
         setupViews()
+        navigationItem.hidesBackButton = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTapped))
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         mapView.frame = view.bounds
     }
+    
+    //MARK: - HELPER FUNCTIONS
     
     func setupViews() {
         // Set accuracy for location
@@ -45,8 +54,72 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
         mapView.delegate = self
     }
     
+    //MARK: - PERMISSIONS
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) -> Bool {
+        var hasPermission = false
+        switch manager.authorizationStatus {
+        // App first launched, hasn't determined
+        case .notDetermined:
+            // For use when the app is open
+            manager.requestWhenInUseAuthorization()
+        case .restricted:
+            break
+        case .denied:
+            break
+        case .authorizedAlways:
+            hasPermission = true
+            break
+        // For use when the app is open
+        case .authorizedWhenInUse:
+            hasPermission = true
+            break
+        @unknown default:
+            break
+        }
+        
+        switch manager.accuracyAuthorization {
+        
+        case .fullAccuracy:
+            break
+        case .reducedAccuracy:
+            break
+        @unknown default:
+            break
+        }
+        // This will update us along the way, as the user has our app
+        manager.startUpdatingLocation()
+        return hasPermission
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        // Status is the outcome of our ability to use their location, where were checking if there's been changes
+        switch status {
+        case .restricted:
+            print("\nUsers location is restricted")
+            
+        case .denied:
+            print("\nUser denied access to use their location\n")
+            
+        case .authorizedWhenInUse:
+            print("\nuser granted authorizedWhenInUse\n")
+            
+        case .authorizedAlways:
+            print("\nuser selected authorizedAlways\n")
+            
+        default: break
+        }
+    }
+    
+    //MARK: - ACTIONS
+    
+    @objc func saveTapped() {
+        guard let event = event else { return }
+        event.latitude = LocationManager.shared.location.last?.coordinates.latitude ?? 0.0
+        event.longitude = LocationManager.shared.location.last?.coordinates.longitude ?? 0.0
+    }
+    
     func searchViewController(_ vc: SearchViewController, didSelectLocaitonWith coordinates: CLLocationCoordinate2D?) {
-
+        
         guard let coordinates = coordinates else { return }
         
         panel.move(to: .tip, animated: true)
@@ -62,13 +135,18 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
 extension LocationViewController: MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     // Delegate function; gets called when location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            manager.stopUpdatingLocation()
-            
-            render(location)
+        guard let event = event else { return }
+        if event.latitude != 0.0 && event.longitude != 0.0 {
+            if let location = locations.first {
+                manager.stopUpdatingLocation()
+                render(location)
+            }
+        } else {
+            var savedLocation = CLLocation(latitude: event.latitude, longitude: event.longitude)
+            render(savedLocation)
         }
     }
-
+    
     // Zoom into map on location, & add pin
     func render(_ location: CLLocation) {
         // The latitude and longitude associated with a location
