@@ -14,12 +14,13 @@ protocol inviteDetailDelegate {
 
 class InviteDetailViewController: UIViewController {
     //MARK: - IBOutlets
-    @IBOutlet var userImageView: RoundedImage!
+    @IBOutlet var userImageView: UIImageView!
     @IBOutlet var inviteLabel: UILabel!
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        userImageView.layer.cornerRadius = userImageView.frame.height / 2
         updateViews()
     }
     //MARK: - Properties
@@ -66,6 +67,11 @@ class InviteDetailViewController: UIViewController {
             current.blocked.append(creator.userID)
             MUserController.shared.saveUser(user: current) {
                 self.dismiss(animated: true, completion: nil)
+                guard let event = self.event,
+                      let delegate = self.delegate else { return }
+                delegate.reject(event: event, completion: {
+                    self.dismiss(animated: true)
+                })
             }
         }
         let reportUser = UIAlertAction(title: "Report", style: .destructive) { _ in
@@ -74,11 +80,18 @@ class InviteDetailViewController: UIViewController {
             creator.lastReport = Date()
             MUserController.shared.saveUser(user: creator) {
                 self.dismiss(animated: true, completion: nil)
+                guard let event = self.event,
+                      let delegate = self.delegate else { return }
+                delegate.reject(event: event, completion: {
+                    self.dismiss(animated: true)
+                })
             }
         }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(blockUser)
         alert.addAction(reportUser)
+        alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
     }
     
