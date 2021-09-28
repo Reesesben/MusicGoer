@@ -44,26 +44,6 @@ class LoginViewController: UIViewController {
         guestButton.applyGradient(colors: [CGColor.init(red: 0.5, green: 0, blue: 0.5, alpha: 1), CGColor.init(red: 0.125, green: 0.125, blue: 0.75, alpha: 1), CGColor.init(red: 0, green: 0.5, blue: 0.5, alpha: 1)])
         loginWithEmailButton.applyGradient(colors: [CGColor.init(red: 0.5, green: 0, blue: 0.5, alpha: 1), CGColor.init(red: 0.125, green: 0.125, blue: 0.75, alpha: 1), CGColor.init(red: 0, green: 0.5, blue: 0.5, alpha: 1)])
         signUpEmailButton.applyGradient(colors: [CGColor.init(red: 0.5, green: 0, blue: 0.5, alpha: 1), CGColor.init(red: 0.125, green: 0.125, blue: 0.75, alpha: 1), CGColor.init(red: 0, green: 0.5, blue: 0.5, alpha: 1)])
-         CredentialsController.shared.loadFromPresistenceStore { sucess in
-            if sucess {
-                guard let credentials = CredentialsController.shared.currentCredentials else { return }
-                if credentials.type == CredentialsConstants.emailTypeKey {
-                    guard let email = credentials.email,
-                          let password = credentials.password else { return }
-                    Auth.auth().signIn(withEmail: email, password: password) { result, error in
-                        if let error = error {
-                            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                        }
-                        DispatchQueue.main.async {
-                            self.transitionLogin()
-                        }
-                    }
-                } else if credentials.type == CredentialsConstants.googleTypeKey {
-                    Auth.auth()
-                    self.transitionLogin()
-                }
-            }
-        }
         navigationController?.navigationBar.isHidden = true
         self.hideKeyboardWhenTappedAround()
     }
