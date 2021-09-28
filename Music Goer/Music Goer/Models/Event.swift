@@ -16,6 +16,8 @@ struct EventConstants {
     static let dateKey = "EventDate"
     static let membersKey = "MemberIDs"
     static let todosKey = "Todos"
+    static let latitudeKey = "Latitude"
+    static let longitudeKey = "Longitude"
 }
 
 class Event {
@@ -25,10 +27,10 @@ class Event {
     var address: String
     var date: Date
     var members: [String]
-    var latitude: Double
-    var longitude: Double
+    var latitude: Double?
+    var longitude: Double?
 
-    init(title: String, eventID: String = UUID().uuidString, todos: [ToDo], address: String, date: Date, members: [String], latitude: Double = 0.0, longitude: Double = 0.0) {
+    init(title: String, eventID: String = UUID().uuidString, todos: [ToDo], address: String, date: Date, members: [String], latitude: Double? = nil, longitude: Double? = nil) {
 
         self.title = title
         self.eventID = eventID

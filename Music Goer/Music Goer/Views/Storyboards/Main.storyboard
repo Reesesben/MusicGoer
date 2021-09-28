@@ -64,10 +64,9 @@
                                 </subviews>
                             </stackView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="ObZ-h2-YAw">
-                                <rect key="frame" x="106.5" y="177" width="201" height="50"/>
+                                <rect key="frame" x="106.5" y="176" width="201" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
-
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="vtr-WN-gzm"/>
                                 </constraints>
@@ -262,8 +261,7 @@
                         <color key="sectionIndexColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="44" id="1bU-RP-EbJ">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
-
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1bU-RP-EbJ" id="DXW-in-YUo">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -339,7 +337,6 @@
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" ͟ ͟E͟m͟a͟i͟l͟ ͟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzx-Kk-mIk">
                                 <rect key="frame" x="10" y="526" width="394" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -364,21 +361,17 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Vd1-UC-bsF"/>
                                 </constraints>
-
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="changeImageButtonTapped:" destination="pbU-mr-vJl" eventType="touchUpInside" id="VmT-l1-L4t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAO-K6-s7m">
-                                <rect key="frame" x="10" y="638" width="175" height="36"/>
+                                <rect key="frame" x="10" y="638" width="175" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="175" id="kR7-H3-cWW"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Change Password">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="changePasswordButtonTapped:" destination="pbU-mr-vJl" eventType="touchUpInside" id="zbx-2i-8dd"/>
                                 </connections>
@@ -454,25 +447,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qa4-ib-DdY">
-                                <rect key="frame" x="8" y="371" width="398" height="70"/>
+                                <rect key="frame" x="8" y="371" width="398" height="68"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ICz-fu-RxC">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmq-Wo-WUO">
-                                                <rect key="frame" x="0.0" y="0.0" width="195" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="195" height="30"/>
                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Reject"/>
                                                 <connections>
                                                     <action selector="rejectButtonTapped:" destination="FDb-1f-CkL" eventType="touchUpInside" id="e0I-xG-Pac"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDB-Ej-r8v">
-                                                <rect key="frame" x="203" y="0.0" width="195" height="31"/>
+                                                <rect key="frame" x="203" y="0.0" width="195" height="30"/>
                                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Accept"/>
                                                 <connections>
                                                     <action selector="acceptButtonTapped:" destination="FDb-1f-CkL" eventType="touchUpInside" id="EcM-rI-dar"/>
                                                 </connections>
@@ -480,9 +471,8 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Q0-e9-bzt">
-                                        <rect key="frame" x="0.0" y="39" width="398" height="31"/>
+                                        <rect key="frame" x="0.0" y="38" width="398" height="30"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="More Options"/>
                                         <connections>
                                             <action selector="MoreOptionsButtonTapped:" destination="FDb-1f-CkL" eventType="touchUpInside" id="41m-pl-4Ha"/>
                                         </connections>
@@ -689,7 +679,7 @@
                                 </cells>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1SL-4H-fSg">
-                                <rect key="frame" x="0.0" y="309" width="414" height="504"/>
+                                <rect key="frame" x="0.0" y="307" width="414" height="506"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="toDoListTableViewCell" textLabel="qyU-i6-US1" detailTextLabel="ibV-lD-vTE" rowHeight="98" style="IBUITableViewCellStyleSubtitle" id="SsJ-bM-Qf5" customClass="ListTableViewCell" customModule="Music_Goer" customModuleProvider="target">
@@ -722,12 +712,11 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIb-aZ-ifw">
-                                <rect key="frame" x="356" y="257" width="48" height="48"/>
+                                <rect key="frame" x="358" y="257" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="2ps-Ct-IYN"/>
                                     <constraint firstAttribute="width" constant="48" id="mLf-yN-mMf"/>
                                 </constraints>
-
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal">
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
@@ -737,7 +726,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To do list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73s-Cb-4fX">
-                                <rect key="frame" x="10" y="265" width="117.5" height="36"/>
+                                <rect key="frame" x="10" y="263" width="117.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -759,7 +748,6 @@
                             <constraint firstItem="YWm-vj-A2F" firstAttribute="trailing" secondItem="1SL-4H-fSg" secondAttribute="trailing" id="EsO-bq-rXu"/>
                             <constraint firstItem="YWm-vj-A2F" firstAttribute="trailing" secondItem="Haq-yl-8NI" secondAttribute="trailing" id="Jy6-Zj-WE7"/>
                             <constraint firstItem="mIb-aZ-ifw" firstAttribute="top" secondItem="Haq-yl-8NI" secondAttribute="bottom" id="SKG-91-Is2"/>
-
                             <constraint firstItem="73s-Cb-4fX" firstAttribute="leading" secondItem="YWm-vj-A2F" secondAttribute="leading" constant="10" id="TIq-q7-xXO"/>
                             <constraint firstItem="YWm-vj-A2F" firstAttribute="bottom" secondItem="1SL-4H-fSg" secondAttribute="bottom" id="XC6-Vd-BHJ"/>
                             <constraint firstItem="shX-FH-ZXl" firstAttribute="leading" secondItem="YWm-vj-A2F" secondAttribute="leading" constant="10" id="Y65-0X-Ykj"/>
@@ -775,7 +763,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="car" catalog="system" id="vsa-7j-o74">
                             <connections>
                                 <action selector="driverButtonTapped:" destination="J9e-eJ-FP9" id="ysR-sL-81t"/>
-                                <segue destination="xdx-GV-FsU" kind="show" identifier="toDriveVC" id="htf-fQ-YBy"/>
+                                <segue destination="5we-34-iDi" kind="show" identifier="toLocationVC" id="MN5-bA-gca"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -801,9 +789,8 @@
                                 <color key="backgroundColor" red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="8a5-Lx-R6N">
-                                <rect key="frame" x="0.0" y="270" width="414" height="393"/>
+                                <rect key="frame" x="0.0" y="277" width="414" height="386"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ks-kk-tGD">
                                 <rect key="frame" x="20" y="831" width="374" height="36"/>
@@ -858,87 +845,6 @@
             </objects>
             <point key="canvasLocation" x="2898.5507246376815" y="621.42857142857144"/>
         </scene>
-        <!--Driver Detail View Controller-->
-        <scene sceneID="H3M-0M-oAz">
-            <objects>
-                <viewController id="xdx-GV-FsU" customClass="DriverDetailViewController" customModule="Music_Goer" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Hyf-aS-hRo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Who's Driving?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNI-Iq-M5H">
-                                <rect key="frame" x="15" y="96" width="384" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iz8-Uf-WTP">
-                                <rect key="frame" x="15" y="124.5" width="384" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7P-dB-Xk2">
-                                <rect key="frame" x="19.5" y="285" width="375" height="375"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="375" id="4uK-JO-5Tq"/>
-                                    <constraint firstAttribute="width" constant="375" id="j0T-M4-otq"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="m" image="Aatrox">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                </state>
-                                <connections>
-                                    <action selector="mapsButtonTapped:" destination="xdx-GV-FsU" eventType="touchUpInside" id="61P-QV-4or"/>
-                                    <segue destination="5we-34-iDi" kind="show" identifier="toLocationVC" id="eKx-lp-tyK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s93-cp-ehD">
-                                <rect key="frame" x="15" y="153" width="384" height="30"/>
-                                <state key="normal" title="Press to name driver"/>
-                                <connections>
-                                    <action selector="driverButtonTapped:" destination="xdx-GV-FsU" eventType="touchUpInside" id="4mm-LL-wJ6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svj-60-wdd">
-                                <rect key="frame" x="19" y="261" width="375" height="375"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="375" id="A1g-b6-bHi"/>
-                                    <constraint firstAttribute="width" constant="375" id="i9l-5n-iYw"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="maps_logo_375x375"/>
-                                <connections>
-                                    <segue destination="5we-34-iDi" kind="show" id="o1G-I4-BVQ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="mTt-FJ-mx0"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="mTt-FJ-mx0" firstAttribute="trailing" secondItem="ZNI-Iq-M5H" secondAttribute="trailing" constant="15" id="2bI-jY-jxs"/>
-                            <constraint firstItem="ZNI-Iq-M5H" firstAttribute="leading" secondItem="mTt-FJ-mx0" secondAttribute="leading" constant="15" id="NFe-KE-ZJS"/>
-                            <constraint firstItem="mTt-FJ-mx0" firstAttribute="trailing" secondItem="iz8-Uf-WTP" secondAttribute="trailing" constant="15" id="Ogt-Lz-lFz"/>
-                            <constraint firstItem="ZNI-Iq-M5H" firstAttribute="top" secondItem="mTt-FJ-mx0" secondAttribute="top" constant="8" id="Pe2-GG-dmY"/>
-                            <constraint firstItem="s93-cp-ehD" firstAttribute="leading" secondItem="mTt-FJ-mx0" secondAttribute="leading" constant="15" id="bUO-fv-xfH"/>
-                            <constraint firstItem="mTt-FJ-mx0" firstAttribute="trailing" secondItem="s93-cp-ehD" secondAttribute="trailing" constant="15" id="iHv-Pv-UEu"/>
-                            <constraint firstItem="iz8-Uf-WTP" firstAttribute="leading" secondItem="mTt-FJ-mx0" secondAttribute="leading" constant="15" id="iPz-e9-f9b"/>
-                            <constraint firstItem="Svj-60-wdd" firstAttribute="leading" secondItem="s93-cp-ehD" secondAttribute="leading" constant="4" id="nse-S8-1Qa"/>
-                            <constraint firstItem="s93-cp-ehD" firstAttribute="top" secondItem="iz8-Uf-WTP" secondAttribute="bottom" constant="8" symbolic="YES" id="rZU-4q-i9y"/>
-                            <constraint firstItem="mTt-FJ-mx0" firstAttribute="bottom" secondItem="Svj-60-wdd" secondAttribute="bottom" constant="177" id="tRa-1D-Rmd"/>
-                            <constraint firstItem="iz8-Uf-WTP" firstAttribute="top" secondItem="ZNI-Iq-M5H" secondAttribute="bottom" constant="8" symbolic="YES" id="uGg-Tr-fjK"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="nTP-Cd-GUp"/>
-                    <connections>
-                        <outlet property="driverLabel" destination="iz8-Uf-WTP" id="tXV-Rd-f4h"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="loY-YR-FWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1989.8550724637682" y="-22.098214285714285"/>
-        </scene>
         <!--Location View Controller-->
         <scene sceneID="boX-oo-2rq">
             <objects>
@@ -985,7 +891,6 @@
         <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="car" catalog="system" width="128" height="93"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
-        <image name="maps_logo_375x375" width="375" height="375"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
