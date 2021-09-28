@@ -2,7 +2,7 @@
 //  CreateEventViewController.swift
 //  Music Goer
 //
-//  Created by Ben Erekson on 9/24/21.
+//  Created by Ben Erekson on 9/24/œ21.
 //
 
 import UIKit
