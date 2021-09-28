@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IdJ-mg-oQD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
@@ -129,10 +130,13 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vK6-j4-cih">
-                                <rect key="frame" x="103.5" y="528" width="207" height="30"/>
+                                <rect key="frame" x="103.5" y="528" width="207" height="36"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" systemColor="labelColor"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="𝙇𝙤𝙜𝙞𝙣">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
                                 <connections>
                                     <action selector="LoginWasTapped:" destination="Kdq-Df-NmY" eventType="touchUpInside" id="AzZ-6N-SZw"/>
                                 </connections>
@@ -184,10 +188,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKB-HD-zAF">
-                                <rect key="frame" x="83" y="808" width="248" height="30"/>
+                                <rect key="frame" x="83" y="802" width="248" height="36"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" systemColor="labelColor"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="𝙁𝙞𝙣𝙞𝙨𝙝">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
                                 <connections>
                                     <action selector="finishButtonTapped:" destination="Ltg-88-xik" eventType="touchUpInside" id="xQY-US-sqO"/>
                                 </connections>
@@ -248,10 +255,13 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGw-Wk-zfG">
-                                <rect key="frame" x="103.5" y="542" width="207" height="30"/>
+                                <rect key="frame" x="103.5" y="542" width="207" height="36"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" systemColor="labelColor"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="𝙎𝙞𝙜𝙣 𝙪𝙥">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
                                 <connections>
                                     <action selector="signUpButtonTapped:" destination="J90-UL-P61" eventType="touchUpInside" id="uL9-Ur-Gsh"/>
                                 </connections>

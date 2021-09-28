@@ -95,8 +95,14 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
         cell.indexPath = indexPath
         cell.updateCell(pending[indexPath.row])
         cell.delegate = self
-        cell.layer.backgroundColor = CGColor(red: 0, green: 0.4, blue: 0.8275, alpha: 0.33)
-        
+        cell.backgroundColor = .clear
+        cell.addGradientBackground(firstColor: UIColor(#colorLiteral(red: 0.1294, green: 0.0196, blue: 0.2078, alpha: 1)), secondColor: UIColor(#colorLiteral(red: 0.2627, green: 0.051, blue: 0.2941, alpha: 1)), thirdColor: UIColor(#colorLiteral(red: 0.4824, green: 0.2, blue: 0.4902, alpha: 1)), fourthColor: UIColor(#colorLiteral(red: 0.7843, green: 0.4549, blue: 0.698, alpha: 1)), fifthColor: UIColor(#colorLiteral(red: 0.9608, green: 0.8353, blue: 0.8784, alpha: 1)))
+
+        cell.layer.cornerRadius = 12
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = UIColor.black.cgColor
+
+
         return cell
     }
     

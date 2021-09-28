@@ -56,6 +56,7 @@
 		B5F12F8C270379C200B22332 /* SuspendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F12F8B270379C200B22332 /* SuspendedViewController.swift */; };
 		B5F12F8E2703801B00B22332 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F12F8D2703801B00B22332 /* LoadingViewController.swift */; };
 		FC690E6926FA5734003BBACE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E6826FA5734003BBACE /* DateFormatter.swift */; };
+		FCAF9BDA270384AA000D9978 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAF9BD9270384AA000D9978 /* LaunchScreenViewController.swift */; };
 		FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F0B26FA3FFB009CCB58 /* Location.swift */; };
 		FCFF7F1A26FA403C009CCB58 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F1726FA403C009CCB58 /* LocationController.swift */; };
 		FCFF7F1D26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F1C26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift */; };
@@ -116,6 +117,7 @@
 		F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Goer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.debug.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.debug.xcconfig"; sourceTree = "<group>"; };
 		FC690E6826FA5734003BBACE /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		FCAF9BD9270384AA000D9978 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		FCFF7F0B26FA3FFB009CCB58 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FCFF7F1726FA403C009CCB58 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		FCFF7F1C26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatHeadCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				B589BB7926F8DC6C00A68588 /* LoginViewController.swift */,
 				B5AFDA6426FA8CB600153143 /* CustomizeationViewController.swift */,
 				B5AFDA6626FAAE1700153143 /* PhotoPickerViewController.swift */,
+
 				B5F12F8D2703801B00B22332 /* LoadingViewController.swift */,
 			);
 			path = "Login Storyboard";
@@ -525,6 +528,7 @@
 				27B6C3EA26FBE8880020EC98 /* ChatViewController.swift in Sources */,
 				B55C869226FB9D2E009F31FB /* TodoDetailViewController.swift in Sources */,
 				B5AFDA6326FA8C5700153143 /* SignUpWithEmailViewController.swift in Sources */,
+				FCAF9BDA270384AA000D9978 /* LaunchScreenViewController.swift in Sources */,
 				B55C869326FB9D2E009F31FB /* SearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -655,15 +659,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+
 				DEVELOPMENT_TEAM = A5WKQ59823;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -676,15 +683,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+
 				DEVELOPMENT_TEAM = A5WKQ59823;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
