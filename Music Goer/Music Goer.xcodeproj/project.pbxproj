@@ -26,7 +26,6 @@
 		B55C869226FB9D2E009F31FB /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C868D26FB9D2D009F31FB /* TodoDetailViewController.swift */; };
 		B55C869326FB9D2E009F31FB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C868E26FB9D2D009F31FB /* SearchViewController.swift */; };
 		B55C869426FB9D2E009F31FB /* EventMainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C868F26FB9D2E009F31FB /* EventMainScreenViewController.swift */; };
-		B55C869526FB9D2E009F31FB /* DriverDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C869026FB9D2E009F31FB /* DriverDetailViewController.swift */; };
 		B576955226F929DB00364667 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B576955126F929DB00364667 /* GoogleService-Info.plist */; };
 		B5817B1E26F270C40070271E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B1C26F270C30070271E /* LaunchScreen.storyboard */; };
 		B5817B2126F270C90070271E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B2026F270C90070271E /* Login.storyboard */; };
@@ -82,7 +81,6 @@
 		B55C868D26FB9D2D009F31FB /* TodoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
 		B55C868E26FB9D2D009F31FB /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B55C868F26FB9D2E009F31FB /* EventMainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMainScreenViewController.swift; sourceTree = "<group>"; };
-		B55C869026FB9D2E009F31FB /* DriverDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverDetailViewController.swift; sourceTree = "<group>"; };
 		B576955126F929DB00364667 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5817B1C26F270C30070271E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5817B2026F270C90070271E /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 		B55C868B26FB9D1C009F31FB /* Event Information */ = {
 			isa = PBXGroup;
 			children = (
-				B55C869026FB9D2E009F31FB /* DriverDetailViewController.swift */,
 				B55C868D26FB9D2D009F31FB /* TodoDetailViewController.swift */,
 				B55C868F26FB9D2E009F31FB /* EventMainScreenViewController.swift */,
 				B55C868C26FB9D2D009F31FB /* LocationViewController.swift */,
@@ -492,7 +489,6 @@
 				27B6C3E026FBE75C0020EC98 /* Message.swift in Sources */,
 				B55C869126FB9D2E009F31FB /* LocationViewController.swift in Sources */,
 				B5F12F8C270379C200B22332 /* SuspendedViewController.swift in Sources */,
-				B55C869526FB9D2E009F31FB /* DriverDetailViewController.swift in Sources */,
 				B5C4C6A026F29AD80052BAFB /* EventController.swift in Sources */,
 				B5C4C69C26F29A250052BAFB /* Event.swift in Sources */,
 				27B6C3E426FBE77E0020EC98 /* ImageMediaItem.swift in Sources */,
@@ -657,7 +653,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QDM5JWF95B;
+				DEVELOPMENT_TEAM = A5WKQ59823;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -680,7 +676,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QDM5JWF95B;
+				DEVELOPMENT_TEAM = A5WKQ59823;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

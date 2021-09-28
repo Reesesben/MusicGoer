@@ -30,10 +30,10 @@ class EventController {
         if toInvite.count > 0 {
             MUserController.shared.inviteUsers(memberRefs: toInvite, eventID: newEvent.eventID, completion: { sucess in
                 if sucess {
-                self.updateEvent(event: newEvent, completion: {
-                    print("Event Created Sucessfully")
-                    return completion(true)
-                })
+                    self.updateEvent(event: newEvent, completion: {
+                        print("Event Created Sucessfully")
+                        return completion(true)
+                    })
                 } else {
                     return completion(false)
                 }
@@ -47,6 +47,8 @@ class EventController {
                           EventConstants.titleKey : event.title,
                           EventConstants.addressKey : event.address,
                           EventConstants.dateKey : dateFormatter.string(from: event.date),
+                          EventConstants.latitudeKey : event.latitude ?? 0.0,
+                          EventConstants.longitudeKey : event.longitude ?? 0.0,
                           EventConstants.membersKey : event.members], merge: true)
         for todo in event.todos {
             let todoRef = db.collection(EventConstants.RecordTypeKey).document(event.eventID).collection(EventConstants.todosKey).document(todo.todoID)
@@ -82,8 +84,17 @@ class EventController {
                             String,
                           let members = eventData[EventConstants.membersKey] as? [String] else { return completion(false)}
                     
+                    var eventLatitude: Double? = nil
+                    if let latitude = eventData[EventConstants.latitudeKey] as? Double {
+                        eventLatitude = latitude
+                    }
+                    var eventLongitude: Double? = nil
+                    if let longitude = eventData[EventConstants.longitudeKey] as? Double {
+                        eventLongitude = longitude
+                    }
+                    
                     guard let newDate = self.dateFormatter.date(from: date) else { return }
-                    self.events.append(Event(title: title, eventID: eventID, todos: [], address: address, date: newDate, members: members))
+                    self.events.append(Event(title: title, eventID: eventID, todos: [], address: address, date: newDate, members: members, latitude: eventLatitude, longitude: eventLongitude))
                 }
                 return completion(true)
             } else { return completion(false) }
@@ -110,8 +121,17 @@ class EventController {
                             String,
                           let members = eventData[EventConstants.membersKey] as? [String] else { return completion(nil, false)}
                     
+                    var eventLatitude: Double? = nil
+                    if let latitude = eventData[EventConstants.latitudeKey] as? Double {
+                        eventLatitude = latitude
+                    }
+                    var eventLongitude: Double? = nil
+                    if let longitude = eventData[EventConstants.longitudeKey] as? Double {
+                        eventLongitude = longitude
+                    }
+                    
                     guard let newDate = self.dateFormatter.date(from: date) else { return }
-                    pending.append(Event(title: title, eventID: eventID, todos: [], address: address, date: newDate, members: members))
+                    pending.append(Event(title: title, eventID: eventID, todos: [], address: address, date: newDate, members: members, latitude: eventLatitude, longitude: eventLongitude))
                 }
                 return completion(pending, true)
             } else { return completion(nil, false) }
@@ -184,7 +204,7 @@ class EventController {
                           let userImage = UIImage(data: imageData) else { return completion([UIImage()])}
                     userImages.append(userImage)
                 }
-             return completion(userImages)
+                return completion(userImages)
             } else { return completion([UIImage()]) }
         }
         return completion(userImages)

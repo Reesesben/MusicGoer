@@ -199,7 +199,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if channels.first != nil {
             guard let channel = channels.first else { return }
-            let viewController = ChatViewController(user: currentUser, channel: channel)
+            let viewController = ChatViewController(user: currentUser, channel: channel, event: event)
             navigationController?.pushViewController(viewController, animated: true)
         } else {
             addButtonPressed()
@@ -270,9 +270,11 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
                   let event = event else { return }
             destinationVC.event = event
             destinationVC.delegate = self
-        } else if segue.identifier == "toDriveVC",
-                  let destination = segue.destination as? DriverDetailViewController {
-            destination.event = self.event
+            
+        } else if segue.identifier == "toLocationVC" {
+            guard let destination = segue.destination as? LocationViewController,
+                  let event = event else { return }
+            destination.event = event
         }
     }
     
