@@ -17,7 +17,11 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
     let manager = CLLocationManager()
     let mapView = MKMapView()
     let panel = FloatingPanelController()
-    var event: Event?
+    var event: Event? {
+        didSet {
+            print("\(event?.latitude)\n\(event?.longitude)")
+        }
+    }
     
     //MARK: - LIFECYCLES
     
@@ -113,9 +117,12 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
     //MARK: - ACTIONS
     
     @objc func saveTapped() {
-        guard let event = event else { return }
-        event.latitude = LocationManager.shared.location.last?.coordinates.latitude ?? 0.0
-        event.longitude = LocationManager.shared.location.last?.coordinates.longitude ?? 0.0
+        if let event = event {
+            event.latitude = LocationManager.shared.location.last?.coordinates.latitude ?? 0.0
+            event.longitude = LocationManager.shared.location.last?.coordinates.longitude ?? 0.0
+            EventController.shared.updateEvent(event: event) {
+            }
+        }
     }
     
     func searchViewController(_ vc: SearchViewController, didSelectLocaitonWith coordinates: CLLocationCoordinate2D?) {
@@ -135,20 +142,23 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
 extension LocationViewController: MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     // Delegate function; gets called when location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let event = event else { return }
-        if event.latitude != 0.0 && event.longitude != 0.0 {
-            if let location = locations.first {
-                manager.stopUpdatingLocation()
-                render(location)
-            }
-        } else {
-            var savedLocation = CLLocation(latitude: event.latitude, longitude: event.longitude)
-            render(savedLocation)
+        if let event = event {
+            let location = CLLocation(latitude: event.latitude ?? 0.0, longitude: event.longitude ?? 0.0)
+            manager.stopUpdatingLocation()
+            render(location)
         }
     }
     
     // Zoom into map on location, & add pin
     func render(_ location: CLLocation) {
+        
+        if event == event {
+            let coordinate = CLLocationCoordinate2D(latitude: event?.latitude ?? 0.0, longitude: event?.longitude ?? 0.0)
+            let pin = MKPointAnnotation()
+            pin.coordinate = coordinate
+            mapView.addAnnotation(pin)
+            pin.title = event?.title
+        }
         // The latitude and longitude associated with a location
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         // The width and height of a map region.
@@ -165,10 +175,32 @@ extension LocationViewController: MKMapViewDelegate, CLLocationManagerDelegate, 
             return nil
         }
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
-        annotationView.image = UIImage(named: "plopdog")
+        annotationView.image = UIImage(systemName: "mappin.circle")
         annotationView.canShowCallout = true
         annotationView.calloutOffset = CGPoint(x: -5, y: 5)
         annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         return annotationView
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            // Cross-match locaiton for selected Annotation point with observation location
+            guard let event = event else { return }
+            let testLocation = CLLocationCoordinate2D(latitude: event.latitude ?? 0.0, longitude: event.longitude ?? 0.0)
+            // If the annotation & observation have the same location run code below
+            if testLocation.latitude == view.annotation!.coordinate.latitude && testLocation.longitude == view.annotation!.coordinate.longitude {
+                // segue to apple maps with navigation to event
+                openMapsAppWithDirections(to: testLocation, destinationName: event.title)
+            }
+        }
+    }
+    
+    func openMapsAppWithDirections(to coordinate: CLLocationCoordinate2D, destinationName name: String) {
+        let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = name // Provide the name of the destination in the To: field
+        mapItem.openInMaps(launchOptions: options)
     }
 } // End of Extension

@@ -39,6 +39,7 @@ import FirebaseFirestore
 final class ChatViewController: MessagesViewController {
     private let user: User
     private let channel: Channel
+    let event: Event?
     // Data model
     private var messages: [Message] = []
     // Listener which handles clean up
@@ -46,9 +47,10 @@ final class ChatViewController: MessagesViewController {
     private let database = Firestore.firestore()
     private var reference: CollectionReference?
     
-    init(user: User, channel: Channel) {
+    init(user: User, channel: Channel, event: Event?) {
         self.user = user
         self.channel = channel
+        self.event = event
         super.init(nibName: nil, bundle: nil)
         
         title = channel.name
@@ -78,7 +80,7 @@ final class ChatViewController: MessagesViewController {
             return
         }
         
-        reference = database.collection("channels/\(id)/thread")
+        reference = database.collection(EventConstants.RecordTypeKey).document(event!.eventID).collection("channels/\(id)/thread")
         
         // Firestore calls snapshot listener whenver theres a db change
         messageListener = reference?
