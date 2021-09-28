@@ -17,6 +17,27 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
     //MARK: - Lifecycles
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        guard let currentUser = MUserController.shared.currentUser else { return }
+        if currentUser.reports >= 30 {
+            guard let lastReport = currentUser.lastReport else { return }
+            let currentDate = Date()
+            
+            guard let timeInterval = Calendar.current.dateComponents([.day], from: lastReport, to: currentDate).day else { return }
+            let daysLeft = 30 - timeInterval
+            if daysLeft <= 0 {
+                currentUser.reports = 0
+                currentUser.lastReport = nil
+                MUserController.shared.saveUser(user: currentUser) {
+                    print("Reset User reports.")
+                }
+            } else {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "suspendedVC")
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true, completion: nil)
+            }
+        }
         if freshLaunch {
             freshLaunch = false
             tabBarController?.selectedIndex = 1
@@ -30,13 +51,24 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
                             guard let invites = invites else { return }
                             self.pending = []
                             self.pending.append(contentsOf: invites)
-                            print("Number of pending \(self.pending.count)")
+                            for event in self.pending {
+                                guard let inviter = event.members.first else { return }
+                                if current.blocked.contains(inviter) {
+                                    guard let index = current.pending.firstIndex(of: event.eventID) else { return }
+                                    current.pending.remove(at: index)
+                                    self.pending.remove(at: index)
+                                    MUserController.shared.saveUser(user: current) {
+                                        print("Removed blocked invitation")
+                                    }
+                                }
+                            }
                             self.tableView.reloadData()
                         }
                     }
                 }
             }
         }
+        
     }
     
     override func viewDidLoad() {
@@ -63,7 +95,13 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
         cell.indexPath = indexPath
         cell.updateCell(pending[indexPath.row])
         cell.delegate = self
-        cell.layer.backgroundColor = CGColor(red: 0, green: 0.4, blue: 0.8275, alpha: 0.33)
+        cell.backgroundColor = .clear
+        cell.addGradientBackground(firstColor: UIColor(#colorLiteral(red: 0.1294, green: 0.0196, blue: 0.2078, alpha: 1)), secondColor: UIColor(#colorLiteral(red: 0.2627, green: 0.051, blue: 0.2941, alpha: 1)), thirdColor: UIColor(#colorLiteral(red: 0.4824, green: 0.2, blue: 0.4902, alpha: 1)), fourthColor: UIColor(#colorLiteral(red: 0.7843, green: 0.4549, blue: 0.698, alpha: 1)), fifthColor: UIColor(#colorLiteral(red: 0.9608, green: 0.8353, blue: 0.8784, alpha: 1)))
+
+        cell.layer.cornerRadius = 12
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = UIColor.black.cgColor
+
 
         return cell
     }
@@ -74,7 +112,7 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
     //MARK: - Helper Methods
     func reject(event: Event, completion: @escaping () -> Void) {
         guard let current = MUserController.shared.currentUser,
-        let index = pending.firstIndex(of: event) else { return }
+              let index = pending.firstIndex(of: event) else { return }
         pending.remove(at: index)
         current.pending.remove(at: index)
         MUserController.shared.saveUser(user: current) {
@@ -85,7 +123,7 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
     
     func accept(event: Event, completion: @escaping () -> Void) {
         guard let current = MUserController.shared.currentUser,
-        let index = pending.firstIndex(of: event) else { return }
+              let index = pending.firstIndex(of: event) else { return }
         event.members.append(current.userID)
         current.pending.remove(at: index)
         pending.remove(at: index)
@@ -129,6 +167,7 @@ extension PendingInvitationsTableViewController: invitationCellDelegate {
         let event = pending[indexPath.row]
         reject(event: event, completion: {
             self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
         })
     }
     
@@ -136,6 +175,7 @@ extension PendingInvitationsTableViewController: invitationCellDelegate {
         let event = pending[indexPath.row]
         accept(event: event, completion: {
             self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
         })
         
     }

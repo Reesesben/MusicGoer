@@ -51,8 +51,11 @@
 		B5D8DCE826FE2E7600A99A32 /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8DCE726FE2E7600A99A32 /* UserSearchViewController.swift */; };
 		B5D8DCEA26FE369400A99A32 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8DCE926FE369400A99A32 /* SearchTableViewCell.swift */; };
 		B5D8DCEC26FE526500A99A32 /* memberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8DCEB26FE526500A99A32 /* memberTableViewCell.swift */; };
-		B5ED8FA727021A0F00D4C995 /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED8FA627021A0F00D4C995 /* RoundedImage.swift */; };
+		B5F12F892703777500B22332 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F12F882703777500B22332 /* Onboarding.storyboard */; };
+		B5F12F8C270379C200B22332 /* SuspendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F12F8B270379C200B22332 /* SuspendedViewController.swift */; };
+		B5F12F8E2703801B00B22332 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F12F8D2703801B00B22332 /* LoadingViewController.swift */; };
 		FC690E6926FA5734003BBACE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E6826FA5734003BBACE /* DateFormatter.swift */; };
+		FCAF9BDA270384AA000D9978 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAF9BD9270384AA000D9978 /* LaunchScreenViewController.swift */; };
 		FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F0B26FA3FFB009CCB58 /* Location.swift */; };
 		FCFF7F1A26FA403C009CCB58 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F1726FA403C009CCB58 /* LocationController.swift */; };
 		FCFF7F1D26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F1C26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift */; };
@@ -106,10 +109,13 @@
 		B5D8DCE726FE2E7600A99A32 /* UserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
 		B5D8DCE926FE369400A99A32 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		B5D8DCEB26FE526500A99A32 /* memberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memberTableViewCell.swift; sourceTree = "<group>"; };
-		B5ED8FA627021A0F00D4C995 /* RoundedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
+		B5F12F882703777500B22332 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		B5F12F8B270379C200B22332 /* SuspendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedViewController.swift; sourceTree = "<group>"; };
+		B5F12F8D2703801B00B22332 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Goer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.debug.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.debug.xcconfig"; sourceTree = "<group>"; };
 		FC690E6826FA5734003BBACE /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		FCAF9BD9270384AA000D9978 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		FCFF7F0B26FA3FFB009CCB58 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FCFF7F1726FA403C009CCB58 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		FCFF7F1C26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatHeadCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -173,6 +179,8 @@
 				B589BB7926F8DC6C00A68588 /* LoginViewController.swift */,
 				B5AFDA6426FA8CB600153143 /* CustomizeationViewController.swift */,
 				B5AFDA6626FAAE1700153143 /* PhotoPickerViewController.swift */,
+
+				B5F12F8D2703801B00B22332 /* LoadingViewController.swift */,
 			);
 			path = "Login Storyboard";
 			sourceTree = "<group>";
@@ -245,6 +253,7 @@
 		B5BCE88926F131C500372D05 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B5F12F8A270379A700B22332 /* AccountSuspensionControllers */,
 				B5D8DCE426FE2E2B00A99A32 /* CreateEventControllers */,
 				27B6C3E626FBE8650020EC98 /* Chat */,
 				B5817B3426F273B70070271E /* First Page */,
@@ -270,6 +279,7 @@
 				B55C868726FB9C35009F31FB /* Main.storyboard */,
 				B5817B1C26F270C30070271E /* LaunchScreen.storyboard */,
 				B5817B2026F270C90070271E /* Login.storyboard */,
+				B5F12F882703777500B22332 /* Onboarding.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -310,9 +320,16 @@
 		B5ED8FA5270219FE00D4C995 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				B5ED8FA627021A0F00D4C995 /* RoundedImage.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		B5F12F8A270379A700B22332 /* AccountSuspensionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5F12F8B270379C200B22332 /* SuspendedViewController.swift */,
+			);
+			path = AccountSuspensionControllers;
 			sourceTree = "<group>";
 		};
 		F506FB23901539FB3B6271E0 /* Pods */ = {
@@ -409,6 +426,7 @@
 				B5817B1E26F270C40070271E /* LaunchScreen.storyboard in Resources */,
 				B55C868826FB9C35009F31FB /* Main.storyboard in Resources */,
 				B5BCE87D26F12EB600372D05 /* Assets.xcassets in Resources */,
+				B5F12F892703777500B22332 /* Onboarding.storyboard in Resources */,
 				B576955226F929DB00364667 /* GoogleService-Info.plist in Resources */,
 				B5817B2126F270C90070271E /* Login.storyboard in Resources */,
 			);
@@ -473,6 +491,7 @@
 				B5817B2C26F2730D0070271E /* EventsTableViewController.swift in Sources */,
 				27B6C3E026FBE75C0020EC98 /* Message.swift in Sources */,
 				B55C869126FB9D2E009F31FB /* LocationViewController.swift in Sources */,
+				B5F12F8C270379C200B22332 /* SuspendedViewController.swift in Sources */,
 				B5C4C6A026F29AD80052BAFB /* EventController.swift in Sources */,
 				B5C4C69C26F29A250052BAFB /* Event.swift in Sources */,
 				27B6C3E426FBE77E0020EC98 /* ImageMediaItem.swift in Sources */,
@@ -493,9 +512,9 @@
 				B5CE3EE026FBAB9A009B9188 /* ErrorPresent.swift in Sources */,
 				B5CE3EE426FBC8F3009B9188 /* CredentialsController.swift in Sources */,
 				B5D8DCE826FE2E7600A99A32 /* UserSearchViewController.swift in Sources */,
+				B5F12F8E2703801B00B22332 /* LoadingViewController.swift in Sources */,
 				FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */,
 				B533A5AB270236840003DAE5 /* InviteDetailViewController.swift in Sources */,
-				B5ED8FA727021A0F00D4C995 /* RoundedImage.swift in Sources */,
 				27B6C3EC26FBE8E00020EC98 /* UICollectionView+Additions.swift in Sources */,
 				FCFF7F1A26FA403C009CCB58 /* LocationController.swift in Sources */,
 				B5D8DCE626FE2E5300A99A32 /* CreateEventViewController.swift in Sources */,
@@ -505,6 +524,7 @@
 				27B6C3EA26FBE8880020EC98 /* ChatViewController.swift in Sources */,
 				B55C869226FB9D2E009F31FB /* TodoDetailViewController.swift in Sources */,
 				B5AFDA6326FA8C5700153143 /* SignUpWithEmailViewController.swift in Sources */,
+				FCAF9BDA270384AA000D9978 /* LaunchScreenViewController.swift in Sources */,
 				B55C869326FB9D2E009F31FB /* SearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -635,6 +655,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5WKQ59823;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
@@ -642,8 +663,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -656,6 +678,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5WKQ59823;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
@@ -663,8 +686,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

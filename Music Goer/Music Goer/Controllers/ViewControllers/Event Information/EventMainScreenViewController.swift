@@ -215,6 +215,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatHeadCell", for: indexPath) as? UserChatHeadCollectionViewCell else {return UICollectionViewCell() }
         
         cell.backgroundColor = .clear
+        cell.layer.borderWidth = 3
         cell.member = members[indexPath.row]
         
         return cell
@@ -246,6 +247,10 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         cell.textLabel?.text = event.todos[indexPath.row].title
         cell.detailTextLabel?.text = event.todos[indexPath.row].person
         cell.backgroundColor = .clear
+        cell.addGradientBackground(firstColor: UIColor(#colorLiteral(red: 0.1137, green: 0.0667, blue: 0.2078, alpha: 1)), secondColor: UIColor(#colorLiteral(red: 0.0471, green: 0.0863, blue: 0.3098, alpha: 1)), thirdColor: UIColor(#colorLiteral(red: 0.3373, green: 0.2627, blue: 0.9922, alpha: 1)), fourthColor: UIColor(#colorLiteral(red: 0.4627, green: 0.2863, blue: 0.9961, alpha: 1)), fifthColor: UIColor(#colorLiteral(red: 0.9882, green: 0.9843, blue: 0.9961, alpha: 1)))
+        cell.layer.cornerRadius = 24.5
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = UIColor.black.cgColor
         
         return cell
     }
