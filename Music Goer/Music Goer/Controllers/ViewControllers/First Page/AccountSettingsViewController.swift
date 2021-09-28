@@ -190,7 +190,10 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
     }
     
     @IBAction func changePasswordButtonTapped(_ sender: Any) {
-        print("lol this button doesn't do anything")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "suspendedVC")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
         }
     
     @IBAction func changeImageButtonTapped(_ sender: Any) {
