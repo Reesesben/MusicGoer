@@ -47,6 +47,8 @@ class UserSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userSearchBar.delegate = self
+//        resultsTableView.addGradientBackground(firstColor: UIColor(#colorLiteral(red: 0.0196, green: 0.1333, blue: 0.251, alpha: 1)), secondColor: UIColor(#colorLiteral(red: 0, green: 0.2941, blue: 0.4196, alpha: 1)), thirdColor: UIColor(#colorLiteral(red: 0.4588, green: 0, blue: 0.2157, alpha: 1)), fourthColor: UIColor(#colorLiteral(red: 0.9804, green: 0.0824, blue: 0.5765, alpha: 1)), fifthColor: UIColor(#colorLiteral(red: 0.5843, green: 0.8706, blue: 1, alpha: 1)))
+//        resultsTableView.rowHeight = 40
         colorGradient()
     }
     
@@ -74,22 +76,24 @@ class UserSearchViewController: UIViewController {
     
     func colorGradient() {
         
-    let gradientTableView = CAGradientLayer()
-    
-    gradientTableView.frame = self.resultsTableView.bounds
-    
-    gradientTableView.colors = [UIColor.black.cgColor, UIColor.purple.cgColor, UIColor.purple.cgColor]
-    
-    self.resultsTableView.backgroundView = UIView.init(frame: self.view.frame)
-    
-    self.resultsTableView.backgroundView?.layer.insertSublayer(gradientTableView, at: 0)
-}
+        let gradientTableView = CAGradientLayer()
+        
+        gradientTableView.frame = self.resultsTableView.bounds
+        
+        gradientTableView.colors = [UIColor.black.cgColor, UIColor.purple.cgColor, UIColor.purple.cgColor]
+        
+        self.resultsTableView.backgroundView = UIView.init(frame: self.view.frame)
+        
+        self.resultsTableView.backgroundView?.layer.insertSublayer(gradientTableView, at: 0)
+    }
     
     //MARK: - Properties
     var delegate: UserSearchDelegate?
     var searchResults: [MUser] = [] {
         didSet {
             resultsTableView.reloadData()
+
+            
         }
     }
 }
@@ -110,7 +114,11 @@ extension UserSearchViewController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? SearchTableViewCell else { return UITableViewCell()}
             cell.updateCell(with: searchResults[indexPath.row])
             cell.backgroundColor = .clear
-
+            cell.addGradientBackground(firstColor: UIColor(#colorLiteral(red: 0.1137, green: 0.0667, blue: 0.2078, alpha: 1)), secondColor: UIColor(#colorLiteral(red: 0.0471, green: 0.0863, blue: 0.3098, alpha: 1)), thirdColor: UIColor(#colorLiteral(red: 0.3373, green: 0.2627, blue: 0.9922, alpha: 1)), fourthColor: UIColor(#colorLiteral(red: 0.4627, green: 0.2863, blue: 0.9961, alpha: 1)), fifthColor: UIColor(#colorLiteral(red: 0.9882, green: 0.9843, blue: 0.9961, alpha: 1)))
+            cell.layer.cornerRadius = 12
+            cell.layer.borderWidth = 3
+            cell.layer.borderColor = UIColor.black.cgColor
+            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "noResultsCell", for: indexPath)
@@ -145,6 +153,7 @@ extension UserSearchViewController: UISearchBarDelegate {
             
             guard let newUsers = newUsers else { return }
             self.searchResults = newUsers
+            
         }
     }
 }

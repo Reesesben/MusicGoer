@@ -17,6 +17,7 @@ class CreateEventViewController: UIViewController {
     @IBOutlet var ConcertTitleLabel: UITextField!
     @IBOutlet var concertDatePicker: UIDatePicker!
     @IBOutlet weak var backgroundImageForDate: UIImageView!
+    @IBOutlet weak var addMemberButton: UIButton!
     
     //MARK: - Lifecycles
     override func viewDidLayoutSubviews() {
@@ -29,6 +30,10 @@ class CreateEventViewController: UIViewController {
         guard let current = MUserController.shared.currentUser else { return }
         navigationController?.delegate = self
         members.insert(current, at: 0)
+        addMemberButton.applyGradient(colors:[UIColor.orange.cgColor, UIColor.purple.cgColor])
+        addMemberButton.layer.cornerRadius = addMemberButton.frame.height / 2
+        addMemberButton.layer.borderColor = UIColor.purple.cgColor
+        addMemberButton.layer.borderWidth = 3
 
         colorGradient()
         backgroundImageForDate.layer.cornerRadius = backgroundImageForDate.frame.height / 2
@@ -140,6 +145,10 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource 
         
         cell.selectionStyle = .none
         cell.backgroundColor = .clear
+        cell.addGradientBackground(firstColor: UIColor(#colorLiteral(red: 0.1137, green: 0.0667, blue: 0.2078, alpha: 1)), secondColor: UIColor(#colorLiteral(red: 0.0471, green: 0.0863, blue: 0.3098, alpha: 1)), thirdColor: UIColor(#colorLiteral(red: 0.3373, green: 0.2627, blue: 0.9922, alpha: 1)), fourthColor: UIColor(#colorLiteral(red: 0.4627, green: 0.2863, blue: 0.9961, alpha: 1)), fifthColor: UIColor(#colorLiteral(red: 0.9882, green: 0.9843, blue: 0.9961, alpha: 1)))
+        cell.layer.cornerRadius = 12
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = UIColor.black.cgColor
         cell.updateCell(with: members[indexPath.row])
         
         return cell
