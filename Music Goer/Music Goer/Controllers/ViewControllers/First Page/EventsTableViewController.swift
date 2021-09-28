@@ -83,8 +83,8 @@ class EventsTableViewController: UITableViewController {
         cell.textLabel?.textColor = .white
         cell.textLabel?.textAlignment = .center
         cell.backgroundColor = .clear
-        cell.addGradientBackground(firstColor: UIColor(#colorLiteral(red: 0.1137, green: 0.0667, blue: 0.2078, alpha: 1)), secondColor: UIColor(#colorLiteral(red: 0.0471, green: 0.0863, blue: 0.3098, alpha: 1)), fourColor: UIColor(#colorLiteral(red: 0.3373, green: 0.2627, blue: 0.9922, alpha: 1)), fiveColor: UIColor(#colorLiteral(red: 0.4627, green: 0.2863, blue: 0.9961, alpha: 1)), sixColor: UIColor(#colorLiteral(red: 0.9882, green: 0.9843, blue: 0.9961, alpha: 1)))
-        cell.layer.cornerRadius = 12
+        cell.addGradientBackground(firstColor: UIColor(#colorLiteral(red: 0.1137, green: 0.0667, blue: 0.2078, alpha: 1)), secondColor: UIColor(#colorLiteral(red: 0.0471, green: 0.0863, blue: 0.3098, alpha: 1)), thirdColor: UIColor(#colorLiteral(red: 0.3373, green: 0.2627, blue: 0.9922, alpha: 1)), fourthColor: UIColor(#colorLiteral(red: 0.4627, green: 0.2863, blue: 0.9961, alpha: 1)), fifthColor: UIColor(#colorLiteral(red: 0.9882, green: 0.9843, blue: 0.9961, alpha: 1)))
+        cell.layer.cornerRadius = 8.5
         cell.layer.borderWidth = 3
         cell.layer.borderColor = UIColor.black.cgColor
                                                  
@@ -127,10 +127,10 @@ extension EventsTableViewController: createEventDelegate {
 }
 
 extension UIView{
-    func addGradientBackground(firstColor: UIColor, secondColor: UIColor, fourColor: UIColor, fiveColor: UIColor, sixColor: UIColor){
+    func addGradientBackground(firstColor: UIColor, secondColor: UIColor, thirdColor: UIColor, fourthColor: UIColor, fifthColor: UIColor){
         clipsToBounds = true
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [firstColor.cgColor, secondColor.cgColor, fourColor.cgColor, fiveColor.cgColor, sixColor.cgColor]
+        gradientLayer.colors = [firstColor.cgColor, secondColor.cgColor, thirdColor.cgColor, fourthColor.cgColor, fifthColor.cgColor]
         gradientLayer.frame = self.bounds
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)

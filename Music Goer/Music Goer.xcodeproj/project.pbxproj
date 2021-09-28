@@ -203,6 +203,7 @@
 				B5BCE87126F12EB500372D05 /* Products */,
 				F506FB23901539FB3B6271E0 /* Pods */,
 				0CA8811160605376D8EDA62A /* Frameworks */,
+				FCFD69EE2703C00D006993AC /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -266,7 +267,6 @@
 		B5BCE88B26F131D700372D05 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B5ED8FA5270219FE00D4C995 /* Custom Views */,
 				FC21154726F94B1C00121750 /* Custom Cell */,
 				B5BCE88C26F131DE00372D05 /* Storyboards */,
 			);
@@ -317,13 +317,6 @@
 			path = CreateEventControllers;
 			sourceTree = "<group>";
 		};
-		B5ED8FA5270219FE00D4C995 /* Custom Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Custom Views";
-			sourceTree = "<group>";
-		};
 		B5F12F8A270379A700B22332 /* AccountSuspensionControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +355,13 @@
 				B5CE3EDF26FBAB9A009B9188 /* ErrorPresent.swift */,
 			);
 			path = "Helpers+Extensions";
+			sourceTree = "<group>";
+		};
+		FCFD69EE2703C00D006993AC /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -655,15 +655,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A5WKQ59823;
+				DEVELOPMENT_TEAM = QDM5JWF95B;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -676,15 +678,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A5WKQ59823;
+				DEVELOPMENT_TEAM = QDM5JWF95B;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
