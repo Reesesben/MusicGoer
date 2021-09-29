@@ -22,7 +22,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var AppleLogin: UIStackView!
     
     
-    
     //MARK: - Lifecycles
     
     override func viewDidLayoutSubviews() {
@@ -47,6 +46,7 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         self.hideKeyboardWhenTappedAround()
     }
+    
     //MARK: - Apple sign in
     func setupSignInButton() {
         let button = ASAuthorizationAppleIDButton()

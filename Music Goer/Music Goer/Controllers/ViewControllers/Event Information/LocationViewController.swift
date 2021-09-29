@@ -17,11 +17,8 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
     let manager = CLLocationManager()
     let mapView = MKMapView()
     let panel = FloatingPanelController()
-    var event: Event? {
-        didSet {
-            print("\(event?.latitude)\n\(event?.longitude)")
-        }
-    }
+    var event: Event?
+
     
     //MARK: - LIFECYCLES
     
