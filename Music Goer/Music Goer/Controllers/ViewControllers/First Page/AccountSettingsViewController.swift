@@ -36,10 +36,17 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
         super.viewWillAppear(true)
         if MUserController.shared.currentUser == nil {
             let alert = UIAlertController(title: "You are not logged in!", message: "Oops your not logged in! This portion of the app won't work without an account.", preferredStyle: .alert)
-            let okay = UIAlertAction(title: "Okay", style: .default) { _ in
+            let okay = UIAlertAction(title: "Return to Login", style: .default) { _ in
+                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "LoginScreen")
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
                 self.tabBarController?.selectedIndex = 1
             }
             alert.addAction(okay)
+            alert.addAction(cancel)
             present(alert, animated: true, completion: nil)
         }
     }
@@ -115,6 +122,8 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
         CredentialsController.shared.deletePersistentStore()
         do {
             try Auth.auth().signOut()
+            EventController.shared.events.removeAll()
+            MUserController.shared.currentUser = nil
             DispatchQueue.main.async {
                 let storyboard = UIStoryboard(name: "Login", bundle: nil)
                 let vc = storyboard.instantiateViewController(identifier: "LoginScreen")
@@ -132,6 +141,8 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
             if didFinish {
                 print("Sucessfully deleted user")
                 CredentialsController.shared.deletePersistentStore()
+                EventController.shared.events.removeAll()
+                MUserController.shared.currentUser = nil
                 DispatchQueue.main.async {
                     let storyboard = UIStoryboard(name: "Login", bundle: nil)
                     let vc = storyboard.instantiateViewController(identifier: "LoginScreen")

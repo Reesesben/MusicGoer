@@ -45,7 +45,6 @@ class SignUpWithEmailViewController: UIViewController {
         displayError(title: "Password Format", Body: "Password must be 8 characters long and contain 1 symbol")
     }
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        if signupButton.title(for: .normal) == "Sign Up" {
         guard let email = emailTextField.text,
               let password = passwordTextField.text,
               let password2 = confirmPasswordTextField.text else { return }
@@ -84,11 +83,6 @@ class SignUpWithEmailViewController: UIViewController {
                 self.signupButton.setTitle("Next", for: .normal)
             }
         }
-        } else {
-            let storyboard = UIStoryboard(name: "Login", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "requiredSetUp")
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
     }
 }//End of class
 
@@ -102,13 +96,13 @@ extension UIButton {
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         gradientLayer.frame = self.bounds
         gradientLayer.cornerRadius = self.frame.height/2
-
+        
         gradientLayer.shadowColor = UIColor.darkGray.cgColor
         gradientLayer.shadowOffset = CGSize(width: 2.5, height: 2.5)
         gradientLayer.shadowRadius = 5.0
         gradientLayer.shadowOpacity = 0.3
         gradientLayer.masksToBounds = false
-
+        
         self.layer.insertSublayer(gradientLayer, at: 0)
         self.contentVerticalAlignment = .center
         self.setTitleColor(UIColor.white, for: .normal)

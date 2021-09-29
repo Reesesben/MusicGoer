@@ -13,6 +13,7 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
     //MARK: - Properties
     var freshLaunch = true
     var pending: [Event] = []
+    var refresh: UIRefreshControl = UIRefreshControl()
     
     //MARK: - Lifecycles
     override func viewWillAppear(_ animated: Bool) {
@@ -42,31 +43,7 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
             freshLaunch = false
             tabBarController?.selectedIndex = 1
         } else {
-            guard let current = Auth.auth().currentUser else { return }
-            MUserController.shared.fetchUser(googleRef: current.uid) { _ in
-                guard let current = MUserController.shared.currentUser else { return }
-                if current.pending.count != 0{
-                    EventController.shared.fetchEvents(with: current.pending) { invites, sucess  in
-                        if sucess {
-                            guard let invites = invites else { return }
-                            self.pending = []
-                            self.pending.append(contentsOf: invites)
-                            for event in self.pending {
-                                guard let inviter = event.members.first else { return }
-                                if current.blocked.contains(inviter) {
-                                    guard let index = current.pending.firstIndex(of: event.eventID) else { return }
-                                    current.pending.remove(at: index)
-                                    self.pending.remove(at: index)
-                                    MUserController.shared.saveUser(user: current) {
-                                        print("Removed blocked invitation")
-                                    }
-                                }
-                            }
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-            }
+            refetchData()
         }
         
     }
@@ -76,6 +53,38 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
         loadViewIfNeeded()
         updateViews()
         colorGradient()
+        tableView.addSubview(refresh)
+        refresh.addTarget(self, action: #selector(refetchData), for: .valueChanged)
+    }
+    
+    @objc func refetchData() {
+        self.refresh.beginRefreshing()
+        guard let current = Auth.auth().currentUser else { return }
+        MUserController.shared.fetchUser(googleRef: current.uid) { _ in
+            guard let current = MUserController.shared.currentUser else { return }
+            if current.pending.count != 0{
+                EventController.shared.fetchEvents(with: current.pending) { invites, sucess  in
+                    if sucess {
+                        guard let invites = invites else { return }
+                        self.pending = []
+                        self.pending.append(contentsOf: invites)
+                        for event in self.pending {
+                            guard let inviter = event.members.first else { return }
+                            if current.blocked.contains(inviter) {
+                                guard let index = current.pending.firstIndex(of: event.eventID) else { return }
+                                current.pending.remove(at: index)
+                                self.pending.remove(at: index)
+                                MUserController.shared.saveUser(user: current) {
+                                    print("Removed blocked invitation")
+                                }
+                            }
+                        }
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+        self.refresh.endRefreshing()
     }
     
     func updateViews() {
@@ -148,15 +157,15 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
     func colorGradient() {
         
         let gradientLayer = CAGradientLayer()
-        
+
         gradientLayer.frame = self.tableView.bounds
-        
+
         gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.purple.cgColor, UIColor.purple.cgColor]
-        
+
         self.tableView.backgroundView = UIView.init(frame: self.tableView.bounds)
-        
+
         self.tableView.backgroundView?.layer.insertSublayer(gradientLayer, at: 0)
-        
+
         self.tableView.backgroundView?.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
