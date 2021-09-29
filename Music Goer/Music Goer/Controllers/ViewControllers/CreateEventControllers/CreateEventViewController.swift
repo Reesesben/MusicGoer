@@ -37,9 +37,11 @@ class CreateEventViewController: UIViewController {
 
         colorGradient()
         backgroundImageForDate.layer.cornerRadius = backgroundImageForDate.frame.height / 2
-
+        
         self.hideKeyboardWhenTappedAround()
-
+        if event != nil {
+            updateViews()
+        }
     }
     
     func colorGradient() {
@@ -66,11 +68,7 @@ class CreateEventViewController: UIViewController {
     //MARK: - Properties
     var delegate: createEventDelegate?
     var members: [MUser] = []
-    var event: Event? {
-        didSet {
-            updateViews()
-        }
-    }
+    var event: Event?
     
     //MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -81,21 +79,46 @@ class CreateEventViewController: UIViewController {
             membersRefs.append(member.userID)
         }
         if let event = event {
-            event.title = title
-            event.members = membersRefs
-            event.date = concertDatePicker.date
             
-            EventController.shared.updateEvent(event: event) {
-                self.navigationController?.popViewController(animated: true)
-                self.delegate?.didCreateEvent()
+            for member in membersRefs {
+                if event.members.contains(member) {
+                    guard let index = membersRefs.firstIndex(of: member) else { return }
+                    membersRefs.remove(at: index)
+                }
             }
-        } else {
+            
+            if !membersRefs.isEmpty {
+                MUserController.shared.inviteUsers(memberRefs: membersRefs, eventID: event.eventID) { sucess in
+                    if sucess {
+                        event.title = title
+                        event.date = self.concertDatePicker.date
+                        
+                        EventController.shared.updateEvent(event: event) {
+                            self.navigationController?.popViewController(animated: true)
+                            self.delegate?.didCreateEvent()
+                    }
+                    } else {
+                        self.displayError(title: "Error saving event", Body: "An error occurred trying to save your event please check internet connection and try again.", completion: nil)
+                    }
+                }
+            } else {
+                event.title = title
+                event.date = self.concertDatePicker.date
+                
+                EventController.shared.updateEvent(event: event) {
+                    self.navigationController?.popViewController(animated: true)
+                    self.delegate?.didCreateEvent()
+            }
+            }
+            
+            
+            } else {
             EventController.shared.createEvent(title: title, date: concertDatePicker.date, members: membersRefs ) {sucsess in
                 if sucsess {
                     self.navigationController?.popViewController(animated: true)
                     self.delegate?.didCreateEvent()
                 } else {
-                    self.displayError(title: "Error creating event!", Body: "An erorr occurred creating the event please make sure you are connected to Wifi!")
+                    self.displayError(title: "Error creating event!", Body: "An erorr occurred creating the event please make sure you are connected to Internet")
                 }
                 
             }

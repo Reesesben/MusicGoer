@@ -39,6 +39,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     //MARK: - Outlets
     @IBOutlet weak var chatHeadCollectionView: UICollectionView!
     @IBOutlet weak var toDoListTableView: UITableView!
+    @IBOutlet var editButton: UIBarButtonItem!
     
     //MARK: - Properties
     var members: [UIImage] = [] {
@@ -72,6 +73,16 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        guard let event = event,
+        let admin = event.members.first,
+        let currentUser = MUserController.shared.currentUser else { return }
+        
+        if admin != currentUser.userID {
+            guard let index = self.navigationItem.rightBarButtonItems?.firstIndex(of: editButton) else { return }
+            self.navigationItem.rightBarButtonItems?.remove(at: index)
+        }
+        
         channelListener = channelReference.addSnapshotListener { querySnapshot, error in
             guard let snapshot = querySnapshot else {
                 print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
@@ -85,13 +96,13 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         
         loadViewIfNeeded()
         navigationController?.delegate = self
-        updateViews()
         chatHeadCollectionView.delegate = self
         chatHeadCollectionView.dataSource = self
         toDoListTableView.delegate = self
         toDoListTableView.dataSource = self
-        chatHeadCollectionView.reloadData()
+        updateViews()
         colorGradient()
+        chatHeadCollectionView.reloadData()
     }
     
     //MARK: - ACTIONS
@@ -180,7 +191,6 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     func getPhotos() {
         guard let event = event else { return }
         EventController.shared.getPhoto(userRefs: event.members, completion: { images in
-            print(images.count)
             self.members = images
         })
     }
@@ -194,8 +204,8 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         })
         
     }
-    // MARK: UICollectionViewDataSource
     
+    // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if channels.first != nil {
             guard let channel = channels.first else { return }
@@ -273,6 +283,10 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
             
         } else if segue.identifier == "toLocationVC" {
             guard let destination = segue.destination as? LocationViewController,
+                  let event = event else { return }
+            destination.event = event
+        } else if segue.identifier == "editEvent" {
+            guard let destination = segue.destination as? CreateEventViewController,
                   let event = event else { return }
             destination.event = event
         }
