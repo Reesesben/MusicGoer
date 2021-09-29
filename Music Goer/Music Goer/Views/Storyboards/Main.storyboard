@@ -57,7 +57,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0f-cm-npa">
                                         <rect key="frame" x="0.0" y="42" width="290" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Add Users"/>
                                         <connections>
                                             <segue destination="9IV-xY-Arp" kind="presentation" identifier="userSearch" id="hf0-WY-7zk"/>
                                         </connections>
@@ -502,7 +502,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmq-Wo-WUO">
                                                         <rect key="frame" x="0.0" y="0.0" width="203" height="30"/>
                                                         <color key="tintColor" systemColor="systemRedColor"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" title="Reject"/>
                                                         <connections>
                                                             <action selector="rejectButtonTapped:" destination="FDb-1f-CkL" eventType="touchUpInside" id="e0I-xG-Pac"/>
                                                         </connections>
@@ -510,7 +510,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDB-Ej-r8v">
                                                         <rect key="frame" x="211" y="0.0" width="203" height="30"/>
                                                         <color key="tintColor" systemColor="systemGreenColor"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" title="Accept"/>
                                                         <connections>
                                                             <action selector="acceptButtonTapped:" destination="FDb-1f-CkL" eventType="touchUpInside" id="EcM-rI-dar"/>
                                                         </connections>
@@ -519,7 +519,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Q0-e9-bzt">
                                                 <rect key="frame" x="0.0" y="38" width="414" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="More Actions"/>
                                                 <connections>
                                                     <action selector="moreOptionsButtonTapped:" destination="FDb-1f-CkL" eventType="touchUpInside" id="d18-27-3YW"/>
                                                 </connections>
@@ -596,26 +596,26 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5Iq-2y-GBb">
                                                     <rect key="frame" x="306" y="0.0" width="68" height="68"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlg-wM-jhk">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlg-wM-jhk">
                                                             <rect key="frame" x="0.0" y="0.0" width="30" height="68"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="qlg-wM-jhk" secondAttribute="height" multiplier="1:1" id="UO6-yx-cVd"/>
                                                                 <constraint firstAttribute="width" constant="30" id="pW5-C1-3oN"/>
                                                             </constraints>
                                                             <color key="tintColor" systemColor="systemRedColor"/>
-                                                            <state key="normal" title="Button"/>
+                                                            <state key="normal" image="xmark.app" catalog="system"/>
                                                             <connections>
                                                                 <action selector="declineButtonTapped:" destination="w48-vl-hYA" eventType="touchUpInside" id="4YS-k4-dRb"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufm-GH-q3K">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufm-GH-q3K">
                                                             <rect key="frame" x="38" y="0.0" width="30" height="68"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="ufm-GH-q3K" secondAttribute="height" multiplier="1:1" id="6bJ-lw-YPi"/>
                                                                 <constraint firstAttribute="width" constant="30" id="u7x-7n-AMb"/>
                                                             </constraints>
                                                             <color key="tintColor" red="0.15938695394949154" green="0.61730340514520199" blue="0.27795265805559527" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <state key="normal" title="Button"/>
+                                                            <state key="normal" image="checkmark.square" catalog="system"/>
                                                             <connections>
                                                                 <action selector="acceptButtonTapped:" destination="w48-vl-hYA" eventType="touchUpInside" id="Lia-l2-FoD"/>
                                                             </connections>
@@ -937,10 +937,12 @@
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="car" catalog="system" width="128" height="93"/>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="exclamationmark.triangle.fill" catalog="system" width="128" height="112"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="xmark.app" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -25,12 +25,12 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet var changePasswordButton: UIButton!
     @IBOutlet var deleteAccountButton: UIButton!
     @IBOutlet weak var selectImageButton: UIButton!
-   
+    
     //MARK: - Properties
     var currentUser: MUser?
     let imagePicker = UIImagePickerController()
     weak var delegate: PhotoSelectorDelegate?
-
+    
     //MARK: - Lifecycles
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -69,7 +69,7 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
         deleteAccountButton.layer.borderWidth = 2
         deleteAccountButton.layer.borderColor = UIColor.red.cgColor
         
-
+        
         
     }
     
@@ -90,13 +90,13 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
         userImage.contentMode = .scaleAspectFill
         userImage.clipsToBounds = true
         userImage.layer.cornerRadius = userImage.frame.height / 2
-       // userImage.backgroundColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        // userImage.backgroundColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
     }//end of func
-
+    
     func updateViews() {
         currentUser = MUserController.shared.currentUser
         guard let currentUser = currentUser,
-        let firebaseUser = Auth.auth().currentUser else { return }
+              let firebaseUser = Auth.auth().currentUser else { return }
         loadViewIfNeeded()
         userName.text = currentUser.userName
         emailLabel.text = firebaseUser.email
@@ -115,7 +115,7 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
-
+    
     
     //MARK: - Actions
     @IBAction func signOutButtonTapped(_ sender: Any) {
@@ -151,49 +151,47 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
                 }
             } else {
                 if CredentialsController.shared.currentCredentials?.type == CredentialsConstants.googleTypeKey {
-                guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-                // Create Google Sign In configuration object.
-                let config = GIDConfiguration(clientID: clientID)
-                // Start the sign in flow!
-                GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
-                    if let error = error {
-                        print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                        return
-                    }
-                    guard let authentication = user?.authentication,
-                        let idToken = authentication.idToken else {return}
-                    
-                    let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                                   accessToken: authentication.accessToken)
-                    
-                    Auth.auth().signIn(with: credential) { authResult, error in
+                    guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+                    // Create Google Sign In configuration object.
+                    let config = GIDConfiguration(clientID: clientID)
+                    // Start the sign in flow!
+                    GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
                         if let error = error {
                             print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                             return
                         }
-                        guard let user = Auth.auth().currentUser else { return }
-                        user.delete { error in
+                        guard let authentication = user?.authentication,
+                              let idToken = authentication.idToken else {return}
+                        
+                        let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                                       accessToken: authentication.accessToken)
+                        
+                        Auth.auth().signIn(with: credential) { authResult, error in
                             if let error = error {
                                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                                return
                             }
-                            do {
-                             try Auth.auth().signOut()
-                            } catch {
-                                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                            }
-                            CredentialsController.shared.deletePersistentStore()
-                            print("User Sucessfully deleted")
-                            DispatchQueue.main.async {
-                                let storyboard = UIStoryboard(name: "Login", bundle: nil)
-                                let vc = storyboard.instantiateViewController(identifier: "LoginScreen")
-                                vc.modalPresentationStyle = .fullScreen
-                                self.present(vc, animated: true, completion: nil)
+                            guard let user = Auth.auth().currentUser else { return }
+                            user.delete { error in
+                                if let error = error {
+                                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                                }
+                                do {
+                                    try Auth.auth().signOut()
+                                } catch {
+                                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                                }
+                                CredentialsController.shared.deletePersistentStore()
+                                print("User Sucessfully deleted")
+                                DispatchQueue.main.async {
+                                    let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                                    let vc = storyboard.instantiateViewController(identifier: "LoginScreen")
+                                    vc.modalPresentationStyle = .fullScreen
+                                    self.present(vc, animated: true, completion: nil)
+                                }
                             }
                         }
                     }
-                    }
-                } else {
-                print("It didn't work and I don't know why.")
                 }
             }
             
@@ -201,11 +199,28 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
     }
     
     @IBAction func changePasswordButtonTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "suspendedVC")
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        guard let current = Auth.auth().currentUser,
+              let email = current.email else { return }
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if error != nil {
+                self.displayError(title: "An Error occurred sending email", Body: "An error occurred sending password reset email.")
+            }
+            self.displayError(title: "Sucess!", Body: "You should have an email to reset your password now! You will now be logged out.", completion: { _ in
+                CredentialsController.shared.deletePersistentStore()
+                do {
+                    try Auth.auth().signOut()
+                    DispatchQueue.main.async {
+                        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                        let vc = storyboard.instantiateViewController(identifier: "LoginScreen")
+                        vc.modalPresentationStyle = .fullScreen
+                        self.present(vc, animated: true, completion: nil)
+                    }
+                } catch {
+                    print("Error signing out.")
+                }
+            })
         }
+    }
     
     @IBAction func changeImageButtonTapped(_ sender: Any) {
         //Initialize Image Picker.
@@ -302,7 +317,7 @@ extension AccountSettingsViewController: UINavigationControllerDelegate {
         picker.dismiss(animated: true)
         
         guard let currentUser = MUserController.shared.currentUser,
-        let imageData = newImage.jpegData(compressionQuality: 0.5) else { return }
+              let imageData = newImage.jpegData(compressionQuality: 0.5) else { return }
         
         currentUser.userImage = imageData
         MUserController.shared.saveUser(user: currentUser) {
@@ -322,18 +337,18 @@ extension UIButton {
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         gradientLayer.frame = self.bounds
         gradientLayer.cornerRadius = self.frame.height/2
-
+        
         gradientLayer.shadowColor = UIColor.darkGray.cgColor
         gradientLayer.shadowOffset = CGSize(width: 2.5, height: 2.5)
         gradientLayer.shadowRadius = 5.0
         gradientLayer.shadowOpacity = 0.3
         gradientLayer.masksToBounds = false
-
+        
         self.layer.insertSublayer(gradientLayer, at: 0)
         self.contentVerticalAlignment = .center
         self.setTitleColor(UIColor.white, for: .normal)
         self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
         self.titleLabel?.textColor = UIColor.white
-
+        
     }
 }//End of extension

@@ -83,16 +83,17 @@ class CreateEventViewController: UIViewController {
         if let event = event {
             event.title = title
             event.members = membersRefs
-            event.address = "BEREK"
             event.date = concertDatePicker.date
             
             EventController.shared.updateEvent(event: event) {
                 self.navigationController?.popViewController(animated: true)
+                self.delegate?.didCreateEvent()
             }
         } else {
-            EventController.shared.createEvent(title: title, address: "BEREK", date: concertDatePicker.date, members: membersRefs ) {sucsess in
+            EventController.shared.createEvent(title: title, date: concertDatePicker.date, members: membersRefs ) {sucsess in
                 if sucsess {
                     self.navigationController?.popViewController(animated: true)
+                    self.delegate?.didCreateEvent()
                 } else {
                     self.displayError(title: "Error creating event!", Body: "An erorr occurred creating the event please make sure you are connected to Wifi!")
                 }
@@ -149,6 +150,7 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource 
         cell.layer.cornerRadius = 12
         cell.layer.borderWidth = 3
         cell.layer.borderColor = UIColor.black.cgColor
+        cell.userImage.layer.cornerRadius = cell.userImage.frame.height / 2
         cell.updateCell(with: members[indexPath.row])
         
         return cell

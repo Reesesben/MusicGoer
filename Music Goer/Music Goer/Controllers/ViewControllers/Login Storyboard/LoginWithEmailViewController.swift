@@ -41,6 +41,31 @@ class LoginWithEmailViewController: UIViewController {
     }
     
     //MARK: - Actions
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func forgotPasswordWasTapped(_ sender: Any) {
+        guard let email = emailTextField.text else { return }
+        if email.isEmpty {
+            displayError(title: "Pleas input email", Body: "Please put email in email text field", completion: nil)
+        } else {
+        let alert = UIAlertController(title: "Send Reset Email?", message: "Are you sure you would like to send a password reset email to \(email)", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Send Email", style: .default) { _ in
+            Auth.auth().sendPasswordReset(withEmail: email) { error in
+                if let error = error {
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                    self.displayError(title: "Error occured", Body: "Error occurred sending password reset email.", completion: nil)
+                }
+                self.displayError(title: "Email Sent Sucessfully!", Body: "Email was sent to \(email) sucessfully! Follow the steps to reset password.", completion: nil)
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(yes)
+        alert.addAction(cancel)
+        present(alert, animated: true)
+        }
+    }
+    
     @IBAction func LoginWasTapped(_ sender: Any) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else { return }
@@ -57,13 +82,17 @@ class LoginWithEmailViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { result, error in
                 if let error = error {
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                    self.displayError(title: "Could not find account!", Body: "There was an error retrieving your account. Ensure you have the correct username and password")
+                    if error.localizedDescription == "Network error (such as timeout, interrupted connection or unreachable host) has occurred." {
+                        self.displayError(title: "Error connecting to server", Body: "An error ocurred connecting to the server. Make sure you are connected to the internet.", completion: nil)
+                    } else {
+                        self.displayError(title: "Could not find account!", Body: "There was an error retrieving your account. Ensure you have the correct username and password")
+                    }
                 }
                 
-                CredentialsController.shared.currentCredentials = Credentials(email: email, password: password, type: CredentialsConstants.emailTypeKey)
-                CredentialsController.shared.saveToPresistenceStore()
                 
                 guard let currentUser = Auth.auth().currentUser else { return }
+                CredentialsController.shared.currentCredentials = Credentials(email: email, password: password, type: CredentialsConstants.emailTypeKey)
+                CredentialsController.shared.saveToPresistenceStore()
                 MUserController.shared.fetchUser(googleRef: currentUser.uid) { didFind in
                     if didFind {
                         DispatchQueue.main.async {

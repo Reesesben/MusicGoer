@@ -110,6 +110,7 @@ class LoginViewController: UIViewController {
         let config = GIDConfiguration(clientID: clientID)
         
         // Start the sign in flow!
+        //KYLE
         GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
             
             if let error = error {
