@@ -26,7 +26,6 @@
 		B55C869226FB9D2E009F31FB /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C868D26FB9D2D009F31FB /* TodoDetailViewController.swift */; };
 		B55C869326FB9D2E009F31FB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C868E26FB9D2D009F31FB /* SearchViewController.swift */; };
 		B55C869426FB9D2E009F31FB /* EventMainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C868F26FB9D2E009F31FB /* EventMainScreenViewController.swift */; };
-		B576955226F929DB00364667 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B576955126F929DB00364667 /* GoogleService-Info.plist */; };
 		B5817B1E26F270C40070271E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B1C26F270C30070271E /* LaunchScreen.storyboard */; };
 		B5817B2126F270C90070271E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5817B2026F270C90070271E /* Login.storyboard */; };
 		B5817B2826F272AE0070271E /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5817B2726F272AE0070271E /* AccountSettingsViewController.swift */; };
@@ -51,6 +50,7 @@
 		B5D8DCE826FE2E7600A99A32 /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8DCE726FE2E7600A99A32 /* UserSearchViewController.swift */; };
 		B5D8DCEA26FE369400A99A32 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8DCE926FE369400A99A32 /* SearchTableViewCell.swift */; };
 		B5D8DCEC26FE526500A99A32 /* memberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8DCEB26FE526500A99A32 /* memberTableViewCell.swift */; };
+		B5DB1DCF27050DD900232DE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5DB1DCE27050DD900232DE8 /* GoogleService-Info.plist */; };
 		B5F12F892703777500B22332 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F12F882703777500B22332 /* Onboarding.storyboard */; };
 		B5F12F8C270379C200B22332 /* SuspendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F12F8B270379C200B22332 /* SuspendedViewController.swift */; };
 		B5F12F8E2703801B00B22332 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F12F8D2703801B00B22332 /* LoadingViewController.swift */; };
@@ -81,7 +81,6 @@
 		B55C868D26FB9D2D009F31FB /* TodoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
 		B55C868E26FB9D2D009F31FB /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B55C868F26FB9D2E009F31FB /* EventMainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMainScreenViewController.swift; sourceTree = "<group>"; };
-		B576955126F929DB00364667 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5817B1C26F270C30070271E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5817B2026F270C90070271E /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		B5817B2726F272AE0070271E /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		B5D8DCE726FE2E7600A99A32 /* UserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
 		B5D8DCE926FE369400A99A32 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		B5D8DCEB26FE526500A99A32 /* memberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memberTableViewCell.swift; sourceTree = "<group>"; };
+		B5DB1DCE27050DD900232DE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5F12F882703777500B22332 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		B5F12F8B270379C200B22332 /* SuspendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedViewController.swift; sourceTree = "<group>"; };
 		B5F12F8D2703801B00B22332 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 				27B6C3F326FBE9530020EC98 /* AppSettings.swift */,
 				B5BCE87C26F12EB600372D05 /* Assets.xcassets */,
 				B5BCE88126F12EB600372D05 /* Info.plist */,
-				B576955126F929DB00364667 /* GoogleService-Info.plist */,
+				B5DB1DCE27050DD900232DE8 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -424,8 +424,8 @@
 				B55C868826FB9C35009F31FB /* Main.storyboard in Resources */,
 				B5BCE87D26F12EB600372D05 /* Assets.xcassets in Resources */,
 				B5F12F892703777500B22332 /* Onboarding.storyboard in Resources */,
-				B576955226F929DB00364667 /* GoogleService-Info.plist in Resources */,
 				B5817B2126F270C90070271E /* Login.storyboard in Resources */,
+				B5DB1DCF27050DD900232DE8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,13 +653,13 @@
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L97V4TW6MB;
+				DEVELOPMENT_TEAM = A5WKQ59823;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goers";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-GoersApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -676,13 +676,13 @@
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L97V4TW6MB;
+				DEVELOPMENT_TEAM = A5WKQ59823;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-Goers";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-GoersApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

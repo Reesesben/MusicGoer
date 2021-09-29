@@ -35,12 +35,12 @@ class MUserController {
      - Parameter googleRef: A record reference so that the user can be fetched  from the authenticated account
      - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
      */
-    func createUser(userName: String, userImage: Data, googleRef: String, completion: @escaping () -> Void) {
+    func createUser(userName: String, userImage: Data, googleRef: String, completion: @escaping (Bool) -> Void) {
         currentUser = MUser(userName: userName, userImageData: userImage, googleRef: googleRef, lastReport: nil)
-        guard let currentUser = currentUser else {return}
+        guard let currentUser = currentUser else {return completion(false)}
         saveUser(user: currentUser, completion: {
             print("User Created Sucessfully")
-            return completion()
+            return completion(true)
         })
     }
     

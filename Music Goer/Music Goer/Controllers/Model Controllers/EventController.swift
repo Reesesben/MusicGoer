@@ -22,16 +22,17 @@ class EventController {
     var events: [Event] = []
     
     //MARK: - CRUD Functions
-    func createEvent(title: String, address: String, date: Date, members: [String], completion: @escaping (Bool) -> Void) {
+    func createEvent(title: String, date: Date, members: [String], completion: @escaping (Bool) -> Void) {
         guard let admin = members.first else { return }
         var toInvite = members
         toInvite.remove(at: 0)
-        let newEvent = Event(title: title, todos: [], address: address, date: date, members: [admin])
+        let newEvent = Event(title: title, todos: [], date: date, members: [admin])
         if toInvite.count > 0 {
             MUserController.shared.inviteUsers(memberRefs: toInvite, eventID: newEvent.eventID, completion: { sucess in
                 if sucess {
                     self.updateEvent(event: newEvent, completion: {
                         print("Event Created Sucessfully")
+                        self.events.append(newEvent)
                         return completion(true)
                     })
                 } else {
@@ -45,7 +46,6 @@ class EventController {
         let eventRef = db.collection(EventConstants.RecordTypeKey).document(event.eventID)
         eventRef.setData([EventConstants.eventIDKey : event.eventID,
                           EventConstants.titleKey : event.title,
-                          EventConstants.addressKey : event.address,
                           EventConstants.dateKey : dateFormatter.string(from: event.date),
                           EventConstants.latitudeKey : event.latitude ?? 0.0,
                           EventConstants.longitudeKey : event.longitude ?? 0.0,
@@ -79,7 +79,6 @@ class EventController {
                     
                     guard let eventID = eventData[EventConstants.eventIDKey] as? String,
                           let title = eventData[EventConstants.titleKey] as? String,
-                          let address = eventData[EventConstants.addressKey] as? String,
                           let date = eventData[EventConstants.dateKey] as?
                             String,
                           let members = eventData[EventConstants.membersKey] as? [String] else { return completion(false)}
@@ -94,7 +93,7 @@ class EventController {
                     }
                     
                     guard let newDate = self.dateFormatter.date(from: date) else { return }
-                    self.events.append(Event(title: title, eventID: eventID, todos: [], address: address, date: newDate, members: members, latitude: eventLatitude, longitude: eventLongitude))
+                    self.events.append(Event(title: title, eventID: eventID, todos: [], date: newDate, members: members, latitude: eventLatitude, longitude: eventLongitude))
                 }
                 return completion(true)
             } else { return completion(false) }
@@ -116,7 +115,6 @@ class EventController {
                     
                     guard let eventID = eventData[EventConstants.eventIDKey] as? String,
                           let title = eventData[EventConstants.titleKey] as? String,
-                          let address = eventData[EventConstants.addressKey] as? String,
                           let date = eventData[EventConstants.dateKey] as?
                             String,
                           let members = eventData[EventConstants.membersKey] as? [String] else { return completion(nil, false)}
@@ -131,7 +129,7 @@ class EventController {
                     }
                     
                     guard let newDate = self.dateFormatter.date(from: date) else { return }
-                    pending.append(Event(title: title, eventID: eventID, todos: [], address: address, date: newDate, members: members, latitude: eventLatitude, longitude: eventLongitude))
+                    pending.append(Event(title: title, eventID: eventID, todos: [], date: newDate, members: members, latitude: eventLatitude, longitude: eventLongitude))
                 }
                 return completion(pending, true)
             } else { return completion(nil, false) }

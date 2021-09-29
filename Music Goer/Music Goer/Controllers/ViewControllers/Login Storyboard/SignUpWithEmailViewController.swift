@@ -41,6 +41,9 @@ class SignUpWithEmailViewController: UIViewController {
     }
     
     //MARK: - Actions
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func passwordInfoPressed(_ sender: Any) {
         displayError(title: "Password Format", Body: "Password must be 8 characters long and contain 1 symbol")
     }
@@ -67,10 +70,11 @@ class SignUpWithEmailViewController: UIViewController {
         } else if email.contains("@") && !email.isEmpty && !password.isEmpty && password == password2 {
             Auth.auth().createUser(withEmail: email, password: password) { Result, error in
                 if let error = error {
-                    print("Not Yeet")
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                     if error.localizedDescription == "The email address is already in use by another account." {
                         self.displayError(title: "Email already being used by another account", Body: "This email is already being used by another account!")
+                    } else {
+                        self.displayError(title: "An error occurred", Body: "an error occurred trying to create your account. Please make sure you are connected to the internet.", completion: nil)
                     }
                     return
                 }

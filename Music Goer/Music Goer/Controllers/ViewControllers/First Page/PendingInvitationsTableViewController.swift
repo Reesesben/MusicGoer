@@ -43,7 +43,9 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
             freshLaunch = false
             tabBarController?.selectedIndex = 1
         } else {
-            refetchData()
+            refetchData(completion: {
+                self.tableView.reloadData()
+            })
         }
         
     }
@@ -57,31 +59,46 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
         refresh.addTarget(self, action: #selector(refetchData), for: .valueChanged)
     }
     
-    @objc func refetchData() {
+    @objc func refetchData(completion: @escaping () -> Void) {
         self.refresh.beginRefreshing()
         guard let current = Auth.auth().currentUser else { return }
         MUserController.shared.fetchUser(googleRef: current.uid) { _ in
             guard let current = MUserController.shared.currentUser else { return }
-            if current.pending.count != 0{
+            print("\(current.pending.count) Pending Invitaitons")
+            if current.pending.count != 0 {
                 EventController.shared.fetchEvents(with: current.pending) { invites, sucess  in
                     if sucess {
                         guard let invites = invites else { return }
                         self.pending = []
                         self.pending.append(contentsOf: invites)
                         for event in self.pending {
-                            guard let inviter = event.members.first else { return }
+                            if let inviter = event.members.first {
                             if current.blocked.contains(inviter) {
-                                guard let index = current.pending.firstIndex(of: event.eventID) else { return }
+                                print("Event had blocked user")
+                                guard let index = current.pending.firstIndex(of: event.eventID) else { return completion()}
                                 current.pending.remove(at: index)
                                 self.pending.remove(at: index)
                                 MUserController.shared.saveUser(user: current) {
                                     print("Removed blocked invitation")
                                 }
                             }
+                            } else {
+                                print("Event had no members")
+                                guard let index = current.pending.firstIndex(of: event.eventID) else { return completion()}
+                                current.pending.remove(at: index)
+                                self.pending.remove(at: index)
+                                MUserController.shared.saveUser(user: current) {
+                                    print("Removed null invitation")
+                                }
+                            }
                         }
-                        self.tableView.reloadData()
+                        return completion()
+                    } else {
+                        return completion()
                     }
                 }
+            } else {
+                return completion()
             }
         }
         self.refresh.endRefreshing()
@@ -125,6 +142,8 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
         current.pending.remove(at: index)
         MUserController.shared.saveUser(user: current) {
             self.tableView.reloadData()
+            EventController.shared.events.append(event)
+
             return completion()
         }
     }
@@ -137,6 +156,7 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
         pending.remove(at: index)
         EventController.shared.updateEvent(event: event) {
             MUserController.shared.saveUser(user: current) {
+                EventController.shared.events.append(event)
                 self.tableView.reloadData()
                 return completion()
             }
@@ -174,16 +194,14 @@ extension PendingInvitationsTableViewController: invitationCellDelegate {
     func declineButtonTapped(indexPath: IndexPath) {
         let event = pending[indexPath.row]
         reject(event: event, completion: {
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
-            self.tableView.reloadData()
+            
         })
     }
     
     func acceptButtonTapped(indexPath: IndexPath) {
         let event = pending[indexPath.row]
         accept(event: event, completion: {
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
-            self.tableView.reloadData()
+            
         })
         
     }
