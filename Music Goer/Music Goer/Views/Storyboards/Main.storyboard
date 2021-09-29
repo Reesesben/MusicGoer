@@ -146,6 +146,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ConcertTitleLabel" destination="3ml-cc-jJe" id="Usv-W3-eAl"/>
+                        <outlet property="addMemberButton" destination="T0f-cm-npa" id="Z1G-qj-bYs"/>
                         <outlet property="backgroundImageForDate" destination="xff-Rr-Kfb" id="7tf-Ff-qkE"/>
                         <outlet property="concertDatePicker" destination="ObZ-h2-YAw" id="TFd-Yr-GEK"/>
                         <outlet property="membersTableView" destination="UEu-kF-Epm" id="Hu3-Yl-J4f"/>
