@@ -24,12 +24,16 @@ class CreateEventViewController: UIViewController {
         super.viewDidLayoutSubviews()
         membersTableView.dataSource = self
         membersTableView.delegate = self
+        if event != nil {
+            updateViews()
+        } else {
+            guard let current = MUserController.shared.currentUser else { return }
+            members.insert(current, at: 0)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let current = MUserController.shared.currentUser else { return }
         navigationController?.delegate = self
-        members.insert(current, at: 0)
         addMemberButton.applyGradient(colors:[UIColor.orange.cgColor, UIColor.purple.cgColor])
         addMemberButton.layer.cornerRadius = addMemberButton.frame.height / 2
         addMemberButton.layer.borderColor = UIColor.purple.cgColor
@@ -39,9 +43,6 @@ class CreateEventViewController: UIViewController {
         backgroundImageForDate.layer.cornerRadius = backgroundImageForDate.frame.height / 2
         
         self.hideKeyboardWhenTappedAround()
-        if event != nil {
-            updateViews()
-        }
     }
     
     func colorGradient() {
@@ -136,7 +137,9 @@ class CreateEventViewController: UIViewController {
             }
             guard let users = users else { return }
             self.members = users
-            self.membersTableView.reloadData()
+            UIView.animate(withDuration: 0.2) {
+                self.membersTableView.reloadData()
+            }
         }
         //BEREK do address
     }

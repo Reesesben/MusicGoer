@@ -165,9 +165,6 @@ class MUserController {
                 return completion(nil, true)
             }
             var users: [MUser] = []
-            for _ in userNames {
-                users.append(MUser(userName: "Loading", userImageData: Data(), googleRef: "Test", lastReport: nil))
-            }
             if let snapshot = snapshot {
                 for doc in snapshot.documents {
                     let userData = doc.data()
@@ -183,9 +180,13 @@ class MUserController {
                     if let lastReport = userData[UserConstants.lastReportKey] as? String {
                         date = self.dateFormatter.date(from: lastReport)
                     }
-                    guard let index = userNames.firstIndex(of: userID) else { return }
+                    users.append(MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date, blocked: blocked))
+                }
+                for user in users {
+                    guard let newIndex = userNames.firstIndex(of: user.userID),
+                          let index = users.firstIndex(of: user) else { return }
                     users.remove(at: index)
-                    users.insert(MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date, blocked: blocked), at: index)
+                    users.insert(user, at: newIndex)
                 }
                 return completion(users, nil)
             } else { return completion(nil, false) }
@@ -209,10 +210,12 @@ class MUserController {
             
             guard let users = users else { return }
             for user in users {
-                user.pending.append(eventID)
-                let userRef = self.db.collection(UserConstants.recordTypeKey).document(user.userID)
-                userRef.setData([UserConstants.pendingKey : user.pending], merge: true)
-                print("Added user \(user.userName) to event")
+                if !user.pending.contains(eventID) {
+                    user.pending.append(eventID)
+                    let userRef = self.db.collection(UserConstants.recordTypeKey).document(user.userID)
+                    userRef.setData([UserConstants.pendingKey : user.pending], merge: true)
+                    print("Added user \(user.userName) to event")
+                }
             }
             return completion(true)
         }

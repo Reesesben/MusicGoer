@@ -653,7 +653,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L97V4TW6MB;
+				DEVELOPMENT_TEAM = A5WKQ59823;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -676,7 +676,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L97V4TW6MB;
+				DEVELOPMENT_TEAM = A5WKQ59823;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -13,17 +13,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        // get the starting scene
-        guard let scene = (scene as? UIWindowScene) else { return }
-        
-        // create a new window
-        let window = UIWindow(windowScene: scene)
-        
-        // manually set the inital view controller
-        window.rootViewController = LoadingViewController()
-        
-        // replace the default window with the new one
-        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

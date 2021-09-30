@@ -9,9 +9,21 @@ import UIKit
 import FirebaseAuth
 
 class LoadingViewController: UIViewController {
+    //MARK: - IBoutlets
+    @IBOutlet var loadingWheel: UIActivityIndicatorView!
     
+    //MARK: - Properties
+    var isLoading: Bool = false {
+        didSet{
+            loadingWheel.isHidden = !isLoading
+            isLoading ? loadingWheel.startAnimating() : loadingWheel.stopAnimating()
+        }
+    }
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingWheel.isHidden = true
+        isLoading = true
         CredentialsController.shared.loadFromPresistenceStore { sucess in
             if sucess {
                 guard let credentials = CredentialsController.shared.currentCredentials else { return }
@@ -20,6 +32,7 @@ class LoadingViewController: UIViewController {
                           let password = credentials.password else { return }
                     Auth.auth().signIn(withEmail: email, password: password) { result, error in
                         if let error = error {
+                            self.isLoading = false
                             print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                         }
                         DispatchQueue.main.async {
@@ -30,10 +43,12 @@ class LoadingViewController: UIViewController {
                     Auth.auth()
                     self.transitionLogin()
                 } else {
+                    self.isLoading = false
                     self.showLoginScreen()
                 }
             } else {
                 DispatchQueue.global().async {
+                    self.isLoading = false
                     self.showLoginScreen()
                 }
             }
@@ -60,7 +75,9 @@ class LoadingViewController: UIViewController {
                             guard let lastReport = currentUser.lastReport else { return }
                             let currentDate = Date()
                             
-                            guard let timeInterval = Calendar.current.dateComponents([.day], from: lastReport, to: currentDate).day else { return }
+                            guard let timeInterval = Calendar.current.dateComponents([.day], from: lastReport, to: currentDate).day else {
+                                self.isLoading = false
+                                return }
                             let daysLeft = 30 - timeInterval
                             if daysLeft <= 0 {
                                 currentUser.reports = 0
@@ -69,12 +86,14 @@ class LoadingViewController: UIViewController {
                                     print("Reset User reports.")
                                 }
                             } else {
+                                self.isLoading = false
                                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                 let vc = storyboard.instantiateViewController(withIdentifier: "suspendedVC")
                                 vc.modalPresentationStyle = .fullScreen
                                 self.present(vc, animated: true, completion: nil)
                             }
                         } else {
+                            self.isLoading = false
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let vc = storyboard.instantiateViewController(identifier: "MainTabBarController")
                             vc.modalPresentationStyle = .fullScreen
@@ -83,6 +102,7 @@ class LoadingViewController: UIViewController {
                     }
                     //Runs if user needs to do aditional setup on account
                     else {
+                        self.isLoading = false
                         let storyboard = UIStoryboard(name: "Login", bundle: nil)
                         let vc = storyboard.instantiateViewController(identifier: "requiredSetUp")
                         vc.modalPresentationStyle = .fullScreen
