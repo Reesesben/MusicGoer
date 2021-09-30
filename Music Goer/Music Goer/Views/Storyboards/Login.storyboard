@@ -381,8 +381,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="wHA-Pc-2EJ">
-                                <rect key="frame" x="83" y="329" width="248" height="248"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="wHA-Pc-2EJ">
+                                <rect key="frame" x="165.5" y="699" width="83" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wHA-Pc-2EJ" secondAttribute="height" multiplier="1:1" id="wDC-IK-rwz"/>
                                 </constraints>
@@ -396,15 +396,18 @@
                             <constraint firstItem="wHA-Pc-2EJ" firstAttribute="centerX" secondItem="2T8-O2-H2I" secondAttribute="centerX" id="Wpu-B7-qOb"/>
                             <constraint firstItem="VwL-iD-cZI" firstAttribute="centerX" secondItem="2T8-O2-H2I" secondAttribute="centerX" id="YM2-hr-YQK"/>
                             <constraint firstItem="ffy-Tp-pTb" firstAttribute="width" secondItem="m9Q-2s-spD" secondAttribute="width" id="dXG-r9-lzr"/>
+                            <constraint firstItem="wHA-Pc-2EJ" firstAttribute="top" secondItem="VwL-iD-cZI" secondAttribute="bottom" constant="10" id="dk1-RQ-qay"/>
                             <constraint firstItem="VwL-iD-cZI" firstAttribute="top" secondItem="ffy-Tp-pTb" secondAttribute="bottom" constant="8" id="g5b-rd-7Gz"/>
-                            <constraint firstItem="wHA-Pc-2EJ" firstAttribute="width" secondItem="m9Q-2s-spD" secondAttribute="width" multiplier="0.6" id="gHj-44-qNg"/>
-                            <constraint firstItem="wHA-Pc-2EJ" firstAttribute="centerY" secondItem="2T8-O2-H2I" secondAttribute="centerY" id="t0y-dY-X0m"/>
+                            <constraint firstItem="wHA-Pc-2EJ" firstAttribute="width" secondItem="m9Q-2s-spD" secondAttribute="width" multiplier="0.2" id="gHj-44-qNg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loadingWheel" destination="wHA-Pc-2EJ" id="zUu-ac-4fJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHc-f9-Kja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="154" y="138"/>
+            <point key="canvasLocation" x="153.62318840579712" y="137.94642857142856"/>
         </scene>
         <!--Photo Picker View Controller-->
         <scene sceneID="fED-gd-aFN">

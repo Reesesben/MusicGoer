@@ -47,8 +47,6 @@ class UserSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userSearchBar.delegate = self
-//        resultsTableView.addGradientBackground(firstColor: UIColor(#colorLiteral(red: 0.0196, green: 0.1333, blue: 0.251, alpha: 1)), secondColor: UIColor(#colorLiteral(red: 0, green: 0.2941, blue: 0.4196, alpha: 1)), thirdColor: UIColor(#colorLiteral(red: 0.4588, green: 0, blue: 0.2157, alpha: 1)), fourthColor: UIColor(#colorLiteral(red: 0.9804, green: 0.0824, blue: 0.5765, alpha: 1)), fifthColor: UIColor(#colorLiteral(red: 0.5843, green: 0.8706, blue: 1, alpha: 1)))
-//        resultsTableView.rowHeight = 40
         colorGradient()
     }
     
