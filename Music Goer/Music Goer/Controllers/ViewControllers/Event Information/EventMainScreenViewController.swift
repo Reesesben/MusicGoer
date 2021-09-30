@@ -40,6 +40,9 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var chatHeadCollectionView: UICollectionView!
     @IBOutlet weak var toDoListTableView: UITableView!
     @IBOutlet var editButton: UIBarButtonItem!
+    @IBOutlet var loadingWheel: UIActivityIndicatorView!
+    @IBOutlet var drvingButton: UIBarButtonItem!
+    @IBOutlet var addButton: UIButton!
     
     //MARK: - Properties
     var members: [UIImage] = [] {
@@ -50,6 +53,15 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     var event: Event? {
         didSet {
             getPhotos()
+        }
+    }
+    var isLoading: Bool = false {
+        didSet {
+            loadingWheel.isHidden = !isLoading
+            isLoading ? loadingWheel.startAnimating() : loadingWheel.stopAnimating()
+            editButton.isEnabled = !isLoading
+            drvingButton.isEnabled = !isLoading
+            addButton.isEnabled = !isLoading
         }
     }
     private let currentUser: User = Auth.auth().currentUser!
@@ -72,7 +84,8 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     //MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadingWheel.isHidden = true
+        isLoading = true
         
         guard let event = event,
         let admin = event.members.first,
@@ -103,6 +116,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         updateViews()
         colorGradient()
         chatHeadCollectionView.reloadData()
+        isLoading = false
     }
     
     //MARK: - ACTIONS

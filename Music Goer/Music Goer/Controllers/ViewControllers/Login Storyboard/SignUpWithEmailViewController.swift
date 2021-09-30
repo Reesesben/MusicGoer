@@ -15,11 +15,21 @@ class SignUpWithEmailViewController: UIViewController {
     @IBOutlet var confirmPasswordTextField: UITextField!
     @IBOutlet var signupButton: UIButton!
     @IBOutlet var passwordInformationButton: UIButton!
+    @IBOutlet var loadingWheel: UIActivityIndicatorView!
     
+    //MARK: - Properties
+    var isLoading: Bool = false {
+        didSet {
+            loadingWheel.isHidden = !isLoading
+            isLoading ? loadingWheel.startAnimating() : loadingWheel.stopAnimating()
+            signupButton.isEnabled = !isLoading
+        }
+    }
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingWheel.isHidden = true
         colorGradient()
         passwordInformationButton.setTitle("", for: .normal)
         signupButton.layer.cornerRadius = signupButton.frame.height / 2
@@ -42,6 +52,7 @@ class SignUpWithEmailViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        isLoading = false
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func passwordInfoPressed(_ sender: Any) {
@@ -51,22 +62,28 @@ class SignUpWithEmailViewController: UIViewController {
         guard let email = emailTextField.text,
               let password = passwordTextField.text,
               let password2 = confirmPasswordTextField.text else { return }
+        isLoading = true
         
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         
         if email.isEmpty {
             emailTextField.placeholder = "Email cannot be empty"
             displayError(title: "Email cannot be empty!", Body: "The email text field cannot be empty.")
+            isLoading = false
         } else if password.isEmpty {
             passwordTextField.placeholder = "Password cannot be empty"
             displayError(title: "Your password doesn't meet the requirements", Body: "Your password must be 8 Charecters or longer and contain 1 symbol")
+            isLoading = false
         } else if password2 != password {
             confirmPasswordTextField.placeholder = "Confirm Password cannot be empty"
             displayError(title: "Your passwords don't match!", Body: "Your passwords don't match! Try typing them in again.")
+            isLoading = false
         } else if !email.contains("@") {
             displayError(title: "Your email adress is invalid", Body: "Your email address doesn't match email format.")
+            isLoading = false
         } else if !passwordTest.evaluate(with: password) {
             displayError(title: "Your password isn't formatted correctly", Body: "Your password must be 8 Charecters or longer and contain 1 symbol")
+            isLoading = false
         } else if email.contains("@") && !email.isEmpty && !password.isEmpty && password == password2 {
             Auth.auth().createUser(withEmail: email, password: password) { Result, error in
                 if let error = error {
@@ -76,15 +93,16 @@ class SignUpWithEmailViewController: UIViewController {
                     } else {
                         self.displayError(title: "An error occurred", Body: "an error occurred trying to create your account. Please make sure you are connected to the internet.", completion: nil)
                     }
+                    self.isLoading = false
                     return
                 }
                 CredentialsController.shared.currentCredentials = Credentials(email: email, password: password, type: CredentialsConstants.emailTypeKey)
                 CredentialsController.shared.saveToPresistenceStore()
                 print("Successfully created user")
+                self.isLoading = false
                 let storyboard = UIStoryboard(name: "Login", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "requiredSetUp")
-                self.navigationController?.pushViewController(vc, animated: true)
-                self.signupButton.setTitle("Next", for: .normal)
+                self.present(vc, animated: true, completion: nil)
             }
         }
     }

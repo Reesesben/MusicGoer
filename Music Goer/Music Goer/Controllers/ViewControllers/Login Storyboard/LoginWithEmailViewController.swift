@@ -14,10 +14,21 @@ class LoginWithEmailViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
+    @IBOutlet var loadingWheel: UIActivityIndicatorView!
+    
+    //MARK: - Properties
+    var isLoading: Bool = false {
+        didSet {
+            loadingWheel.isHidden = !isLoading
+            isLoading ? loadingWheel.startAnimating() : loadingWheel.stopAnimating()
+            loginButton.isEnabled = !isLoading
+        }
+    }
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingWheel.isHidden = true
         colorGradient()
         emailTextField.layer.cornerRadius = emailTextField.frame.height / 2
         passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
@@ -42,9 +53,11 @@ class LoginWithEmailViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.isLoading = false
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func forgotPasswordWasTapped(_ sender: Any) {
+        isLoading = true
         guard let email = emailTextField.text else { return }
         if email.isEmpty {
             displayError(title: "Pleas input email", Body: "Please put email in email text field", completion: nil)
@@ -64,18 +77,22 @@ class LoginWithEmailViewController: UIViewController {
         alert.addAction(cancel)
         present(alert, animated: true)
         }
+        isLoading = false
     }
     
     @IBAction func LoginWasTapped(_ sender: Any) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else { return }
+        isLoading = true
         
         if email.isEmpty {
             displayError(title: "Email Cannot be blank!", Body: "You need to provide an email that your account is linked to.")
+            isLoading = false
         }
         
         if password.isEmpty {
             displayError(title: "Password Cannot be blank", Body: "You need to provide a password for your account!")
+            isLoading = false
         }
         
         if !email.isEmpty && !password.isEmpty {
@@ -84,13 +101,21 @@ class LoginWithEmailViewController: UIViewController {
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                     if error.localizedDescription == "Network error (such as timeout, interrupted connection or unreachable host) has occurred." {
                         self.displayError(title: "Error connecting to server", Body: "An error ocurred connecting to the server. Make sure you are connected to the internet.", completion: nil)
+                        self.isLoading = false
+                    } else if error.localizedDescription == "The password is invalid or the user does not have a password." {
+                        self.displayError(title: "Incorrect password", Body: "Your password was incorrect for the account. please try again!", completion: nil)
+                        self.isLoading = false
                     } else {
-                        self.displayError(title: "Could not find account!", Body: "There was an error retrieving your account. Ensure you have the correct username and password")
+                        self.isLoading = false
+                        self.displayError(title: "Could not find account!", Body: "There was an error retrieving your account. Ensure you have the correct email")
                     }
                 }
                 
                 
-                guard let currentUser = Auth.auth().currentUser else { return }
+                guard let currentUser = Auth.auth().currentUser else {
+                    self.isLoading = false
+                    return
+                }
                 CredentialsController.shared.currentCredentials = Credentials(email: email, password: password, type: CredentialsConstants.emailTypeKey)
                 CredentialsController.shared.saveToPresistenceStore()
                 MUserController.shared.fetchUser(googleRef: currentUser.uid) { didFind in
@@ -109,9 +134,11 @@ class LoginWithEmailViewController: UIViewController {
                             self.present(vc, animated: true, completion: nil)
                         }
                     }
+                    self.isLoading = false
                 }
             }
         }
+        isLoading = false
     }
 }//End Of Class
 

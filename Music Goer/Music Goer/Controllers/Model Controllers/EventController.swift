@@ -185,23 +185,35 @@ class EventController {
     
     func getPhoto(userRefs: [String], completion: @escaping ([UIImage]) -> Void) {
         var userImages: [UIImage] = []
+        for _ in userRefs {
+            userImages.append(UIImage())
+        }
         print("Attempting to fetch Photos")
+        print("-----------------------")
+        for member in userRefs {
+            print(member)
+        }
+        print("-----------------------")
         db.collection(UserConstants.recordTypeKey).whereField(UserConstants.userIDKey, in: userRefs).getDocuments { snapshot, error in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 print("failed to fetch photos")
                 return completion([UIImage()])
             }
-            
+            print("-----------------------")
             if let snapshot = snapshot {
                 print("snapshot recieved")
                 for doc in snapshot.documents {
                     print(snapshot.documents.count)
                     let userData = doc.data()
                     guard let imageData = userData[UserConstants.imageDataKey] as? Data,
+                          let userID = userData[UserConstants.userIDKey] as? String,
                           let userImage = UIImage(data: imageData) else { return completion([UIImage()])}
-                    userImages.append(userImage)
+                    guard let index = userRefs.firstIndex(of: userID) else { return }
+                    userImages.remove(at: index)
+                    userImages.insert(userImage, at: index)
                 }
+                print("-----------------------")
                 return completion(userImages)
             } else { return completion([UIImage()]) }
         }

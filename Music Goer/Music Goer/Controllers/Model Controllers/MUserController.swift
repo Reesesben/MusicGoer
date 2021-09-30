@@ -128,20 +128,20 @@ class MUserController {
             var users: [MUser] = []
             if let snapshot = snapshot {
                 for doc in snapshot.documents {
-                let userData = doc.data()
-                guard let userID = userData[UserConstants.userIDKey] as? String,
-                      let userName = userData[UserConstants.userNameKey] as? String,
-                      let imageData = userData[UserConstants.imageDataKey] as? Data,
-                      let googleRef = userData[UserConstants.googleRefKey] as? String,
-                      let pending = userData[UserConstants.pendingKey] as? [String],
-                      let blocked = userData[UserConstants.blockedKey] as? [String],
-                      let reports = userData[UserConstants.reportsKey] as? Int else { return completion(nil, true)}
-                
-                var date: Date? = nil
-                if let lastReport = userData[UserConstants.lastReportKey] as? String {
-                    date = self.dateFormatter.date(from: lastReport)
-                }
-                
+                    let userData = doc.data()
+                    guard let userID = userData[UserConstants.userIDKey] as? String,
+                          let userName = userData[UserConstants.userNameKey] as? String,
+                          let imageData = userData[UserConstants.imageDataKey] as? Data,
+                          let googleRef = userData[UserConstants.googleRefKey] as? String,
+                          let pending = userData[UserConstants.pendingKey] as? [String],
+                          let blocked = userData[UserConstants.blockedKey] as? [String],
+                          let reports = userData[UserConstants.reportsKey] as? Int else { return completion(nil, true)}
+                    
+                    var date: Date? = nil
+                    if let lastReport = userData[UserConstants.lastReportKey] as? String {
+                        date = self.dateFormatter.date(from: lastReport)
+                    }
+                    
                     users.append(MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date, blocked: blocked))
                 }
                 return completion(users, nil)
@@ -165,23 +165,27 @@ class MUserController {
                 return completion(nil, true)
             }
             var users: [MUser] = []
+            for _ in userNames {
+                users.append(MUser(userName: "Loading", userImageData: Data(), googleRef: "Test", lastReport: nil))
+            }
             if let snapshot = snapshot {
                 for doc in snapshot.documents {
-                let userData = doc.data()
-                guard let userID = userData[UserConstants.userIDKey] as? String,
-                      let userName = userData[UserConstants.userNameKey] as? String,
-                      let imageData = userData[UserConstants.imageDataKey] as? Data,
-                      let googleRef = userData[UserConstants.googleRefKey] as? String,
-                      let pending = userData[UserConstants.pendingKey] as? [String],
-                      let blocked = userData[UserConstants.blockedKey] as? [String],
-                      let reports = userData[UserConstants.reportsKey] as? Int else { return completion(nil, true)}
-                
-                var date: Date? = nil
-                if let lastReport = userData[UserConstants.lastReportKey] as? String {
-                    date = self.dateFormatter.date(from: lastReport)
-                }
-                
-                users.append(MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date, blocked: blocked))
+                    let userData = doc.data()
+                    guard let userID = userData[UserConstants.userIDKey] as? String,
+                          let userName = userData[UserConstants.userNameKey] as? String,
+                          let imageData = userData[UserConstants.imageDataKey] as? Data,
+                          let googleRef = userData[UserConstants.googleRefKey] as? String,
+                          let pending = userData[UserConstants.pendingKey] as? [String],
+                          let blocked = userData[UserConstants.blockedKey] as? [String],
+                          let reports = userData[UserConstants.reportsKey] as? Int else { return completion(nil, true)}
+                    
+                    var date: Date? = nil
+                    if let lastReport = userData[UserConstants.lastReportKey] as? String {
+                        date = self.dateFormatter.date(from: lastReport)
+                    }
+                    guard let index = userNames.firstIndex(of: userID) else { return }
+                    users.remove(at: index)
+                    users.insert(MUser(userID: userID, userName: userName, userImageData: imageData, googleRef: googleRef, pending: pending, reports: reports, lastReport: date, blocked: blocked), at: index)
                 }
                 return completion(users, nil)
             } else { return completion(nil, false) }
