@@ -39,11 +39,7 @@ class ThirdScreenOnboardingViewController: UIViewController {
 
         if sender.direction == .down
         {
-           print("Swipe down")
-            let storyboard = UIStoryboard(name: "Login", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "secondScreenID")
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }//End of func
     

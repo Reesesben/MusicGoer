@@ -35,7 +35,7 @@ class FirstOnboardingScreenViewController: UIViewController {
         
         if sender.direction == .down
         {
-            print("Swipe down")
+            self.dismiss(animated: true, completion: nil)
         }
     }//End of func
     

@@ -95,6 +95,12 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: - ACTIONS
+    @IBAction func onbaordButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "Onboarding")
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
     @IBAction func guestButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "MainTabBarController")
@@ -110,7 +116,6 @@ class LoginViewController: UIViewController {
         let config = GIDConfiguration(clientID: clientID)
         
         // Start the sign in flow!
-        //KYLE
         GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
             
             if let error = error {
