@@ -41,7 +41,7 @@ class LoadingViewController: UIViewController {
                             self.transitionLogin()
                         }
                     }
-                } else if credentials.type == CredentialsConstants.googleTypeKey {
+                } else if credentials.type == CredentialsConstants.googleTypeKey || credentials.type == CredentialsConstants.appleTypeKey {
                     Auth.auth()
                     self.transitionLogin()
                 } else {
