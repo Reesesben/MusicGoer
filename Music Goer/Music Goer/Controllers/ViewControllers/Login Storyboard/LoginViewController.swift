@@ -77,7 +77,6 @@ class LoginViewController: UIViewController {
         request.requestedScopes = [.fullName,.email]
         
         let nonce = randomNonceString()
-        print("nonce: \(nonce)")
         request.nonce = sha256(nonce)
         currentNonce = nonce
         

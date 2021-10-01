@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wXY-9L-RQC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wXY-9L-RQC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -75,33 +76,29 @@
                                 <rect key="frame" x="0.0" y="234" width="414" height="579"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="114" id="Ndn-5d-lrm" customClass="memberTableViewCell" customModule="Music_Goer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="114"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="78" id="Ndn-5d-lrm" customClass="memberTableViewCell" customModule="Music_Goer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ndn-5d-lrm" id="gQu-Dl-hxj">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gDB-zg-wc2">
-                                                    <rect key="frame" x="8" y="8" width="398" height="98"/>
+                                                    <rect key="frame" x="8" y="8" width="398" height="62"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mph-53-6cy" customClass="RoundedImage" customModule="Music_Goer" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="58" width="40" height="40"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="Mph-53-6cy" secondAttribute="height" multiplier="1:1" id="fgo-dv-1be"/>
+                                                                <constraint firstAttribute="width" secondItem="Mph-53-6cy" secondAttribute="height" multiplier="1:1" id="hH9-11-A5K"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(User Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IR-lS-fRS">
-                                                            <rect key="frame" x="48" y="58" width="350" height="40"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="(User Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IR-lS-fRS">
+                                                            <rect key="frame" x="70" y="0.0" width="328" height="62"/>
                                                             <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="25"/>
                                                             <color key="textColor" systemColor="systemBackgroundColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="Mph-53-6cy" firstAttribute="width" secondItem="gDB-zg-wc2" secondAttribute="width" multiplier="0.1" id="CGP-uw-O4f"/>
-                                                        <constraint firstItem="Mph-53-6cy" firstAttribute="width" secondItem="Mph-53-6cy" secondAttribute="height" multiplier="1:1" id="w8q-Zl-0za"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -172,7 +169,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="75" id="jeg-k5-JVm" customClass="SearchTableViewCell" customModule="Music_Goer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="75"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jeg-k5-JVm" id="ZVN-h0-fyK">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
@@ -211,7 +208,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noResultsCell" textLabel="0ZW-Hf-8fU" rowHeight="45" style="IBUITableViewCellStyleDefault" id="SQR-eS-cpJ">
-                                        <rect key="frame" x="0.0" y="99.5" width="414" height="45"/>
+                                        <rect key="frame" x="0.0" y="119.5" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SQR-eS-cpJ" id="Puu-Rg-rSs">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
@@ -262,7 +259,7 @@
                         <color key="sectionIndexColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="44" id="1bU-RP-EbJ">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1bU-RP-EbJ" id="DXW-in-YUo">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -563,7 +560,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteCell" rowHeight="90" id="w48-vl-hYA" customClass="InvitationTableViewCell" customModule="Music_Goer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="90"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w48-vl-hYA" id="lng-r3-g9t">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -733,7 +730,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="toDoListTableViewCell" textLabel="qyU-i6-US1" detailTextLabel="ibV-lD-vTE" rowHeight="98" style="IBUITableViewCellStyleSubtitle" id="SsJ-bM-Qf5" customClass="ListTableViewCell" customModule="Music_Goer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="98"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SsJ-bM-Qf5" id="bmw-Fm-BfC">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="98"/>
@@ -857,7 +854,7 @@
                                 <color key="backgroundColor" red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="8a5-Lx-R6N">
-                                <rect key="frame" x="0.0" y="277" width="414" height="386"/>
+                                <rect key="frame" x="0.0" y="270" width="414" height="393"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ks-kk-tGD">
@@ -953,7 +950,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6o7-3y-YqD"/>
+        <segue reference="9O3-ai-mO7"/>
         <segue reference="xGG-WD-Hiv"/>
     </inferredMetricsTieBreakers>
     <resources>
