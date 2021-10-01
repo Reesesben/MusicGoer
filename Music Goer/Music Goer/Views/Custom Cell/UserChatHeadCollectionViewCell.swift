@@ -24,10 +24,8 @@ class UserChatHeadCollectionViewCell: UICollectionViewCell {
         characterImageView.image = member
 
         characterImageView.contentMode = .scaleAspectFill
-        characterImageView.layer.cornerRadius = 50
+        characterImageView.layer.cornerRadius = characterImageView.frame.height / 2
         characterImageView.layer.masksToBounds = true
-        characterImageView.layer.borderColor = UIColor.purple.cgColor
-        characterImageView.layer.borderWidth = 2
 
     }
 }

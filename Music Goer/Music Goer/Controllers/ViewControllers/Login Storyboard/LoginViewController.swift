@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginWithEmailButton: UIButton!
     @IBOutlet var signUpEmailButton: UIButton!
     @IBOutlet weak var AppleLogin: UIStackView!
+    @IBOutlet weak var informationButton: UIButton!
     
     
     //MARK: - Lifecycles
@@ -32,15 +33,14 @@ class LoginViewController: UIViewController {
         loginWithEmailButton.layer.cornerRadius = loginWithEmailButton.frame.height / 2
         signUpEmailButton.layer.cornerRadius = signUpEmailButton.frame.height / 2
         googleSignIn.layer.cornerRadius = googleSignIn.frame.height / 2
+        informationButton.layer.cornerRadius = informationButton.frame.height / 2
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSignInButton()
         colorGradient()
-//        guestButton.gradientButton("𝙂𝙪𝙚𝙨𝙩 𝙎𝙞𝙜𝙣 𝙄𝙣", startColor: .black, endColor: .black)
-//        loginWithEmailButton.gradientButton("𝙇𝙤𝙜𝙞𝙣 𝙒𝙞𝙩𝙝 𝙀𝙢𝙖𝙞𝙡", startColor: .black, endColor: .black)
-//        signUpEmailButton.gradientButton("𝙎𝙞𝙜𝙣 𝙐𝙥 𝙒𝙞𝙩𝙝 𝙀𝙢𝙖𝙞𝙡", startColor: .black, endColor: .black)
+        informationButton.applyGradient(colors: [CGColor.init(red: 0.5, green: 0, blue: 0.5, alpha: 1), CGColor.init(red: 0.125, green: 0.125, blue: 0.75, alpha: 1), CGColor.init(red: 0, green: 0.5, blue: 0.5, alpha: 1)])
         guestButton.applyGradient(colors: [CGColor.init(red: 0.5, green: 0, blue: 0.5, alpha: 1), CGColor.init(red: 0.125, green: 0.125, blue: 0.75, alpha: 1), CGColor.init(red: 0, green: 0.5, blue: 0.5, alpha: 1)])
         loginWithEmailButton.applyGradient(colors: [CGColor.init(red: 0.5, green: 0, blue: 0.5, alpha: 1), CGColor.init(red: 0.125, green: 0.125, blue: 0.75, alpha: 1), CGColor.init(red: 0, green: 0.5, blue: 0.5, alpha: 1)])
         signUpEmailButton.applyGradient(colors: [CGColor.init(red: 0.5, green: 0, blue: 0.5, alpha: 1), CGColor.init(red: 0.125, green: 0.125, blue: 0.75, alpha: 1), CGColor.init(red: 0, green: 0.5, blue: 0.5, alpha: 1)])
