@@ -24,6 +24,7 @@ class LoadingViewController: UIViewController {
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
         loadingWheel.isHidden = true
         isLoading = true
         CredentialsController.shared.loadFromPresistenceStore { sucess in
