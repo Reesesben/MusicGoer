@@ -12,6 +12,7 @@ import FirebaseAuth
 import AuthenticationServices
 import CryptoKit
 import FirebaseAuthUI
+import SwiftProtobuf
 
 class LoginViewController: UIViewController {
     //MARK: - IBOutlets
@@ -207,10 +208,18 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                 print("Unable to Serialize token string from data: \(appleIDToken.debugDescription)")
                 return
             }
+            
             let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
             Auth.auth().signIn(with: credential) { authDataResult, error in
+                if let error = error {
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                    return
+                }
+                
                 if let user = authDataResult?.user {
                     print("Nice! You're signed in as \(user.uid), email: \(user.email ?? "unknown")")
+                } else {
+                    print("Error logging in")
                 }
             }
         }

@@ -15,8 +15,10 @@ class LoadingViewController: UIViewController {
     //MARK: - Properties
     var isLoading: Bool = false {
         didSet{
-            loadingWheel.isHidden = !isLoading
-            isLoading ? loadingWheel.startAnimating() : loadingWheel.stopAnimating()
+            DispatchQueue.main.async {
+                self.loadingWheel.isHidden = !self.isLoading
+                self.isLoading ? self.loadingWheel.startAnimating() : self.loadingWheel.stopAnimating()
+            }
         }
     }
     //MARK: - Lifecycles
