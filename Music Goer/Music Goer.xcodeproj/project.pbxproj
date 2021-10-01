@@ -55,6 +55,9 @@
 		B5F12F8C270379C200B22332 /* SuspendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F12F8B270379C200B22332 /* SuspendedViewController.swift */; };
 		B5F12F8E2703801B00B22332 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F12F8D2703801B00B22332 /* LoadingViewController.swift */; };
 		FC690E6926FA5734003BBACE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690E6826FA5734003BBACE /* DateFormatter.swift */; };
+		FC72896E2707ACA2000CA9AC /* FirstOnboardingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72896D2707ACA2000CA9AC /* FirstOnboardingScreenViewController.swift */; };
+		FC7289702707AD5D000CA9AC /* SecondOnboardingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72896F2707AD5D000CA9AC /* SecondOnboardingScreenViewController.swift */; };
+		FC7289722707B056000CA9AC /* ThirdScreenOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7289712707B056000CA9AC /* ThirdScreenOnboardingViewController.swift */; };
 		FCFF7F0C26FA3FFB009CCB58 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F0B26FA3FFB009CCB58 /* Location.swift */; };
 		FCFF7F1A26FA403C009CCB58 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F1726FA403C009CCB58 /* LocationController.swift */; };
 		FCFF7F1D26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF7F1C26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift */; };
@@ -114,6 +117,9 @@
 		F1FC02E8925F705401152A1D /* Pods_Music_Goer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Goer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB9E0842A4E99C421A6AD4E /* Pods-Music Goer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Goer.debug.xcconfig"; path = "Target Support Files/Pods-Music Goer/Pods-Music Goer.debug.xcconfig"; sourceTree = "<group>"; };
 		FC690E6826FA5734003BBACE /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		FC72896D2707ACA2000CA9AC /* FirstOnboardingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingScreenViewController.swift; sourceTree = "<group>"; };
+		FC72896F2707AD5D000CA9AC /* SecondOnboardingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingScreenViewController.swift; sourceTree = "<group>"; };
+		FC7289712707B056000CA9AC /* ThirdScreenOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdScreenOnboardingViewController.swift; sourceTree = "<group>"; };
 		FCFF7F0B26FA3FFB009CCB58 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FCFF7F1726FA403C009CCB58 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		FCFF7F1C26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatHeadCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -251,6 +257,7 @@
 		B5BCE88926F131C500372D05 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FC72896C2707AC85000CA9AC /* Onboarding */,
 				B5F12F8A270379A700B22332 /* AccountSuspensionControllers */,
 				B5D8DCE426FE2E2B00A99A32 /* CreateEventControllers */,
 				27B6C3E626FBE8650020EC98 /* Chat */,
@@ -273,10 +280,10 @@
 		B5BCE88C26F131DE00372D05 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				B55C868726FB9C35009F31FB /* Main.storyboard */,
-				B5817B1C26F270C30070271E /* LaunchScreen.storyboard */,
 				B5817B2026F270C90070271E /* Login.storyboard */,
 				B5F12F882703777500B22332 /* Onboarding.storyboard */,
+				B55C868726FB9C35009F31FB /* Main.storyboard */,
+				B5817B1C26F270C30070271E /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -352,6 +359,16 @@
 				B5CE3EDF26FBAB9A009B9188 /* ErrorPresent.swift */,
 			);
 			path = "Helpers+Extensions";
+			sourceTree = "<group>";
+		};
+		FC72896C2707AC85000CA9AC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FC72896D2707ACA2000CA9AC /* FirstOnboardingScreenViewController.swift */,
+				FC72896F2707AD5D000CA9AC /* SecondOnboardingScreenViewController.swift */,
+				FC7289712707B056000CA9AC /* ThirdScreenOnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		FCFD69EE2703C00D006993AC /* Recovered References */ = {
@@ -487,6 +504,7 @@
 				FC690E6926FA5734003BBACE /* DateFormatter.swift in Sources */,
 				B5817B2C26F2730D0070271E /* EventsTableViewController.swift in Sources */,
 				27B6C3E026FBE75C0020EC98 /* Message.swift in Sources */,
+				FC7289702707AD5D000CA9AC /* SecondOnboardingScreenViewController.swift in Sources */,
 				B55C869126FB9D2E009F31FB /* LocationViewController.swift in Sources */,
 				B5F12F8C270379C200B22332 /* SuspendedViewController.swift in Sources */,
 				B5C4C6A026F29AD80052BAFB /* EventController.swift in Sources */,
@@ -500,10 +518,12 @@
 				B55C869426FB9D2E009F31FB /* EventMainScreenViewController.swift in Sources */,
 				FCFF7F1D26FA4076009CCB58 /* UserChatHeadCollectionViewCell.swift in Sources */,
 				B5D8DCEA26FE369400A99A32 /* SearchTableViewCell.swift in Sources */,
+				FC7289722707B056000CA9AC /* ThirdScreenOnboardingViewController.swift in Sources */,
 				B5AFDA6126FA8C3E00153143 /* LoginWithEmailViewController.swift in Sources */,
 				B5817B2826F272AE0070271E /* AccountSettingsViewController.swift in Sources */,
 				B5C4C69726F295FE0052BAFB /* ToDo.swift in Sources */,
 				B52E0A7F26FA5621005B740E /* MUserController.swift in Sources */,
+				FC72896E2707ACA2000CA9AC /* FirstOnboardingScreenViewController.swift in Sources */,
 				B5BCE87626F12EB500372D05 /* SceneDelegate.swift in Sources */,
 				27B6C3EE26FBE8FB0020EC98 /* DatabaseRepresentation.swift in Sources */,
 				B5CE3EE026FBAB9A009B9188 /* ErrorPresent.swift in Sources */,
@@ -653,13 +673,13 @@
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A5WKQ59823;
+				DEVELOPMENT_TEAM = QDM5JWF95B;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-GoersApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-GoersAppes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -676,13 +696,13 @@
 				CODE_SIGN_ENTITLEMENTS = "Music Goer/Music Goer.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A5WKQ59823;
+				DEVELOPMENT_TEAM = QDM5JWF95B;
 				INFOPLIST_FILE = "Music Goer/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-GoersApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.umm.Music-GoersAppes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

@@ -31,12 +31,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>&quot;This app lets you set the location for your event. It needs access to location services for this feature.&quot;</string>
 	<key>NSCameraUsageDescription</key>
-	<string>&quot;We use the camera to take photos and save them to the cloud for your account&quot;</string>
+	<string>"We use the camera to take photos and save them to the cloud for your account"</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>"This app lets you set the location for your event. It needs access to location services for this feature."</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>&quot;We use your library so you can select photos and save them to the cloud for your account&quot;</string>
+	<string>"We use your library so you can select photos and save them to the cloud for your account"</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
