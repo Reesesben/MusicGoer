@@ -41,8 +41,6 @@ class LocationManager: NSObject {
                     name += ", \(country)"
                 }
                 
-                print("\n\(place)\n\n")
-                
                 let result = Location(title: name, coordinates: place.location?.coordinate ?? CLLocationCoordinate2D.init(latitude: 0.0, longitude: 0.0))
                 self.location.append(result)
                 return result

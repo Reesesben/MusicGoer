@@ -295,7 +295,6 @@ extension AccountSettingsViewController: UINavigationControllerDelegate {
             imagePicker.sourceType = .photoLibrary
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true)
-            print("I am running")
             
         } else {
             self.presentNoAccessAlert()

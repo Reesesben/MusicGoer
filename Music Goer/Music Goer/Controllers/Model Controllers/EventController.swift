@@ -202,9 +202,7 @@ class EventController {
             }
             print("-----------------------")
             if let snapshot = snapshot {
-                print("snapshot recieved")
                 for doc in snapshot.documents {
-                    print(snapshot.documents.count)
                     let userData = doc.data()
                     guard let imageData = userData[UserConstants.imageDataKey] as? Data,
                           let userID = userData[UserConstants.userIDKey] as? String,

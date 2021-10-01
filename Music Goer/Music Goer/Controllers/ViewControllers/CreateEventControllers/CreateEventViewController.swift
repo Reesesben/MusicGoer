@@ -28,7 +28,9 @@ class CreateEventViewController: UIViewController {
             updateViews()
         } else {
             guard let current = MUserController.shared.currentUser else { return }
-            members.insert(current, at: 0)
+            if members.count == 0 {
+                members.insert(current, at: 0)
+            }
         }
     }
     override func viewDidLoad() {
@@ -38,7 +40,7 @@ class CreateEventViewController: UIViewController {
         addMemberButton.layer.cornerRadius = addMemberButton.frame.height / 2
         addMemberButton.layer.borderColor = UIColor.purple.cgColor
         addMemberButton.layer.borderWidth = 3
-
+        
         colorGradient()
         backgroundImageForDate.layer.cornerRadius = backgroundImageForDate.frame.height / 2
         
@@ -97,7 +99,7 @@ class CreateEventViewController: UIViewController {
                         EventController.shared.updateEvent(event: event) {
                             self.navigationController?.popViewController(animated: true)
                             self.delegate?.didCreateEvent()
-                    }
+                        }
                     } else {
                         self.displayError(title: "Error saving event", Body: "An error occurred trying to save your event please check internet connection and try again.", completion: nil)
                     }
@@ -109,11 +111,11 @@ class CreateEventViewController: UIViewController {
                 EventController.shared.updateEvent(event: event) {
                     self.navigationController?.popViewController(animated: true)
                     self.delegate?.didCreateEvent()
-            }
+                }
             }
             
             
-            } else {
+        } else {
             EventController.shared.createEvent(title: title, date: concertDatePicker.date, members: membersRefs ) {sucsess in
                 if sucsess {
                     self.navigationController?.popViewController(animated: true)
@@ -157,6 +159,7 @@ extension CreateEventViewController: UserSearchDelegate {
     func didAddUser(user: MUser) {
         if !members.contains(user) {
             members.append(user)
+            
         }
         membersTableView.reloadData()
     }
@@ -192,7 +195,11 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource 
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
 }
 extension CreateEventViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
