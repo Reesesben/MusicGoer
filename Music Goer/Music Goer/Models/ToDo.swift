@@ -15,7 +15,7 @@ struct ToDoConstants {
     static let dueDate = "dueDate"
     static let isComplete = "isComplete"
 }
-
+/// ToDo's are tasks that hold a title id person and due date along with completion.
 class ToDo {
     let todoID: String
     var title: String

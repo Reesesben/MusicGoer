@@ -14,12 +14,13 @@ class CredentialsController {
     var currentCredentials: Credentials?
     
     //MARK: - Persistance
+    ///Returns URL for persistent store on device
     func createPresistenceStore() -> URL {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let fileURL = url[0].appendingPathComponent("credentials.json")
         return fileURL
     }
-    
+    ///Saves currentCredentails to persistent store and encrypts them
     func saveToPresistenceStore() {
         guard let currentCredentials = currentCredentials else {return}
         
@@ -37,7 +38,11 @@ class CredentialsController {
             print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
         }
     }
-    
+    /**
+     Loads and decrypts credentials from persistent store.
+     
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func loadFromPresistenceStore(completion: @escaping (Bool) -> Void) {
         do {
             let data = try Data(contentsOf: createPresistenceStore())
@@ -58,7 +63,7 @@ class CredentialsController {
             return completion(false)
         }
     }
-    
+    ///Removes persistent store.
     func deletePersistentStore() {
         do {
             try FileManager.default.removeItem(at: createPresistenceStore())
@@ -68,6 +73,7 @@ class CredentialsController {
     }
     
     //MARK: - Encryption
+    ///Encrypts a String and returns an encrypted string.
     private func encrypt(string: String, isEncrypting: Bool) -> String? {
         var encryptedString = ""
         for charecter in string {

@@ -24,6 +24,11 @@ class SearchTableViewCell: UITableViewCell {
     }
     
     //MARK: - Helper Methods
+    /**
+        Updates results cell with user Image and Username and rounds image,
+                
+    - Parameter with: An MUser object that is the users information you want displayed in the cell
+     */
     func updateCell(with user: MUser) {
         userImage.image = UIImage(data: user.userImage)
         userName.text = user.userName
