@@ -34,6 +34,12 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
     //MARK: - Lifecycles
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        if let credentials = CredentialsController.shared.currentCredentials {
+            if credentials.type == CredentialsConstants.appleTypeKey {
+                changePasswordButton.isEnabled = false
+                changePasswordButton.isHidden = true
+            }
+        }
         if MUserController.shared.currentUser == nil {
             let alert = UIAlertController(title: "You are not logged in!", message: "Oops your not logged in! This portion of the app won't work without an account.", preferredStyle: .alert)
             let okay = UIAlertAction(title: "Return to Login", style: .default) { _ in

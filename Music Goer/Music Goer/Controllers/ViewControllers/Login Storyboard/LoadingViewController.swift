@@ -15,8 +15,10 @@ class LoadingViewController: UIViewController {
     //MARK: - Properties
     var isLoading: Bool = false {
         didSet{
-            loadingWheel.isHidden = !isLoading
-            isLoading ? loadingWheel.startAnimating() : loadingWheel.stopAnimating()
+            DispatchQueue.main.async {
+                self.loadingWheel.isHidden = !self.isLoading
+                self.isLoading ? self.loadingWheel.startAnimating() : self.loadingWheel.stopAnimating()
+            }
         }
     }
     //MARK: - Lifecycles
@@ -39,7 +41,7 @@ class LoadingViewController: UIViewController {
                             self.transitionLogin()
                         }
                     }
-                } else if credentials.type == CredentialsConstants.googleTypeKey {
+                } else if credentials.type == CredentialsConstants.googleTypeKey || credentials.type == CredentialsConstants.appleTypeKey {
                     Auth.auth()
                     self.transitionLogin()
                 } else {
