@@ -57,6 +57,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     }
     var isLoading: Bool = false {
         didSet {
+            loadViewIfNeeded()
             loadingWheel.isHidden = !isLoading
             isLoading ? loadingWheel.startAnimating() : loadingWheel.stopAnimating()
             editButton.isEnabled = !isLoading
@@ -116,7 +117,6 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         updateViews()
         colorGradient()
         chatHeadCollectionView.reloadData()
-        isLoading = false
     }
     
     //MARK: - ACTIONS
@@ -187,6 +187,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         channels.sort()
         
     }
+    
     func handleDocumentChange(_ change: DocumentChange) {
         guard let channel = Channel(document: change.document) else {
             return
@@ -206,6 +207,8 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         guard let event = event else { return }
         EventController.shared.getPhoto(userRefs: event.members, completion: { images in
             self.members = images
+            self.loadViewIfNeeded()
+            self.isLoading = false
         })
     }
     
@@ -244,6 +247,8 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         
         return cell
     }
+    
+    
     
     //MARK: - TableView things
     

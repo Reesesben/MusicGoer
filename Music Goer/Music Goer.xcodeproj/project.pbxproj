@@ -284,11 +284,11 @@
 		B5C4C69426F295AA0052BAFB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				27B6C3DC26FBE7200020EC98 /* ChatModel */,
 				B5C4C69626F295FE0052BAFB /* ToDo.swift */,
 				B5C4C69B26F29A250052BAFB /* Event.swift */,
 				FCFF7F0B26FA3FFB009CCB58 /* Location.swift */,
 				B52E0A7C26FA53BC005B740E /* MUser.swift */,
-				27B6C3DC26FBE7200020EC98 /* ChatModel */,
 				B5CE3EE126FBC86F009B9188 /* Credentials.swift */,
 			);
 			path = Models;
