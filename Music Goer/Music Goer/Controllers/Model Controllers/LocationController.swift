@@ -13,7 +13,15 @@ class LocationManager: NSObject {
     static let shared = LocationManager()
     
     var location: [Location] = []
-    
+    /**
+     Gets coordanents from location search.
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter query: search term
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     public func findLocations(with query: String, completion: @escaping ([Location]) -> Void) {
         let geoCoder = CLGeocoder()
         
@@ -40,8 +48,6 @@ class LocationManager: NSObject {
                 if let country = place.country {
                     name += ", \(country)"
                 }
-                
-                print("\n\(place)\n\n")
                 
                 let result = Location(title: name, coordinates: place.location?.coordinate ?? CLLocationCoordinate2D.init(latitude: 0.0, longitude: 0.0))
                 self.location.append(result)

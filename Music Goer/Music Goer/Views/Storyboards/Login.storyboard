@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IdJ-mg-oQD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IdJ-mg-oQD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -79,6 +78,7 @@
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MusicGoersLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-AE-55g">
                                 <rect key="frame" x="70" y="135" width="274" height="179"/>
+
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bA-9P-QDk">
                                 <rect key="frame" x="82" y="781" width="250" height="50"/>
@@ -132,6 +132,7 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Lqa-AM-z1G">
                                 <rect key="frame" x="83" y="403.5" width="248" height="143"/>
+
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOZ-kY-tZF">
                                         <rect key="frame" x="0.0" y="0.0" width="248" height="34"/>
@@ -145,9 +146,8 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Mp-H5-t6f">
-                                        <rect key="frame" x="0.0" y="112" width="248" height="31"/>
+                                        <rect key="frame" x="0.0" y="112" width="248" height="30"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Forgot Password"/>
                                         <connections>
                                             <action selector="forgotPasswordWasTapped:" destination="Kdq-Df-NmY" eventType="touchUpInside" id="OwC-nI-4pe"/>
                                         </connections>
@@ -156,6 +156,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vK6-j4-cih">
                                 <rect key="frame" x="103.5" y="554.5" width="207" height="36"/>
+
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" systemColor="labelColor"/>
@@ -168,8 +169,8 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFO-3v-eU1">
                                 <rect key="frame" x="24" y="112" width="68.5" height="31"/>
+
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelButtonTapped:" destination="Kdq-Df-NmY" eventType="touchUpInside" id="e0D-Te-KRm"/>
                                 </connections>
@@ -333,8 +334,8 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AH-21-Vsf">
                                 <rect key="frame" x="24" y="112" width="68.5" height="31"/>
+
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelButtonTapped:" destination="J90-UL-P61" eventType="touchUpInside" id="0py-DD-MSF"/>
                                 </connections>
@@ -387,33 +388,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MusicGoersLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ffy-Tp-pTb">
-                                <rect key="frame" x="0.0" y="246" width="414" height="414"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ffy-Tp-pTb" secondAttribute="height" multiplier="1:1" id="Rzg-2B-xRZ"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LoadIng Please Wait" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwL-iD-cZI">
-                                <rect key="frame" x="130" y="668" width="154" height="21"/>
+                                <rect key="frame" x="130" y="566" width="154" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="wHA-Pc-2EJ">
-                                <rect key="frame" x="165.5" y="699" width="83" height="83"/>
+                                <rect key="frame" x="165.5" y="597" width="83" height="82.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wHA-Pc-2EJ" secondAttribute="height" multiplier="1:1" id="wDC-IK-rwz"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MusicGoersLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ffy-Tp-pTb">
+                                <rect key="frame" x="62" y="268" width="290" height="290"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ffy-Tp-pTb" secondAttribute="height" multiplier="1:1" id="Rzg-2B-xRZ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2T8-O2-H2I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ffy-Tp-pTb" firstAttribute="centerY" secondItem="2T8-O2-H2I" secondAttribute="centerY" id="Ac1-NZ-Z3e"/>
+                            <constraint firstItem="ffy-Tp-pTb" firstAttribute="centerY" secondItem="2T8-O2-H2I" secondAttribute="centerY" constant="-40" id="Ac1-NZ-Z3e"/>
                             <constraint firstItem="ffy-Tp-pTb" firstAttribute="centerX" secondItem="2T8-O2-H2I" secondAttribute="centerX" id="WNw-NK-LHg"/>
                             <constraint firstItem="wHA-Pc-2EJ" firstAttribute="centerX" secondItem="2T8-O2-H2I" secondAttribute="centerX" id="Wpu-B7-qOb"/>
                             <constraint firstItem="VwL-iD-cZI" firstAttribute="centerX" secondItem="2T8-O2-H2I" secondAttribute="centerX" id="YM2-hr-YQK"/>
-                            <constraint firstItem="ffy-Tp-pTb" firstAttribute="width" secondItem="m9Q-2s-spD" secondAttribute="width" id="dXG-r9-lzr"/>
+                            <constraint firstItem="ffy-Tp-pTb" firstAttribute="width" secondItem="m9Q-2s-spD" secondAttribute="width" multiplier="0.7" id="dXG-r9-lzr"/>
                             <constraint firstItem="wHA-Pc-2EJ" firstAttribute="top" secondItem="VwL-iD-cZI" secondAttribute="bottom" constant="10" id="dk1-RQ-qay"/>
                             <constraint firstItem="VwL-iD-cZI" firstAttribute="top" secondItem="ffy-Tp-pTb" secondAttribute="bottom" constant="8" id="g5b-rd-7Gz"/>
                             <constraint firstItem="wHA-Pc-2EJ" firstAttribute="width" secondItem="m9Q-2s-spD" secondAttribute="width" multiplier="0.2" id="gHj-44-qNg"/>
@@ -711,6 +712,7 @@
         <image name="simulator_screenshot_2474B279-F519-42D0-B75C-3FF7D3F73D57" width="1170" height="2083"/>
         <image name="simulator_screenshot_C3CB0B04-778E-4B26-A717-340C6C11437B (1)" width="1170" height="250"/>
         <image name="simulator_screenshot_C3CB0B04-778E-4B26-A717-340C6C11437B (1)-1" width="1170" height="371"/>
+
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

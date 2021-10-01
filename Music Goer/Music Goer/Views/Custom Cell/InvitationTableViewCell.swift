@@ -39,6 +39,11 @@ class InvitationTableViewCell: UITableViewCell {
     }
     
     //MARK: - Helper Methods
+    /**
+     Updates results cell with event information
+             
+        - Parameter event: event to populte the cell with.
+     */
     func updateCell(_ event: Event) {
         eventNameLabel.text = event.title
         let dateFormatter = DateFormatter()

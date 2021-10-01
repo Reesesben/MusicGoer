@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 import Firebase
+import FirebaseFirestore
 
 class EventController {
     static var shared = EventController()
@@ -19,9 +20,19 @@ class EventController {
         return dateformatter
     }
     
+    ///SOT holding all events the user has joined.
     var events: [Event] = []
     
     //MARK: - CRUD Functions
+    
+    /**
+     Creates an event and saves it to the database.
+     
+     - Parameter title: Title of the event to organize events in the events tab.
+     - Parameter date: Date the event will take place
+     - Parameter members: Array of userID's containing all members who have accepted the invitaion to the event.
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func createEvent(title: String, date: Date, members: [String], completion: @escaping (Bool) -> Void) {
         guard let admin = members.first else { return }
         var toInvite = members
@@ -42,6 +53,15 @@ class EventController {
         }
     }
     
+    /**
+     Saves an Event to the Firestore Database
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter event: The event to save changes to.
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func updateEvent(event: Event, completion: @escaping ()-> Void) {
         let eventRef = db.collection(EventConstants.RecordTypeKey).document(event.eventID)
         eventRef.setData([EventConstants.eventIDKey : event.eventID,
@@ -63,6 +83,14 @@ class EventController {
         return completion()
     }
     
+    /**
+     Fetches all events with the current users ID and saves them to the local SOT.
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func fetchEvents(completion: @escaping (Bool) -> Void){
         guard let currentUser = MUserController.shared.currentUser else { return }
         db.collection(EventConstants.RecordTypeKey).whereField(EventConstants.membersKey, arrayContains: currentUser.userID).getDocuments { snapshot, error in
@@ -100,6 +128,15 @@ class EventController {
         }
     }
     
+    /**
+     Fetches a specific event with event ID
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter with: an array of event ID's to look for.
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func fetchEvents(with IDs: [String],completion: @escaping ([Event]?, Bool) -> Void){
         db.collection(EventConstants.RecordTypeKey).whereField(EventConstants.eventIDKey, in: IDs).getDocuments { snapshot, error in
             if let error = error {
@@ -136,6 +173,15 @@ class EventController {
         }
     }
     
+    /**
+     Fetches all Todos for a given event, and adds them to the events todo array.
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter event: event to retrieve and place todos in.
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func fetchTodos(for event: Event, completion: @escaping () -> Void) {
         db.collection(EventConstants.RecordTypeKey).document(event.eventID).collection(EventConstants.todosKey).getDocuments { snapshot, error in
             if let error = error {
@@ -159,7 +205,15 @@ class EventController {
         }
     }
     
-    
+    /**
+     Removes current user from members list in event.
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter event: Event to remove user from.
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func leaveEvent(event: Event, completion: @escaping () -> Void) {
         guard let currentUser = MUserController.shared.currentUser,
               let eIndex = events.firstIndex(of: event),
@@ -171,6 +225,15 @@ class EventController {
         }
     }
     
+    /**
+     Removes an event from the Firestore Database.
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter event: Event to delete from Firebase
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func deleteEvent(event: Event, completion: @escaping (Bool) -> Void) {
         guard let index = events.firstIndex(of: event) else { return }
         db.collection(EventConstants.RecordTypeKey).document(event.eventID).delete() { error in
@@ -183,6 +246,15 @@ class EventController {
         }
     }
     
+    /**
+     Takes in userIDs and gets user photos for each.
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter userRefs: Array of UserID's to fetch photos for.
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons. Returns array of UIImages
+     */
     func getPhoto(userRefs: [String], completion: @escaping ([UIImage]) -> Void) {
         var userImages: [UIImage] = []
         for _ in userRefs {
@@ -202,9 +274,7 @@ class EventController {
             }
             print("-----------------------")
             if let snapshot = snapshot {
-                print("snapshot recieved")
                 for doc in snapshot.documents {
-                    print(snapshot.documents.count)
                     let userData = doc.data()
                     guard let imageData = userData[UserConstants.imageDataKey] as? Data,
                           let userID = userData[UserConstants.userIDKey] as? String,
@@ -221,6 +291,18 @@ class EventController {
     }
     
     //MARK: - ToDo's
+    /**
+     Adds todo to specific event.
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter title: title for todo
+     - Parameter person: person in charge of todo
+     - Parameter date: date to complete todo by.
+     - Parameter event: event todo is a part of
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func createToDo(title: String, person: String, date: Date, event: Event, completion: @escaping () -> Void) {
         event.todos.append(ToDo(title: title, person: person, dueDate: date, isComplete: false))
         updateEvent(event: event, completion: {
@@ -228,7 +310,16 @@ class EventController {
             return completion()
         })
     }
-    
+    /**
+     Removes todo from specific event.
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter event: event todo is a part of
+     - Parameter todo: specific todo to remove from event.
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     func deleteToDo (event: Event, todo: ToDo, completion: @escaping (Bool) -> Void) {
         guard let index = event.todos.firstIndex(of: todo) else { return }
         db.collection(EventConstants.RecordTypeKey).document(event.eventID).collection(EventConstants.todosKey).document(todo.todoID).delete() { error in

@@ -12,7 +12,7 @@ struct CredentialsConstants {
     static let googleTypeKey = "Google"
     static let appleTypeKey = "Apple"
 }
-
+///Holds email, password, and type for user login.
 class Credentials: Codable {
     var email: String?
     var password: String?

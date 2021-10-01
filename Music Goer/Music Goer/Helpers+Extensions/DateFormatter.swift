@@ -16,7 +16,7 @@ extension DateFormatter {
 }
 
 extension Date {
-    
+    ///Converts Date objcet to String.
     func dateAsString() -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .short

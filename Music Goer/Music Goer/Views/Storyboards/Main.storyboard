@@ -76,33 +76,29 @@
                                 <rect key="frame" x="0.0" y="234" width="414" height="579"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="114" id="Ndn-5d-lrm" customClass="memberTableViewCell" customModule="Music_Goer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="114"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="78" id="Ndn-5d-lrm" customClass="memberTableViewCell" customModule="Music_Goer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ndn-5d-lrm" id="gQu-Dl-hxj">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gDB-zg-wc2">
-                                                    <rect key="frame" x="8" y="8" width="398" height="98"/>
+                                                    <rect key="frame" x="8" y="8" width="398" height="62"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mph-53-6cy" customClass="RoundedImage" customModule="Music_Goer" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="58" width="40" height="40"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="Mph-53-6cy" secondAttribute="height" multiplier="1:1" id="fgo-dv-1be"/>
+                                                                <constraint firstAttribute="width" secondItem="Mph-53-6cy" secondAttribute="height" multiplier="1:1" id="hH9-11-A5K"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(User Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IR-lS-fRS">
-                                                            <rect key="frame" x="48" y="58" width="350" height="40"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="(User Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IR-lS-fRS">
+                                                            <rect key="frame" x="70" y="0.0" width="328" height="62"/>
                                                             <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="25"/>
                                                             <color key="textColor" systemColor="systemBackgroundColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="Mph-53-6cy" firstAttribute="width" secondItem="gDB-zg-wc2" secondAttribute="width" multiplier="0.1" id="CGP-uw-O4f"/>
-                                                        <constraint firstItem="Mph-53-6cy" firstAttribute="width" secondItem="Mph-53-6cy" secondAttribute="height" multiplier="1:1" id="w8q-Zl-0za"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -820,7 +816,7 @@
                             <barButtonItem title="Item" image="car" catalog="system" id="vsa-7j-o74">
                                 <connections>
                                     <action selector="driverButtonTapped:" destination="J9e-eJ-FP9" id="ysR-sL-81t"/>
-                                    <segue destination="5we-34-iDi" kind="show" id="nnw-u7-fgT"/>
+                                    <segue destination="5we-34-iDi" kind="show" identifier="toLocationVC" id="nnw-u7-fgT"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="edit" id="QPn-kc-cwJ">
@@ -910,7 +906,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mj4-dH-re4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2898.5507246376815" y="621.42857142857144"/>
+            <point key="canvasLocation" x="2099" y="642"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="boX-oo-2rq">
@@ -926,7 +922,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4b-IL-Jd8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2841" y="-22"/>
+            <point key="canvasLocation" x="2099" y="-1"/>
         </scene>
         <!--Account Info-->
         <scene sceneID="xRr-w2-hUh">
@@ -952,7 +948,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6o7-3y-YqD"/>
+        <segue reference="9O3-ai-mO7"/>
         <segue reference="xGG-WD-Hiv"/>
     </inferredMetricsTieBreakers>
     <resources>

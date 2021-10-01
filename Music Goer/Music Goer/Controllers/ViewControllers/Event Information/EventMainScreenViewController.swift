@@ -82,7 +82,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
         channelListener?.remove()
     }
     
-    //MARK: - Life cycles
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingWheel.isHidden = true
@@ -107,9 +107,6 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
                 self.handleDocumentChange(change)
             }
         }
-        
-        loadViewIfNeeded()
-        navigationController?.delegate = self
         chatHeadCollectionView.delegate = self
         chatHeadCollectionView.dataSource = self
         toDoListTableView.delegate = self

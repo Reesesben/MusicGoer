@@ -18,7 +18,7 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
     let mapView = MKMapView()
     let panel = FloatingPanelController()
     var event: Event?
-
+    
     
     //MARK: - LIFECYCLES
     
@@ -53,6 +53,15 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
         manager.startUpdatingLocation()
         // Set delegate for mapView
         mapView.delegate = self
+        panelSize()
+    }
+    
+    func panelSize() {
+        if event?.longitude != nil {
+            panel.move(to: .tip, animated: true)
+        } else {
+            panel.move(to: .half, animated: true)
+        }
     }
     
     //MARK: - PERMISSIONS
@@ -139,12 +148,17 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
 extension LocationViewController: MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     // Delegate function; gets called when location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let event = event {
+        guard let event = event else { return }
+        if event.longitude != nil {
             let location = CLLocation(latitude: event.latitude ?? 0.0, longitude: event.longitude ?? 0.0)
             manager.stopUpdatingLocation()
             render(location)
+        } else {
+            guard let location = locations.first else { return }
+                manager.stopUpdatingLocation()
+                render(location)
+            }
         }
-    }
     
     // Zoom into map on location, & add pin
     func render(_ location: CLLocation) {

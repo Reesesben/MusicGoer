@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 class MUserController {
     /// Singleton for usercontroller to keep data consistent
