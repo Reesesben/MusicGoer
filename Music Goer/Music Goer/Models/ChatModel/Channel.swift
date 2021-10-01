@@ -31,7 +31,7 @@
 /// THE SOFTWARE.
 
 import FirebaseFirestore
-
+///Channels are like chat rooms they have names an ids, They contain all conversations had inside of them.
 struct Channel {
   let id: String?
   let name: String

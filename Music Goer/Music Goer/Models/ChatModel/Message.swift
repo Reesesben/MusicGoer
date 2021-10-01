@@ -34,7 +34,7 @@ import UIKit
 import Firebase
 import MessageKit
 import FirebaseFirestore
-
+///Each individual message in a chat room.
 struct Message: MessageType {
   let id: String?
   var messageId: String {

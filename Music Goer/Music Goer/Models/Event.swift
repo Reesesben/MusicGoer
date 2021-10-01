@@ -18,7 +18,7 @@ struct EventConstants {
     static let latitudeKey = "Latitude"
     static let longitudeKey = "Longitude"
 }
-
+///Events have titles, an id, todos, dateOfEvent, members, and cordanants for event.
 class Event {
     var title: String
     let eventID: String

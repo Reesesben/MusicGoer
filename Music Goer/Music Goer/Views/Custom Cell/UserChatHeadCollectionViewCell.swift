@@ -17,7 +17,7 @@ class UserChatHeadCollectionViewCell: UICollectionViewCell {
             displayImageFor()
         }
     }
-    
+    ///Displays image in collection view of user and rounds it.
     func displayImageFor() {
         guard let member = member else { return }
         //let image = UIImage(named: character.photo)

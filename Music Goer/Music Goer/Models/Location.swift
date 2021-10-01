@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreLocation
-
+///Holds 2D location and name
 class Location: NSObject {
     let title: String
     let coordinates: CLLocationCoordinate2D

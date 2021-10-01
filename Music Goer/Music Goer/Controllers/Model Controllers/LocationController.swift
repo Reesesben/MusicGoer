@@ -13,7 +13,15 @@ class LocationManager: NSObject {
     static let shared = LocationManager()
     
     var location: [Location] = []
-    
+    /**
+     Gets coordanents from location search.
+     
+     ## Important Note ##
+     - Function requires internet acess to work
+     
+     - Parameter query: search term
+     - Parameter completion: Runs at the completion of all tasks to help resolve conflicts with singletons.
+     */
     public func findLocations(with query: String, completion: @escaping ([Location]) -> Void) {
         let geoCoder = CLGeocoder()
         
