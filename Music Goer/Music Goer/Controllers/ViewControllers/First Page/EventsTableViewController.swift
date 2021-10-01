@@ -113,10 +113,12 @@ class EventsTableViewController: UITableViewController {
             guard let index = tableView.indexPathForSelectedRow,
                   let destination = segue.destination as? EventMainScreenViewController else { return }
             destination.event = EventController.shared.events[index.row]
+            navigationController?.delegate = destination
         } else if segue.identifier == "createEvent" {
             tabBarController?.tabBar.isHidden = true
             guard let destination = segue.destination as? CreateEventViewController else { return }
             destination.delegate = self
+            navigationController?.delegate = destination
         }
     }
 }
