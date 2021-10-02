@@ -92,13 +92,13 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
                                 }
                             }
                         }
-                        return completion()
+                            return completion()
                     } else {
-                        return completion()
+                            return completion()
                     }
                 }
             } else {
-                return completion()
+                    return completion()
             }
         }
         self.refresh.endRefreshing()
