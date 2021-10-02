@@ -85,6 +85,7 @@ class EventMainScreenViewController: UIViewController, UICollectionViewDelegate,
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         loadingWheel.isHidden = true
         isLoading = true
         

@@ -54,6 +54,7 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
         super.viewDidLoad()
         loadViewIfNeeded()
         updateViews()
+        overrideUserInterfaceStyle = .light
         colorGradient()
         tableView.addSubview(refresh)
         refresh.addTarget(self, action: #selector(refetchData), for: .valueChanged)

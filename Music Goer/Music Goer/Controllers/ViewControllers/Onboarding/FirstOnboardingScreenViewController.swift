@@ -12,6 +12,7 @@ class FirstOnboardingScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         colorGradient()
+        overrideUserInterfaceStyle = .light
         
         let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))

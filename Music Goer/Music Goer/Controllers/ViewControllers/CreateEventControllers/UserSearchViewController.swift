@@ -46,6 +46,7 @@ class UserSearchViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         userSearchBar.delegate = self
         colorGradient()
     }

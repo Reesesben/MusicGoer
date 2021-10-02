@@ -22,6 +22,7 @@ class EventsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.title = "Events"
         setupViews()
+        overrideUserInterfaceStyle = .light
         tabBarController?.tabBar.isHidden = false
         updateViews()
         colorGradient()

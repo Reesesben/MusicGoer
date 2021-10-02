@@ -25,6 +25,7 @@ class PhotoPickerViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         colorGradient()
         setupViews()
         imagePicker.delegate = self

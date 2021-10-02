@@ -25,6 +25,7 @@ class TodoDetailViewController: UIViewController {
         super.viewDidLoad()
         colorGradient()
         updateViews()
+        overrideUserInterfaceStyle = .light
         dueDatePicker.layer.backgroundColor = CGColor.init(red: 1, green: 1, blue: 1, alpha: 0.50)
         dueDatePicker.alpha = 1
         

@@ -61,6 +61,7 @@ class AccountSettingsViewController: UIViewController, UIImagePickerControllerDe
         colorGradient()
         updateViews()
         setupViews()
+        overrideUserInterfaceStyle = .light
         selectImageButton.layer.cornerRadius = 18
         changePasswordButton.layer.cornerRadius = 18
         deleteAccountButton.layer.cornerRadius = 18
