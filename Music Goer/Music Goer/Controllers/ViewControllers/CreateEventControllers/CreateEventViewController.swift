@@ -35,6 +35,7 @@ class CreateEventViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         addMemberButton.applyGradient(colors:[UIColor.orange.cgColor, UIColor.purple.cgColor])
         addMemberButton.layer.cornerRadius = addMemberButton.frame.height / 2
         addMemberButton.layer.borderColor = UIColor.purple.cgColor

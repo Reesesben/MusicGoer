@@ -25,7 +25,7 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(mapView)
-        
+        overrideUserInterfaceStyle = .light
         let searchVC = SearchViewController()
         searchVC.delegate = self
         panel.set(contentViewController: searchVC)
