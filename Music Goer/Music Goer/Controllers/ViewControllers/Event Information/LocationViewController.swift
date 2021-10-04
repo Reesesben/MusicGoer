@@ -19,7 +19,6 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
     let panel = FloatingPanelController()
     var event: Event?
     
-    
     //MARK: - LIFECYCLES
     
     override func viewDidLoad() {
@@ -53,17 +52,9 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
         manager.startUpdatingLocation()
         // Set delegate for mapView
         mapView.delegate = self
-        panelSize()
+        panel.move(to: .full, animated: true)
     }
-    
-    func panelSize() {
-        if event?.longitude != nil {
-            panel.move(to: .tip, animated: true)
-        } else {
-            panel.move(to: .half, animated: true)
-        }
-    }
-    
+        
     //MARK: - PERMISSIONS
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) -> Bool {
         var hasPermission = false
