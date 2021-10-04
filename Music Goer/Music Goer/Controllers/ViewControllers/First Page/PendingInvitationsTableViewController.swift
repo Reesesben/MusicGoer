@@ -13,7 +13,6 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
     //MARK: - Properties
     var freshLaunch = true
     var pending: [Event] = []
-    var refresh: UIRefreshControl = UIRefreshControl()
     
     //MARK: - Lifecycles
     override func viewWillAppear(_ animated: Bool) {
@@ -43,9 +42,9 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
             freshLaunch = false
             tabBarController?.selectedIndex = 1
         } else {
-            refetchData(completion: {
+            fetchData {
                 self.tableView.reloadData()
-            })
+            }
         }
         
     }
@@ -55,12 +54,17 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
         loadViewIfNeeded()
         updateViews()
         colorGradient()
-        tableView.addSubview(refresh)
-        refresh.addTarget(self, action: #selector(refetchData), for: .valueChanged)
     }
     
-    @objc func refetchData(completion: @escaping () -> Void) {
-        self.refresh.beginRefreshing()
+    //MARK: - Actions
+    @IBAction func refreshButtonTapped(_ sender: Any) {
+        fetchData {
+            self.tableView.reloadData()
+        }
+    }
+    
+    //MARK: - Helper Function
+    func fetchData(completion: @escaping () -> Void) {
         guard let current = Auth.auth().currentUser else { return }
         MUserController.shared.fetchUser(googleRef: current.uid) { _ in
             guard let current = MUserController.shared.currentUser else { return }
@@ -101,7 +105,6 @@ class PendingInvitationsTableViewController: UITableViewController, inviteDetail
                     return completion()
             }
         }
-        self.refresh.endRefreshing()
     }
     
     func updateViews() {

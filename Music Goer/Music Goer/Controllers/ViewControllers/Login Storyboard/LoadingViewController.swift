@@ -36,6 +36,7 @@ class LoadingViewController: UIViewController {
                     Auth.auth().signIn(withEmail: email, password: password) { result, error in
                         if let error = error {
                             self.isLoading = false
+                            self.showLoginScreen()
                             print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                         }
                         DispatchQueue.main.async {
@@ -113,6 +114,8 @@ class LoadingViewController: UIViewController {
                     }
                 }
             }
+        } else {
+            showLoginScreen()
         }
     }
     
