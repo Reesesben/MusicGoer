@@ -11,7 +11,7 @@ protocol createEventDelegate {
     func didCreateEvent()
 }
 
-class CreateEventViewController: UIViewController {
+class CreateEventViewController: UIViewController, UITextFieldDelegate {
     //MARK: - IBOutlets
     @IBOutlet var membersTableView: UITableView!
     @IBOutlet var ConcertTitleLabel: UITextField!
@@ -32,10 +32,11 @@ class CreateEventViewController: UIViewController {
                 members.insert(current, at: 0)
             }
         }
-    }
+    }//End of func
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
+        ConcertTitleLabel.delegate = self
         addMemberButton.applyGradient(colors:[UIColor.orange.cgColor, UIColor.purple.cgColor])
         addMemberButton.layer.cornerRadius = addMemberButton.frame.height / 2
         addMemberButton.layer.borderColor = UIColor.purple.cgColor
@@ -49,7 +50,7 @@ class CreateEventViewController: UIViewController {
         
         
         self.hideKeyboardWhenTappedAround()
-    }
+    }//End of func
     
     func colorGradient() {
         
@@ -70,7 +71,15 @@ class CreateEventViewController: UIViewController {
         self.membersTableView.backgroundView = UIView.init(frame: self.view.frame)
         
         self.membersTableView.backgroundView?.layer.insertSublayer(gradientTableView, at: 0)
-    }
+    }//End of func
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 25
+        let currentString: NSString = (textField.text ?? "") as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }//End of func
     
     //MARK: - Properties
     var delegate: createEventDelegate?

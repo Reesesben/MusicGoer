@@ -11,7 +11,7 @@ protocol TodoDetailDelegate {
     func didUpdateToDo()
 }
 
-class TodoDetailViewController: UIViewController {
+class TodoDetailViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var todoTitleTextField: UITextField!
     @IBOutlet var personTextField: UITextField!
@@ -25,6 +25,8 @@ class TodoDetailViewController: UIViewController {
         super.viewDidLoad()
         colorGradient()
         updateViews()
+        todoTitleTextField.delegate = self
+        personTextField.delegate = self
         overrideUserInterfaceStyle = .light
         dueDatePicker.layer.backgroundColor = CGColor.init(red: 1, green: 1, blue: 1, alpha: 0.50)
         dueDatePicker.alpha = 1
@@ -70,7 +72,7 @@ class TodoDetailViewController: UIViewController {
         personTextField.text = todo.person
         dueDatePicker.date = todo.dueDate
         
-    }
+    }//End of func
     
     func colorGradient() {
         
@@ -81,12 +83,13 @@ class TodoDetailViewController: UIViewController {
         gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.purple.cgColor, UIColor.purple.cgColor]
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
-    }
+    }//End of func
     
-    
-    
-    
-    
-    
-    
-}
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 20
+        let currentString: NSString = (textField.text ?? "") as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }//End of func
+}//End of class

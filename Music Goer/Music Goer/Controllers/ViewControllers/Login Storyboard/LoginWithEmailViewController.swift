@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseCore
 
-class LoginWithEmailViewController: UIViewController {
+class LoginWithEmailViewController: UIViewController, UITextFieldDelegate {
     //MARK: - IBOutlets
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -30,6 +30,7 @@ class LoginWithEmailViewController: UIViewController {
         super.viewDidLoad()
         loadingWheel.isHidden = true
         colorGradient()
+        passwordTextField.delegate = self
         overrideUserInterfaceStyle = .light
         emailTextField.layer.cornerRadius = emailTextField.frame.height / 2
         passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
@@ -50,7 +51,15 @@ class LoginWithEmailViewController: UIViewController {
         gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.purple.cgColor, UIColor.purple.cgColor]
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
-    }
+    }//End of func
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 20
+        let currentString: NSString = (textField.text ?? "") as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }//End of func
     
     //MARK: - Actions
     @IBAction func cancelButtonTapped(_ sender: Any) {

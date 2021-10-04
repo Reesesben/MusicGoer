@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class SignUpWithEmailViewController: UIViewController {
+class SignUpWithEmailViewController: UIViewController, UITextFieldDelegate {
     //MARK: - IBOutlets
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -31,6 +31,8 @@ class SignUpWithEmailViewController: UIViewController {
         super.viewDidLoad()
         loadingWheel.isHidden = true
         colorGradient()
+        passwordTextField.delegate = self
+        confirmPasswordTextField.delegate = self
         overrideUserInterfaceStyle = .light
         passwordInformationButton.setTitle("", for: .normal)
         signupButton.layer.cornerRadius = signupButton.frame.height / 2
@@ -50,6 +52,15 @@ class SignUpWithEmailViewController: UIViewController {
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 20
+        let currentString: NSString = (textField.text ?? "") as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
+
     
     //MARK: - Actions
     @IBAction func cancelButtonTapped(_ sender: Any) {
