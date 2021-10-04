@@ -30,6 +30,7 @@ class LoginWithEmailViewController: UIViewController {
         super.viewDidLoad()
         loadingWheel.isHidden = true
         colorGradient()
+        overrideUserInterfaceStyle = .light
         emailTextField.layer.cornerRadius = emailTextField.frame.height / 2
         passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
         loginButton.layer.cornerRadius = loginButton.frame.height / 2

@@ -17,6 +17,7 @@ class CustomizeationViewController: UIViewController {
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         loadingWheel.isHidden = true
         colorGradient()
         finishButton.layer.cornerRadius = finishButton.frame.height / 2

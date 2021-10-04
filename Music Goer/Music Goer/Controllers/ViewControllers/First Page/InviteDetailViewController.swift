@@ -22,6 +22,7 @@ class InviteDetailViewController: UIViewController {
         super.viewDidLoad()
         userImageView.layer.cornerRadius = userImageView.frame.height / 2
         updateViews()
+        overrideUserInterfaceStyle = .light
     }
     //MARK: - Properties
     var event: Event?

@@ -44,6 +44,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         view.backgroundColor = .secondarySystemBackground
         view.addSubview(label)
         view.addSubview(field)

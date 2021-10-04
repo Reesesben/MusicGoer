@@ -15,6 +15,7 @@ class SuspendedViewController: UIViewController {
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         guard let current = MUserController.shared.currentUser,
               let lastReport = current.lastReport else { return }
         let currentDate = Date()
