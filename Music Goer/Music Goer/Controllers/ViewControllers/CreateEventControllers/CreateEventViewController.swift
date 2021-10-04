@@ -43,6 +43,10 @@ class CreateEventViewController: UIViewController {
         
         colorGradient()
         backgroundImageForDate.layer.cornerRadius = backgroundImageForDate.frame.height / 2
+        concertDatePicker.backgroundColor = .black
+        concertDatePicker.tintColor = .white
+
+        
         
         self.hideKeyboardWhenTappedAround()
     }
