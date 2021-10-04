@@ -22,10 +22,6 @@ class UserSearchViewController: UIViewController {
         super.viewDidLayoutSubviews()
         resultsTableView.dataSource = self
         resultsTableView.delegate = self
-        
-        
-        
-        
         popoverLabel.backgroundColor = .systemGray
         popoverLabel.textColor = .label
         popoverLabel.alpha = 0.8

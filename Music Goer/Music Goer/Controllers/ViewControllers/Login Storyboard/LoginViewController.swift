@@ -169,7 +169,7 @@ class LoginViewController: UIViewController {
                 }
             }
         }
-    }
+    }//End of func
 } // End of Class
 
 extension UIButton {

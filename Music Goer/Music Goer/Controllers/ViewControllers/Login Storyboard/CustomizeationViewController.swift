@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class CustomizeationViewController: UIViewController {
+class CustomizeationViewController: UIViewController, UITextFieldDelegate {
     //MARK: - IBOutlets
     @IBOutlet var finishButton: UIButton!
     @IBOutlet var usernameTextField: UITextField!
@@ -18,6 +18,7 @@ class CustomizeationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
+        usernameTextField.delegate = self
         loadingWheel.isHidden = true
         colorGradient()
         finishButton.layer.cornerRadius = finishButton.frame.height / 2
@@ -32,7 +33,7 @@ class CustomizeationViewController: UIViewController {
             isLoading ? loadingWheel.startAnimating() : loadingWheel.stopAnimating()
             finishButton.isEnabled = !isLoading
         }
-    }
+    }//End of func
     
     //MARK: - Helper Func
     func colorGradient() {
@@ -44,7 +45,15 @@ class CustomizeationViewController: UIViewController {
         gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.purple.cgColor, UIColor.purple.cgColor]
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
-    }
+    }//End of func
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 20
+        let currentString: NSString = (textField.text ?? "") as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }//End of func
     
     //MARK: - Actions
     @IBAction func finishButtonTapped(_ sender: Any) {

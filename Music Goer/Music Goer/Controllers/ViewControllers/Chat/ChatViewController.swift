@@ -36,7 +36,7 @@ import MessageKit
 import InputBarAccessoryView
 import FirebaseFirestore
 
-final class ChatViewController: MessagesViewController {
+final class ChatViewController: MessagesViewController, UITextViewDelegate {
     private let user: User
     private let channel: Channel
     let event: Event?
@@ -146,6 +146,7 @@ final class ChatViewController: MessagesViewController {
     private func setUpMessageView() {
         maintainPositionOnKeyboardFrameChanged = true
         messageInputBar.inputTextView.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        messageInputBar.inputTextView.delegate = self  
         messageInputBar.sendButton.setTitleColor(#colorLiteral(red: 0.06425829885, green: 0.6043244949, blue: 0.1523749434, alpha: 1), for: .normal)
         messageInputBar.delegate = self
         messagesCollectionView.messagesDataSource = self
@@ -173,7 +174,15 @@ final class ChatViewController: MessagesViewController {
             textAlignment: .right,
             textInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15))
         layout.setMessageOutgoingMessageTopLabelAlignment(outgoingLabelAlignment)
-    }
+    }//End of func
+    
+    func textField(_ textField: UITextView, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 20
+        let currentString: NSString = (textField.text ?? "") as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }//End of func
 }
 
 // MARK: - MessagesDisplayDelegate
