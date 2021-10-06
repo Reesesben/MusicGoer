@@ -52,7 +52,13 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
         manager.startUpdatingLocation()
         // Set delegate for mapView
         mapView.delegate = self
-        panel.move(to: .full, animated: true)
+        guard let event = event else { return }
+        if event.latitude == 0.0, event.longitude == 0.0 {
+            panel.move(to: .full, animated: true)
+        } else {
+            panel.move(to: .tip, animated: true)
+        }
+        
     }
         
     //MARK: - PERMISSIONS
@@ -118,6 +124,7 @@ class LocationViewController: UIViewController, searchViewControllerDelegate {
             event.latitude = LocationManager.shared.location.last?.coordinates.latitude ?? 0.0
             event.longitude = LocationManager.shared.location.last?.coordinates.longitude ?? 0.0
             EventController.shared.updateEvent(event: event) {
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }
